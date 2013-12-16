@@ -1,0 +1,10 @@
+Options -MultiViews
+
+<Files .git/*>
+    order allow,deny
+    deny from all
+</Files>
+
+RewriteEngine On
+
+RewriteRule ^license/?$ license.htm [NC]

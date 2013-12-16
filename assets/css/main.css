@@ -174,6 +174,10 @@ footer a{
         background: url(/assets/img/template/sunburst@2x.png) no-repeat center center fixed; 
         background-size: cover;
     }
+
+    #faq-border{
+        background: url(/assets/img/template/cloud_top@2x.png) repeat-x;
+    }
 }
 
 

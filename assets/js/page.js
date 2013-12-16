@@ -19,6 +19,9 @@
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 console.log('@2x support: ' + isRetina);
 
+//determine if this is "mobile"
+
+
 var jetGuyMainPresent = true;
 var jetGuyMainAnimating = false;
 
@@ -59,7 +62,7 @@ function jetGuyFlyAway(){
         $('#jetguy-main').animate({
             top: -572,
             left: '90%'
-        }, 1000, function(){
+        }, 2000, function(){
             jetGuyMainPresent = false;
             jetGuyMainAnimating = false;
         });

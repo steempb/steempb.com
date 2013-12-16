@@ -23,6 +23,7 @@ body{
 
 h1{
     font-family: 'Ubuntu Condensed', 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    color: #F47600;
 }
 
 header{
@@ -45,7 +46,7 @@ header img#sublogo{
     margin-top: 5px;
 }
 
-#sunburst{
+.sunburst{
     position: relative;
     height: 600px;
     background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
@@ -77,12 +78,12 @@ header img#sublogo{
     box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.7); 
 }
 
-#cta-main a.btn{
+.steembtn{
    margin-top: 10px; 
    color: #333;
    width: 180px;
    background-image: linear-gradient(to bottom, #f89406, #F47600);
-   background-color: #F47600;
+   background-color: #F47600 !important;
 }
 
 #faq-border{
@@ -107,6 +108,37 @@ header img#sublogo{
     margin: 0 auto;
 }
 
+#letsgo-wrap{
+    height: 600px;
+    width: 100%;
+    position: relative;
+    margin-top: -600px;
+    z-index: 3;
+}
+
+#faq-cta-row{
+    margin-top: 30px;
+    text-align: center;
+}
+
+#faq-cta-row h1{
+    margin-bottom: 0px;
+}
+
+#letsgo{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -330px;
+    z-index: 2;
+    width: 600px;
+    height: 340px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(238, 238, 238, 0.93);
+    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.5); 
+}
+
 footer{
     padding: 10px;
     background-color: #231255;
@@ -129,7 +161,7 @@ footer a{
 
 /* sunburst width fixer */
 @media (max-width: 1280px) {
-    #sunburst{
+    .sunburst{
         background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
     }
 }
@@ -137,7 +169,7 @@ footer a{
 
 /* retina displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
-    #sunburst{
+    .sunburst{
         height: 1291px;
         background: url(/assets/img/template/sunburst@2x.png) no-repeat center center fixed; 
         background-size: cover;

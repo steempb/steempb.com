@@ -46,6 +46,27 @@ header img#sublogo{
     margin-top: 5px;
 }
 
+#navbar .navbar-inner{
+    background-image: linear-gradient(to bottom, #231255, #130245);
+}
+
+#navbar .navbar-inner .container{
+    width: 500px;
+    margin: 0 auto;
+}
+
+.navbar .nav > li{
+    margin-left: 20px;
+}
+
+.navbar-inverse .nav .active > a{
+    background-color: #130245;
+}
+
+.navbar-inverse .nav .active > a > i{
+    background-image: url("../img/glyphicons-halflings.png") !important;
+}
+
 .sunburst{
     position: relative;
     height: 600px;
@@ -79,11 +100,19 @@ header img#sublogo{
 }
 
 .steembtn{
-   margin-top: 10px; 
-   color: #333;
-   width: 180px;
+   color: #333 !important;
    background-image: linear-gradient(to bottom, #f89406, #F47600);
    background-color: #F47600 !important;
+}
+
+.steembtn-large{
+   margin-top: 10px; 
+   width: 180px;
+}
+
+.steembtn-small{
+   width: 90px !important;
+   padding: 5px !important;
 }
 
 #faq-border{

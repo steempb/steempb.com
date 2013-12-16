@@ -23,18 +23,32 @@
                                        <link rel="shortcut icon" href="/assets/ico/favicon.ico">
     </head>
 
-    <body>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
         
-        <header>
-            <a href="http://steempb.com"><img id="logo" src="/assets/img/template/logo_big.png" /></a>
-            <img id="sublogo" src="/assets/img/template/caffeinated_sublogo.png" />
+        <header id="home">
+                <a href="http://steempb.com"><img id="logo" src="/assets/img/template/logo_big.png" /></a>
+                <img id="sublogo" src="/assets/img/template/caffeinated_sublogo.png" />
         </header>
+
+        <div id="navbar" class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li><a class="brand" href="#home"><img src="/assets/img/template/logo_big.png" height="21" width="73" /></a></li>
+                        <li><a href="#faq-border">FAQ</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="http://twitter.com/steempb" target="_blank"><img src="/assets/img/template/twitter.png" /></a></li>
+                        <li><a href="#letsgo-wrap" class="btn btn-small btn-warning steembtn steembtn-small">Get it now <i class="icon-play"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <div class="sunburst"></div>
         <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
         <div id="cta-main">
             <img src="/assets/img/template/getgoing.png" />
-            <a class="btn btn-large btn-warning steembtn">Get it now <i class="icon-play"></i></a>
+            <a class="btn btn-large btn-warning steembtn steembtn-large">Get it now <i class="icon-play"></i></a>
         </div>
 
         <div id="faq-border"></div>
@@ -54,7 +68,7 @@
                     </div>
                 </div>
                 <div class="row" id="faq-cta-row">
-                        <h1>IT'S TIME TO GET GOING!</h1><a class="btn btn-large btn-warning steembtn">Get it now <i class="icon-play"></i></a>
+                        <h1>IT'S TIME TO GET GOING!</h1><a class="btn btn-large btn-warning steembtn steembtn-large">Get it now <i class="icon-play"></i></a>
                 </div>
             </div>
         </div>
@@ -89,7 +103,7 @@
                             <input class="input-xlarge" type="text" id="inputPostalCode" placeholder="Postal Code">
                         </div>
                     </div>
-                    <button type="submit" class="btn steembtn"><strong>Submit</strong></button>
+                    <button type="submit" class="btn steembtn steembtn-large"><strong>Submit</strong></button>
                 </form>
             </div>
         </div>

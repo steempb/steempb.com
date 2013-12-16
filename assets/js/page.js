@@ -56,6 +56,16 @@ $(document).ready(function(){
     });
 });
 
+function jetGuyHover(){
+    $('#jetguy-main').animate({
+            top: 240
+        }, 1000, 'easeOutBack', function(){
+            $('#jetguy-main').animate({
+                top: 250
+            }, 1000, 'easeInBack');
+    });
+}
+
 function jetGuyFlyAway(){
     if(!jetGuyMainAnimating){
         jetGuyMainAnimating = true;

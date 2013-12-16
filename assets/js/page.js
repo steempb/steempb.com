@@ -19,9 +19,10 @@
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 console.log('@2x support: ' + isRetina);
 
+var lastScrollTop = 0;
+
 $(document).ready(function(){
     // Konami loader
-
     var eggloader = new Konami(function(){
         if(typeof easterEgg == "undefined"){
             // wow such default pretty
@@ -39,8 +40,25 @@ $(document).ready(function(){
             suchDogeWow();
         }
     }); 
-});
 
+    //make jetguy fly
+    $(document).scroll(function(eData){
+        var currentOffset = $('#jetguy-main').offset();
+        var currentScrollTop = $(this).scrollTop();
+        if(currentScrollTop > lastScrollTop){
+            $('#jetguy-main').offset({
+                top: currentOffset.top - 9,
+                left: currentOffset.left + 3
+            });
+        }else{
+            $('#jetguy-main').offset({
+                top: currentOffset.top + 9,
+                left: currentOffset.left - 3
+            });
+        }
+
+    });
+});
 
 function suchDogeWow(){
     if(typeof LIBDOGE == "undefined"){

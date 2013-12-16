@@ -42,8 +42,7 @@ header img#sublogo{
 #sunburst{
     position: relative;
     height: 1291px;
-    background: url(/assets/img/template/sunburst.png) no-repeat fixed; 
-    background-size: contain;
+    background: url(/assets/img/template/sunburst.png) no-repeat center top fixed; 
     z-index: 1;
 }
 
@@ -58,12 +57,12 @@ footer a{
 }
 
 /* wider window */
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
 
 }
 
 /* less wide window */
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
     
 }
 
@@ -79,16 +78,13 @@ footer a{
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
     #sunburst{
         height: 1291px;
-        background: url(/assets/img/template/sunburst@2x.png) no-repeat fixed; 
-        background-size: contain;
+        background: url(/assets/img/template/sunburst@2x.png) no-repeat center top fixed; 
+        background-size: cover;
     }
 }
 
 
 /* retinize the sunburst */
 @media (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 1280px) and (min-resolution: 192dpi){ 
-    #sunburst{
-        background: url(/assets/img/template/sunburst@2x.png) no-repeat center top fixed; 
-        background-size: 1280px 1291px;
-    }
+    
 }

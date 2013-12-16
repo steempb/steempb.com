@@ -1,0 +1,90 @@
+/*!
+ * STEEM PB v1.0
+ *
+ * Copyright 2013 steempb.com
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built half-drunk and mostly insane by @pettazz.
+ */
+html, body{
+    height: 100%;
+}
+body{
+    color: #000;
+    background-color: #FADEB4;
+}
+
+h1{
+    font-family: 'Ubuntu Condensed', 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+header{
+    position: relative;
+    width: 106%;
+    height: 160px;
+    padding: 15px 0px;
+    margin-left: -3%;
+    background-color: #231255;
+    box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+header img{
+    display: block;
+    margin: 0 auto;
+}
+
+#sunburst{
+    position: relative;
+    height: 1291px;
+    background: url(/assets/img/template/sunburst.png) no-repeat fixed; 
+    background-size: contain;
+    z-index: 1;
+}
+
+footer{
+    padding: 10px;
+    background-color: #231255;
+    text-align: center;
+}
+
+footer a{
+    color: #FADEB4;
+}
+
+/* wider window */
+@media (min-width: 1200px) {
+
+}
+
+/* less wide window */
+@media (max-width: 1200px) {
+    
+}
+
+/* sunburst width fixer */
+@media (max-width: 1280px) {
+    #sunburst{
+        background: url(/assets/img/template/sunburst.png) no-repeat center top fixed; 
+    }
+}
+
+
+/* retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    #sunburst{
+        height: 1291px;
+        background: url(/assets/img/template/sunburst@2x.png) no-repeat fixed; 
+        background-size: contain;
+    }
+}
+
+
+/* retinize the sunburst */
+@media (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 1280px) and (min-resolution: 192dpi){ 
+    #sunburst{
+        background: url(/assets/img/template/sunburst@2x.png) no-repeat center top fixed; 
+        background-size: 1280px 1291px;
+    }
+}

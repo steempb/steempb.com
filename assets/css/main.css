@@ -177,6 +177,7 @@ footer a{
 
     #faq-border{
         background: url(/assets/img/template/cloud_top@2x.png) repeat-x;
+        background-size: 1280px 40px;
     }
 }
 

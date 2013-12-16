@@ -18,6 +18,3 @@
 //determine if this is @2x territory
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 console.log('@2x support: ' + isRetina);
-
-
-

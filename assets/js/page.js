@@ -62,7 +62,7 @@ function jetGuyFlyAway(){
         $('#jetguy-main').animate({
             top: -572,
             left: '90%'
-        }, 2000, function(){
+        }, 1000, 'easeInQuart', function(){
             jetGuyMainPresent = false;
             jetGuyMainAnimating = false;
         });

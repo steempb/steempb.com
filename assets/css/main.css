@@ -194,7 +194,12 @@ footer a{
 
 /* less wide window */
 @media (max-width: 1280px) {
-    
+    .navbar-fixed-top {
+        position: fixed;
+    }
+    .navbar-fixed-top .navbar-inner{
+        padding: 0px;
+    }
 }
 
 /* sunburst width fixer */
@@ -220,7 +225,6 @@ footer a{
 }
 
 
-/* retinize the sunburst */
 @media (max-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 1280px) and (min-resolution: 192dpi){ 
     
 }

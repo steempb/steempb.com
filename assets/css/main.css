@@ -6,6 +6,12 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built half-drunk and mostly insane by @pettazz.
+ *
+ * blue: #231255
+ * orange: #F47600
+ * beige: #FADEB4
+ * not-quite-white: #EEE
+ *
  */
 html, body{
     height: 100%;
@@ -42,8 +48,41 @@ header img#sublogo{
 #sunburst{
     position: relative;
     height: 1291px;
-    background: url(/assets/img/template/sunburst.png) no-repeat center top fixed; 
+    background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
+    background-size: cover;
     z-index: 1;
+}
+
+#jetguy-main{
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    margin-left: -470px;
+    z-index: 2;
+    height: 694px;
+    width: 526px;
+}
+
+#cta-main{
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    margin-left: 70px;
+    z-index: 2;
+    width: 230px;
+    height: 110px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(23, 12, 55, 0.9);
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.7); 
+}
+
+#cta-main a.btn{
+   margin-top: 10px; 
+   color: #333;
+   width: 180px;
+   background-image: linear-gradient(to bottom, #f89406, #F47600);
+   background-color: #F47600;
 }
 
 footer{
@@ -69,7 +108,7 @@ footer a{
 /* sunburst width fixer */
 @media (max-width: 1280px) {
     #sunburst{
-        background: url(/assets/img/template/sunburst.png) no-repeat center top fixed; 
+        background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
     }
 }
 
@@ -78,7 +117,7 @@ footer a{
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
     #sunburst{
         height: 1291px;
-        background: url(/assets/img/template/sunburst@2x.png) no-repeat center top fixed; 
+        background: url(/assets/img/template/sunburst@2x.png) no-repeat center center fixed; 
         background-size: cover;
     }
 }

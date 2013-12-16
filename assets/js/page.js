@@ -19,9 +19,10 @@
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 console.log('@2x support: ' + isRetina);
 
-var lastScrollTop = 0;
+var jetGuyMainPresent = true;
 
 $(document).ready(function(){
+    jetGuyFlyIn();
     // Konami loader
     var eggloader = new Konami(function(){
         if(typeof easterEgg == "undefined"){
@@ -43,22 +44,35 @@ $(document).ready(function(){
 
     //make jetguy fly
     $(document).scroll(function(eData){
-        var currentOffset = $('#jetguy-main').offset();
-        var currentScrollTop = $(this).scrollTop();
-        if(currentScrollTop > lastScrollTop){
-            $('#jetguy-main').offset({
-                top: currentOffset.top - 9,
-                left: currentOffset.left + 3
-            });
-        }else{
-            $('#jetguy-main').offset({
-                top: currentOffset.top + 9,
-                left: currentOffset.left - 3
-            });
-        }
+        
+        
 
     });
 });
+
+function jetGuyFlyAway(){
+    $('#jetguy-main').animate({
+        top: -272,
+        left: '70%'
+    }, 1000, function(){
+        $(this).fadeOut('slow');
+        jetGuyMainPresent = false;
+    });
+}
+
+function jetGuyFlyIn(){
+    $('#jetguy-main').show();
+    $('#jetguy-main').css({
+        top: 900,
+        left: '20%'
+    });
+    $('#jetguy-main').animate({
+        top: 250,
+        left: '50%'
+    }, 1000, function(){
+        jetGuyMainPresent = true;
+    });
+}
 
 function suchDogeWow(){
     if(typeof LIBDOGE == "undefined"){

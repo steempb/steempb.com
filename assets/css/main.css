@@ -46,6 +46,10 @@ header img#sublogo{
     margin-top: 5px;
 }
 
+#navbar{
+    z-index: 99;
+}
+
 #navbar .navbar-inner{
     background-image: linear-gradient(to bottom, #231255, #130245);
 }

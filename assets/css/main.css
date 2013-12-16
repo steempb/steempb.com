@@ -47,7 +47,7 @@ header img#sublogo{
 
 #sunburst{
     position: relative;
-    height: 1291px;
+    height: 600px;
     background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
     background-size: cover;
     z-index: 1;
@@ -83,6 +83,28 @@ header img#sublogo{
    width: 180px;
    background-image: linear-gradient(to bottom, #f89406, #F47600);
    background-color: #F47600;
+}
+
+#faq-border{
+    position: relative;
+    margin-top: -40px;
+    z-index: 3;
+    background: url(/assets/img/template/cloud_top.png) repeat-x;
+    height: 40px;
+}
+
+#faq-wrap{
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    padding: 50px;
+    background: #eee;
+    z-index: 3;
+}
+
+#faq-section{
+    width: 800px;
+    margin: 0 auto;
 }
 
 footer{

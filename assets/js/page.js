@@ -18,3 +18,36 @@
 //determine if this is @2x territory
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 console.log('@2x support: ' + isRetina);
+
+$(document).ready(function(){
+    // Konami loader
+
+    var eggloader = new Konami(function(){
+        if(typeof easterEgg == "undefined"){
+            // wow such default pretty
+            suchDogeWow();
+        }else if(typeof easterEgg == "function"){
+            easterEgg();
+        }else if(typeof easterEgg == "string"){
+            switch(easterEgg){
+                default:
+                    suchDogeWow();
+                    break;
+            }
+        }else{
+            console.log("Poopguy doesn't know what the fuck to do with this easter egg. You get doge instead.");
+            suchDogeWow();
+        }
+    }); 
+});
+
+
+function suchDogeWow(){
+    if(typeof LIBDOGE == "undefined"){
+        yepnope.injectJs('/assets/js/libdoge.min.js', function(){
+            LIBDOGE.controller.buyDoge();
+        });
+    }else{
+        LIBDOGE.controller.buyDoge();
+    }
+}

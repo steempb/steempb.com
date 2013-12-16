@@ -170,7 +170,7 @@ footer a{
 /* retina displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
     .sunburst{
-        height: 1291px;
+        height: 600px;
         background: url(/assets/img/template/sunburst@2x.png) no-repeat center center fixed; 
         background-size: cover;
     }

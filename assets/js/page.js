@@ -57,10 +57,9 @@ function jetGuyFlyAway(){
     if(!jetGuyMainAnimating){
         jetGuyMainAnimating = true;
         $('#jetguy-main').animate({
-            top: -272,
-            left: '70%'
+            top: -572,
+            left: '90%'
         }, 1000, function(){
-            $(this).fadeOut('slow');
             jetGuyMainPresent = false;
             jetGuyMainAnimating = false;
         });

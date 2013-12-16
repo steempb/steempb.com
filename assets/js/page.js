@@ -20,6 +20,7 @@ var isRetina = Math.floor(window.devicePixelRatio) > 1;
 console.log('@2x support: ' + isRetina);
 
 var jetGuyMainPresent = true;
+var jetGuyMainAnimating = false;
 
 $(document).ready(function(){
     jetGuyFlyIn();
@@ -44,34 +45,44 @@ $(document).ready(function(){
 
     //make jetguy fly
     $(document).scroll(function(eData){
-        
-        
-
+        if($(this).scrollTop() > 200 && jetGuyMainPresent){
+            jetGuyFlyAway();
+        }else if($(this).scrollTop() < 200 && !jetGuyMainPresent){
+            jetGuyFlyIn();
+        }
     });
 });
 
 function jetGuyFlyAway(){
-    $('#jetguy-main').animate({
-        top: -272,
-        left: '70%'
-    }, 1000, function(){
-        $(this).fadeOut('slow');
-        jetGuyMainPresent = false;
-    });
+    if(!jetGuyMainAnimating){
+        jetGuyMainAnimating = true;
+        $('#jetguy-main').animate({
+            top: -272,
+            left: '70%'
+        }, 1000, function(){
+            $(this).fadeOut('slow');
+            jetGuyMainPresent = false;
+            jetGuyMainAnimating = false;
+        });
+    }
 }
 
 function jetGuyFlyIn(){
-    $('#jetguy-main').show();
-    $('#jetguy-main').css({
-        top: 900,
-        left: '20%'
-    });
-    $('#jetguy-main').animate({
-        top: 250,
-        left: '50%'
-    }, 1000, function(){
-        jetGuyMainPresent = true;
-    });
+    if(!jetGuyMainAnimating){
+        jetGuyMainAnimating = true;
+        $('#jetguy-main').show();
+        $('#jetguy-main').css({
+            top: 900,
+            left: '20%'
+        });
+        $('#jetguy-main').animate({
+            top: 250,
+            left: '50%'
+        }, 1000, function(){
+            jetGuyMainPresent = true;
+            jetGuyMainAnimating = false;
+        });
+    }
 }
 
 function suchDogeWow(){

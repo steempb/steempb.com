@@ -55,7 +55,7 @@ $(document).ready(function(){
     //make jetguys fly
     $(document).scroll(function(eData){
         var currentST = $(this).scrollTop();
-        var fleetStartMarker = $("#letsgo").scrollTop() + $("#letsgo").height();
+        var fleetStartMarker = $("#letsgo").offset().top + $("#letsgo").height();
         if(currentST > 200 && currentST < fleetStartMarker && jetGuyMainPresent){
             jetGuyFlyAway();
         }else if(currentST < 200 && !jetGuyMainPresent){

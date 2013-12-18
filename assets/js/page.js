@@ -58,6 +58,8 @@ $(document).ready(function(){
 
     //make jetguys fly
     $(document).scroll(function(eData){
+        // $(window).height() is bugged in mobilesafari
+        var winHeight = window.innerHeight ? window.innerHeight : $(window).height();
         var currentST = $(this).scrollTop();
         var fleetStartMarker = $("#letsgo").offset().top + $("#letsgo").height();
 
@@ -67,7 +69,7 @@ $(document).ready(function(){
         if(currentST < 200 && !jetGuyMainPresent){
             jetGuyFlyIn();
         }
-        if(currentST + $(window).height() > fleetStartMarker + 20 && !jetFleetPresent){
+        if(currentST + winHeight > fleetStartMarker + 20 && !jetFleetPresent){
             jetFleetFlyIn();
         }
     });

@@ -8,3 +8,5 @@ Options -MultiViews
 RewriteEngine On
 
 RewriteRule ^license/?$ license.htm [NC]
+
+RewriteRule ^submit/?$ submit.php [NC,QSA]

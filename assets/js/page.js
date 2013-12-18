@@ -70,7 +70,56 @@ $(document).ready(function(){
 
     $('#letsgo form button[type="submit"]').click(function(eo){
         eo.preventDefault();
-        jetFleetFlyAway();
+
+        var valid = true;
+
+        data = {};
+        if($.trim($("#inputName").val()) == ''){
+            $("#inputName").focus();
+            valid = false;
+        }else{
+            data['name'] = $.trim($("#inputName").val());
+        }
+
+        if($.trim($("#inputEmail").val()) == ''){
+            $("#inputEmail").focus();
+            valid = false;
+        }else{
+            data['email'] = $.trim($("#inputEmail").val());
+        }
+
+        if($.trim($("#inputPostalCode").val()) == ''){
+            $("#inputPostalCode").focus();
+            valid = false;
+        }else{
+            data['postalCode'] = $.trim($("#inputPostalCode").val());
+        }
+
+        if(valid){
+            $("#form-container").fadeOut('fast', function(){
+                $("#form-container").html('<div class="spinner"></div>');
+                $("#form-container").fadeIn('fast');
+
+                $.ajax({
+                    type: "POST",
+                    url: '/submit',
+                    data: data,
+                    success: function(data, textStatus, jqXHR){
+                        jetFleetFlyAway();
+                        $("#form-container").fadeOut('fast', function(){
+                            $("#form-container").html('<p class="lead">We\'ve got your information and you\'ll hear from us soon!</p>');
+                            $("#form-container").fadeIn('fast');
+                        });
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        $("#form-container").fadeOut('fast', function(){
+                            $("#form-container").html('<p class="lead" style="color:#dd1010">There was an error saving your information. <br />Please try again later.</p>');
+                            $("#form-container").fadeIn('fast');
+                        });
+                    }
+                });
+            });
+        }
     });
 });
 

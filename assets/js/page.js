@@ -17,7 +17,7 @@
 
 //determine if this is @2x territory
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
-console.log('@2x support: ' + isRetina);
+// console.log('@2x support: ' + isRetina);
 
 if(isRetina){
     var shareMarkup = '<ul id="social-links"><li><a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com&text=I can%27t wait for @steempb! %23GetGoing" target="_blank"><img src="/assets/img/template/share_twitter@2x.png" title="Share on Twitter" /></a></li><li><a href="http://plus.google.com/share?url=http://steempb.com" target="_blank"><img src="/assets/img/template/share_gplus@2x.png" title="Share on Google+" /></a></li><li><a href="http://www.facebook.com/sharer.php?u=http://steempb.com" target="_blank"><img src="/assets/img/template/share_facebook@2x.png" title="Share on Facebook" /></a></li></ul>';
@@ -51,7 +51,7 @@ $(document).ready(function(){
                     break;
             }
         }else{
-            console.log("Konami-san doesn't know wtf to do with that definition. You get doge instead.");
+            // console.log("Konami-san doesn't know wtf to do with that definition. You get doge instead.");
             suchDogeWow();
         }
     }); 

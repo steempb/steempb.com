@@ -64,7 +64,6 @@ $(document).ready(function(){
             jetGuyFlyIn();
         }
         if(currentST + $(window).height() > fleetStartMarker + 20 && !jetFleetPresent){
-            console.log('trigger');
             jetFleetFlyIn();
         }
     });

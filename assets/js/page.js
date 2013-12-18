@@ -184,16 +184,21 @@ function jetFleetFlyIn(){
 function jetFleetFlyAway(){
     if(!jetFleetAnimating){
         jetFleetAnimating = true;
+        var iter = 0;
         $('#jet-fleet .jetguy').each(function(){
-            var currentCSSOffset = $(this).css(['top', 'left']);
-            $(this).animate({
-                top: -1 * ($(this).height() + 100),
-                left: "+=300"
-            }, 1500, 'easeInQuart', function(){
-                jetFleetAnimating = false;
-                $(this).css('visibility', 'hidden');
-                $(this).css(currentCSSOffset);
-            });
+            var that = $(this);
+            window.setTimeout(function(){
+                var currentCSSOffset = that.css(['top', 'left']);
+                that.animate({
+                    top: -1 * (that.height() + 100),
+                    left: "+=300"
+                }, 1500, 'easeInQuart', function(){
+                    jetFleetAnimating = false;
+                    that.css('visibility', 'hidden');
+                    that.css(currentCSSOffset);
+                });
+            }, iter * 300);
+            iter++;
         });
     }
 }

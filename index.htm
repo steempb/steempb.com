@@ -89,28 +89,30 @@
 
             <div id="letsgo">
                 <h1>LET'S GET GOING!</h1>
-                <p class="lead">Let us know how to contact you as soon as STEEM is available for purchase online or in your area.</p>
-                <form class="form-horizontal">
-                    <div class="control-group">
-                        <label class="control-label" for="inputName">Name</label>
-                        <div class="controls">
-                            <input class="input-xlarge" type="text" id="inputName" placeholder="Name">
+                <div id="form-container">
+                    <p class="lead">Let us know how to contact you as soon as STEEM is available for purchase online or in your area.</p>
+                    <form class="form-horizontal" method="POST">
+                        <div class="control-group">
+                            <label class="control-label" for="inputName">Name</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" id="inputName" required placeholder="Name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputEmail">Email</label>
-                        <div class="controls">
-                            <input class="input-xlarge" type="text" id="inputEmail" placeholder="Email">
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail">Email</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" id="inputEmail" required placeholder="Email">
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputPostalCode">Postal Code</label>
-                        <div class="controls">
-                            <input class="input-xlarge" type="text" id="inputPostalCode" placeholder="Postal Code">
+                        <div class="control-group">
+                            <label class="control-label" for="inputPostalCode">Postal Code</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" id="inputPostalCode" required placeholder="Postal Code">
+                            </div>
                         </div>
-                    </div>
-                    <button type="submit" class="btn steembtn steembtn-large"><strong>Submit</strong></button>
-                </form>
+                        <button type="submit" class="btn steembtn steembtn-large"><strong>Submit</strong></button>
+                    </form>
+                </div>
             </div>
         </div>
 

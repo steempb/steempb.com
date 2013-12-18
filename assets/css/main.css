@@ -79,7 +79,7 @@ header img#sublogo{
 
 .sunburst{
     position: relative;
-    height: 600px;
+    height: 700px;
     background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
     background-size: cover;
     z-index: 1;
@@ -147,11 +147,12 @@ header img#sublogo{
 }
 
 #letsgo-wrap{
-    height: 600px;
+    height: 700px;
     width: 100%;
     position: relative;
-    margin-top: -600px;
+    margin-top: -700px;
     z-index: 3;
+    overflow: hidden;
 }
 
 #faq-cta-row{
@@ -175,6 +176,71 @@ header img#sublogo{
     text-align: center;
     background: rgba(238, 238, 238, 0.93);
     box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.5); 
+}
+
+#jet-fleet .jetguy{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    z-index: 2;
+}
+
+/* medium */
+#jet-fleet .jetguy:nth-child(1){ 
+    top: 172px;
+    margin-left: -750px;
+}
+
+/* medium */
+#jet-fleet .jetguy:nth-child(2){ 
+    top: 400px;
+    margin-left: -702px;
+}
+
+/* full */
+#jet-fleet .jetguy:nth-child(3){ 
+    top: 50px;
+    margin-left: -433px;
+    z-index: 2;
+}
+
+/* small */
+#jet-fleet .jetguy:nth-child(4){ 
+    top: 490px;
+    margin-left: -150px;
+}
+
+/* full */
+#jet-fleet .jetguy:nth-child(5){ 
+    top: 200px;
+    margin-left: -60px;
+}
+
+/* small */
+#jet-fleet .jetguy:nth-child(6){ 
+    top: 550px;
+    margin-left: 200px;
+}
+
+/* medium */
+#jet-fleet .jetguy:nth-child(7){ 
+    top: 350px;
+    margin-left: 370px;
+}
+
+.jetguy-small{
+    width: 225px; 
+    height: 297px;
+}
+
+.jetguy-medium{
+    width: 324px; 
+    height: 428px;
+}
+
+.jetguy-full{
+    width: 526px; 
+    height: 694px;
 }
 
 footer{
@@ -213,7 +279,7 @@ footer a{
 /* retina displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
     .sunburst{
-        height: 600px;
+        height: 700px;
         background: url(/assets/img/template/sunburst@2x.png) no-repeat center center fixed; 
         background-size: cover;
     }

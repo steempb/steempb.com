@@ -54,7 +54,6 @@ $(document).ready(function(){
 
     //make jetguys fly
     $(document).scroll(function(eData){
-        console.log($(this).scrollTop());
         var currentST = $(this).scrollTop();
         var fleetStartMarker = $("#letsgo").scrollTop() + $("#letsgo").height();
         if(currentST > 200 && currentST < fleetStartMarker && jetGuyMainPresent){
@@ -64,6 +63,11 @@ $(document).ready(function(){
         }else if(currentST + $(window).height() > fleetStartMarker + 20 && !jetFleetPresent){
             jetFleetFlyIn();
         }
+    });
+
+    $('#letsgo form button[type="submit"]').click(function(eo){
+        eo.preventDefault();
+        jetFleetFlyAway();
     });
 });
 
@@ -120,6 +124,23 @@ function jetFleetFlyIn(){
             $(this).animate(currentCSSOffset, 1500, function(){
                 jetFleetPresent = true;
                 jetFleetAnimating = false;
+            });
+        });
+    }
+}
+
+function jetFleetFlyAway(){
+    if(!jetFleetAnimating){
+        jetFleetAnimating = true;
+        $('#jet-fleet .jetguy').each(function(){
+            var currentCSSOffset = $(this).css(['top', 'left']);
+            $(this).animate({
+                top: -1 * ($(this).height() + 100),
+                left: "+=300"
+            }, 1500, 'easeInQuart', function(){
+                jetFleetAnimating = false;
+                $(this).css('visibility', 'hidden');
+                $(this).css(currentCSSOffset);
             });
         });
     }

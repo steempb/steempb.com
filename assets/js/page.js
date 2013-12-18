@@ -25,7 +25,13 @@ console.log('@2x support: ' + isRetina);
 var jetGuyMainPresent = true;
 var jetGuyMainAnimating = false;
 
+var jetFleetPresent = false;
+var jetFleetAnimating = false;
+
 $(document).ready(function(){
+    $('#jet-fleet .jetguy').each(function(){
+        $(this).css({'visibility': 'hidden'});
+    });
     jetGuyFlyIn();
     // Konami loader
     var eggloader = new Konami(function(){
@@ -41,17 +47,22 @@ $(document).ready(function(){
                     break;
             }
         }else{
-            console.log("Poopguy doesn't know what the fuck to do with this easter egg. You get doge instead.");
+            console.log("Konami-san doesn't know wtf to do with that definition. You get doge instead.");
             suchDogeWow();
         }
     }); 
 
-    //make jetguy fly
+    //make jetguys fly
     $(document).scroll(function(eData){
-        if($(this).scrollTop() > 200 && jetGuyMainPresent){
+        console.log($(this).scrollTop());
+        var currentST = $(this).scrollTop();
+        var fleetStartMarker = $("#letsgo").scrollTop() + $("#letsgo").height();
+        if(currentST > 200 && currentST < fleetStartMarker && jetGuyMainPresent){
             jetGuyFlyAway();
-        }else if($(this).scrollTop() < 200 && !jetGuyMainPresent){
+        }else if(currentST < 200 && !jetGuyMainPresent){
             jetGuyFlyIn();
+        }else if(currentST + $(window).height() > fleetStartMarker + 20 && !jetFleetPresent){
+            jetFleetFlyIn();
         }
     });
 });
@@ -82,7 +93,6 @@ function jetGuyFlyAway(){
 function jetGuyFlyIn(){
     if(!jetGuyMainAnimating){
         jetGuyMainAnimating = true;
-        $('#jetguy-main').show();
         $('#jetguy-main').css({
             top: 900,
             left: '20%'
@@ -93,6 +103,24 @@ function jetGuyFlyIn(){
         }, 1000, function(){
             jetGuyMainPresent = true;
             jetGuyMainAnimating = false;
+        });
+    }
+}
+
+function jetFleetFlyIn(){
+    if(!jetFleetAnimating){
+        jetFleetAnimating = true;
+        $('#jet-fleet .jetguy').each(function(){
+            var currentCSSOffset = $(this).css(['top', 'left']);
+            $(this).css({
+                top: "+=" + ($(this).height() + 50),
+                left: "-=100",
+                visibility: 'visible'
+            });
+            $(this).animate(currentCSSOffset, 1500, function(){
+                jetFleetPresent = true;
+                jetFleetAnimating = false;
+            });
         });
     }
 }
@@ -108,16 +136,18 @@ function suchDogeWow(){
 }
 
 $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000, function(){
+                    $(document).scroll();
+                });
+                return false;
+            }
+        }
+    });
 });

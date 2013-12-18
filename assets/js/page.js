@@ -56,11 +56,15 @@ $(document).ready(function(){
     $(document).scroll(function(eData){
         var currentST = $(this).scrollTop();
         var fleetStartMarker = $("#letsgo").offset().top + $("#letsgo").height();
+
         if(currentST > 200 && currentST < fleetStartMarker && jetGuyMainPresent){
             jetGuyFlyAway();
-        }else if(currentST < 200 && !jetGuyMainPresent){
+        }
+        if(currentST < 200 && !jetGuyMainPresent){
             jetGuyFlyIn();
-        }else if(currentST + $(window).height() > fleetStartMarker + 20 && !jetFleetPresent){
+        }
+        if(currentST + $(window).height() > fleetStartMarker + 20 && !jetFleetPresent){
+            console.log('trigger');
             jetFleetFlyIn();
         }
     });

@@ -178,6 +178,32 @@ header img#sublogo{
     box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.5); 
 }
 
+ul#social-links{
+    display: block;
+    margin: 40px 0px 0px 156px;
+    list-style-type: none;
+}
+
+ul#social-links{
+    height: 75px;
+}
+
+ul#social-links li{
+    width: 74px;
+}
+ul#social-links li{
+    display: block;
+    float: left;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 15px;
+}
+
+ul#social-links li img{
+    display: block;
+}
+
 #jet-fleet .jetguy{
     position: absolute;
     top: 0px;

@@ -19,7 +19,11 @@
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 console.log('@2x support: ' + isRetina);
 
-//determine if this is "mobile"
+if(isRetina){
+    var shareMarkup = '<ul id="social-links"><li><a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com&text=I can%27t wait for @steempb! %23GetGoing" target="_blank"><img src="/assets/img/template/share_twitter@2x.png" title="Share on Twitter" /></a></li><li><a href="http://plus.google.com/share?url=http://steempb.com" target="_blank"><img src="/assets/img/template/share_gplus@2x.png" title="Share on Google+" /></a></li><li><a href="http://www.facebook.com/sharer.php?u=http://steempb.com" target="_blank"><img src="/assets/img/template/share_facebook@2x.png" title="Share on Facebook" /></a></li></ul>';
+}else{
+    var shareMarkup = '<ul id="social-links"><li><a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com&text=I can%27t wait for @steempb! %23GetGoing" target="_blank"><img src="/assets/img/template/share_twitter.png" title="Share on Twitter" /></a></li><li><a href="http://plus.google.com/share?url=http://steempb.com" target="_blank"><img src="/assets/img/template/share_gplus.png" title="Share on Google+" /></a></li><li><a href="http://www.facebook.com/sharer.php?u=http://steempb.com" target="_blank"><img src="/assets/img/template/share_facebook.png" title="Share on Facebook" /></a></li></ul>';
+}
 
 
 var jetGuyMainPresent = true;
@@ -107,7 +111,9 @@ $(document).ready(function(){
                     success: function(data, textStatus, jqXHR){
                         jetFleetFlyAway();
                         $("#form-container").fadeOut('fast', function(){
-                            $("#form-container").html('<p class="lead">We\'ve got your information and you\'ll hear from us soon!</p>');
+                            $("#form-container").html(
+                                '<p class="lead">We\'ve got your information and you\'ll hear from us soon!<br />Be sure to follow us on <a href="http://twitter.com/steempb" target="_blank">Twitter</a> and read our <a href="/blog">Blog</a> for updates.</p>' +
+                                '<p class="lead">In the meantime, let your friends know about us!</p>' + shareMarkup);
                             $("#form-container").fadeIn('fast');
                         });
                     },

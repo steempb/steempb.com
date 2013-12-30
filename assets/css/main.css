@@ -138,10 +138,20 @@ header img#sublogo{
     height: 40px;
 }
 
+#faq-border-bottom{
+    position: relative;
+    left: 0px;
+    top: -701px;
+    z-index: 5;
+    background: url(/assets/img/template/cloud_bottom.png) repeat-x;
+    height: 40px;
+}
+
 #faq-wrap{
     position: relative;
     min-height: 400px;
     padding: 50px;
+    padding-bottom: 25px;
     background: #eee;
     z-index: 3;
 }
@@ -155,7 +165,7 @@ header img#sublogo{
     height: 700px;
     width: 100%;
     position: relative;
-    margin-top: -700px;
+    margin-top: -740px;
     z-index: 3;
     overflow: hidden;
 }
@@ -339,6 +349,11 @@ footer a{
 
     #faq-border{
         background: url(/assets/img/template/cloud_top@2x.png) repeat-x;
+        background-size: 1280px 40px;
+    }
+
+    #faq-border-bottom{
+        background: url(/assets/img/template/cloud_bottom@2x.png) repeat-x;
         background-size: 1280px 40px;
     }
 }

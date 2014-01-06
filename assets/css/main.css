@@ -111,6 +111,7 @@ div#header-home img#sublogo{
     height: 110px;
     padding: 30px;
     text-align: center;
+    background: #231255;
     background: rgba(23, 12, 55, 0.9);
     box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.7); 
 }
@@ -190,6 +191,7 @@ div#header-home img#sublogo{
     height: 340px;
     padding: 30px;
     text-align: center;
+    background: #eeeeee;
     background: rgba(238, 238, 238, 0.93);
     box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.5); 
 }

@@ -57,7 +57,7 @@ $(document).ready(function(){
     }); 
 
     //make jetguys fly
-    $(document).scroll(function(eData){
+    $(window).scroll(function(eData){
         // $(window).height() is bugged in mobilesafari
         var winHeight = window.innerHeight ? window.innerHeight : $(window).height();
         var currentST = $(this).scrollTop();
@@ -234,7 +234,7 @@ $(function() {
                 $('html,body').animate({
                     scrollTop: target.offset().top
                 }, 1000, function(){
-                    $(document).scroll();
+                    $(window).scroll();
                 });
                 return false;
             }

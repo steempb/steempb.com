@@ -22,6 +22,7 @@ body{
 }
 
 h1{
+    text-transform: uppercase;
     font-family: 'Ubuntu Condensed', 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     color: #F47600;
 }

@@ -103,7 +103,7 @@ $(document).ready(function(){
 
         if(valid){
             $("#form-container").fadeOut('fast', function(){
-                if($('html').hasClass('csstransforms')){
+                if($('html').hasClass('csstransforms3d')){
                     $("#form-container").html('<div class="spinner"></div>');
                 }else{
                     $("#form-container").html('<div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>');

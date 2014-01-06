@@ -27,7 +27,7 @@ h1{
     color: #F47600;
 }
 
-header{
+div#header-home{
     position: relative;
     z-index: 100;
     height: 205px;
@@ -35,7 +35,7 @@ header{
     overflow: hidden;
 }
 
-header .container{
+div#header-home .container{
     width: 102%;
     height: 160px;
     padding: 20px 0px;
@@ -44,12 +44,12 @@ header .container{
     box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.7);
 }
 
-header img{
+div#header-home img{
     display: block;
     margin: 0px auto;
 }
 
-header img#sublogo{
+div#header-home img#sublogo{
     margin-top: 5px;
 }
 
@@ -285,13 +285,13 @@ ul#social-links li img{
     height: 694px;
 }
 
-footer{
+div#footer-home{
     padding: 10px;
     background-color: #231255;
     text-align: center;
 }
 
-footer a{
+div#footer-home a{
     color: #FADEB4;
 }
 

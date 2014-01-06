@@ -295,11 +295,16 @@ div#footer-home a{
     color: #FADEB4;
 }
 
+.gifspinner{
+    width: 32px;
+    height: 32px;
+    margin: 100px auto;   
+}
+
 .spinner {
   width: 100px;
   height: 100px;
   background-color: #F47600;
-
   margin: 100px auto;
   -webkit-animation: rotateplane 1.2s infinite ease-in-out;
   animation: rotateplane 1.2s infinite ease-in-out;

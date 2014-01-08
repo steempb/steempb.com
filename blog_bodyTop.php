@@ -1,19 +1,27 @@
 <?php
-    date_default_timezone_set('America/New_York');
+    if(!isset($templateVars['pageType'])){
+        $templateVars['pageType'] = 'system';
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
-        <title>STEEM Caffeinated Peanut Butter</title>
+        <title>STEEM Blog<?php echo isset($templateVars['pageTitle'])? ' - ' . $templateVars['pageTitle'] : ''; ?></title>
         <meta name="viewport" content="width=900, height=device-height">
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <meta property="og:site_name" content="STEEM Caffeinated Peanut Butter" />
-        <meta property="og:title" content="STEEM Caffeinated Peanut Butter" />
-        <meta property="og:url" content="http://steempb.com" />
-        <meta property="og:description" content="STEEM is caffeinated peanut butter. What else do we need to say?" />
+        <meta property="og:site_name" content="STEEM Caffeinated Peanut Butter Blog" />
+
+        <?php if($templateVars['pageType'] == 'post'){ ?>
+
+        <meta property="og:title" content="<?php echo $templateVars['pageTitle']; ?> - STEEM Blog" />
+        <meta property="og:url" content="<?php echo $templateVars['postURL']; ?>" />
+        <meta property="og:description" content="<?php echo $templateVars['postHeadline']; ?>" />
+        <meta property="og:updated_time" content="<?php echo $templateVars['postDatetime']; ?>" />
+        <?php } ?>
         <meta property="og:image" content="http://steempb.com/assets/img/facebook_og.png" />
 
 
@@ -71,15 +79,41 @@
                 <div class="row">
                     <div id="blog-nav">
                         <ul class="nav nav-pills">
-                            <li><a href="#">News</a></li>
-                            <li class="active"><a href="#">Recipes</a></li>
-                            <li><a href="#">Peanuts</a></li>
-                            <li><a href="#">Butter</a></li>
-                            <li><a href="#">Things</a></li>
+
+                            <?php 
+                                $newsActive = "";
+                                $babblingActive = "";
+                                $htsActive = "";
+                                $podcastsActive = "";
+
+                                if(isset($templateVars['contentType'])){
+                                    switch($templateVars['contentType']){
+                                        case 'news':
+                                            $newsActive = ' active';
+                                            break;
+                                        case 'babbling':
+                                            $babblingActive = ' active';
+                                            break;
+                                        case 'how-to-steem':
+                                            $htsActive = ' active';
+                                            break;
+                                        case 'podcasts':
+                                            $podcastsActive = 'active';
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                            ?>
+
+                            <li class="<?php echo $newsActive; ?>"><a href="/blog/news">News</a></li>
+                            <li class="<?php echo $babblingActive; ?>"><a href="/blog/babbling">Babbling</a></li>
+                            <li class="<?php echo $htsActive; ?>"><a href="/blog/how-to-steem">How to STEEM</a></li>
+                            <li class="<?php echo $podcastsActive; ?>"><a href="/blog/podcasts">Podcasts</a></li>
                             <li class="spacer">&nbsp;</li>
                             <li class="searchbox">
-                                <form method="GET" action="/search">
-                                    <input type="search" id="wnv-search" name="q" />
+                                <form method="GET" action="/blog/search">
+                                    <input type="search" id="blog-search" name="q" />
                                 </form>
                             </li>
                         </ul>

@@ -5,3 +5,28 @@ RewriteEngine On
 RewriteRule ^license/?$ license.htm [NC]
 
 RewriteRule ^submit/?$ submit.php [NC,QSA]
+
+
+# Blogstuff (everything starts with /blog so omfg precedence)
+
+RewriteRule ^blog/post/([a-z0-9-]+)/?$ post.php?postid=$1 [NC]
+RewriteRule ^blog/post/([a-z0-9-]+)/[A-z0-9-]+/?$ post.php?postid=$1 [NC]
+RewriteRule ^blog/post/?$ post.php [NC,QSA]
+
+RewriteRule ^blog/tag/([a-z0-9-]+)/([0-9]+)/?$ tag.php?tagname=$1&page=$2 [NC]
+RewriteRule ^blog/tag/([a-z0-9-]+)/?$ tag.php?tagname=$1 [NC]
+RewriteRule ^blog/tag/?$ tag.php [NC,QSA]
+
+RewriteRule ^blog/news/([0-9]+)/?$ category.php?catname=news&page=$1 [NC]
+RewriteRule ^blog/news/?$ category.php?catname=news [NC]
+RewriteRule ^blog/babbling/([0-9]+)/?$ category.php?catname=babbling&page=$1 [NC]
+RewriteRule ^blog/babbling/?$ category.php?catname=babbling [NC]
+RewriteRule ^blog/how-to-steem/([0-9]+)/?$ category.php?catname=how-to-steem&page=$1 [NC]
+RewriteRule ^blog/how-to-steem/?$ category.php?catname=how-to-steem [NC]
+RewriteRule ^blog/podcasts/([0-9]+)/?$ category.php?catname=podcasts&page=$1 [NC]
+RewriteRule ^blog/podcasts/?$ category.php?catname=podcasts [NC]
+
+RewriteRule ^blog/search/?$ search.php [NC,QSA]
+
+RewriteRule ^blog/([0-9-]+)/?$ blog.php?page=$1 [NC,QSA]
+RewriteRule ^blog/?$ blog.php [NC,QSA]

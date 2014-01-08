@@ -58,8 +58,10 @@
 
         <div class="sunburst"></div>
         <div id="blog-logo-main">
-            <img src="/assets/img/template/logo.png" />
-            <h1>BLOG</h1>
+            <a href="/blog">
+                <img src="/assets/img/template/logo.png" />
+                <h1>BLOG</h1>
+            </a>
         </div>
         <div id="jetguy-main"><img src="/assets/img/template/jetguy_medium.png" /></div>
 

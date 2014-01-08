@@ -1,9 +1,4 @@
-Options -MultiViews
-
-<Files .git/*>
-    order allow,deny
-    deny from all
-</Files>
+Options -MultiViews -Indexes
 
 RewriteEngine On
 

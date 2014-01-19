@@ -58,7 +58,7 @@
                     <div class="sharesies">
                         <p class="system1">Share this post with your friends <i class="icon-share-alt icon-white"></i></p>
                         <ul id="social-links">
-                            <li><a href="http://twitter.com/share?url=<?php echo $templateVars['postURL']; ?>&text=<?php echo rawurlencode($post->title); ?> %23WNV" target="_blank"><img src="/assets/img/template/share_twitter.png" /></a></li>
+                            <li><a href="http://twitter.com/share?url=<?php echo $templateVars['postURL']; ?>&text=<?php echo rawurlencode($post->title); ?> %23GetGoing" target="_blank"><img src="/assets/img/template/share_twitter.png" /></a></li>
                             <li><a href="http://plus.google.com/share?url=<?php echo $templateVars['postURL']; ?>" target="_blank"><img src="/assets/img/template/share_gplus.png" /></a></li>
                             <li><a href="http://reddit.com/submit?url=<?php echo $templateVars['postURL']; ?>&title=<?php echo rawurlencode($post->title); ?>" target="_blank"><img src="/assets/img/template/share_reddit.png" /></a></li>
                             <li><a href="http://www.facebook.com/sharer.php?u=<?php echo $templateVars['postURL']; ?>" target="_blank"><img src="/assets/img/template/share_facebook.png" /></a></li>

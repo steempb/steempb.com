@@ -1,6 +1,6 @@
 <?php
     if(!(isset($_POST['getgoing']) && $_POST['getgoing'] == 'more_like_peanut_BETTER')){
-        header('Location: http://steempb.com');
+        header('HTTP/1.1 400 Bad Request');
         exit();
     }
 

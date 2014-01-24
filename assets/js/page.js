@@ -102,6 +102,7 @@ $(document).ready(function(){
         }
 
         if(valid){
+            data['getgoing'] = 'more_like_peanut_BETTER';
             $("#form-container").fadeOut('fast', function(){
                 if($('html').hasClass('csstransforms3d')){
                     $("#form-container").html('<div class="spinner"></div>');

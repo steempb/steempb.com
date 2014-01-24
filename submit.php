@@ -1,4 +1,9 @@
 <?php
+    if(!(isset($_POST['getgoing']) && $_POST['getgoing'] == 'more_like_peanut_BETTER')){
+        header('Location: http://steempb.com');
+        exit();
+    }
+
     include('../steem_config.php');
 
     /**

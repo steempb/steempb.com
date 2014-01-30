@@ -1,6 +1,7 @@
 <?php
     if(!(isset($_POST['getgoing']) && $_POST['getgoing'] == 'more_like_peanut_BETTER')){
         header('HTTP/1.1 400 Bad Request');
+        echo '<h1>400 Bad Request</h1>';
         exit();
     }
 

@@ -12,16 +12,14 @@
         $name = $_POST['name'];
         $email = $_POST['email'];
         $postalCode = $_POST['postalCode'];
-        $guid = $JACKED->Util->uuid4();
 
         $inforeq = $JACKED->Syrup->InfoRequest->create();
-        $inforeq->guid = $guid;
         $inforeq->name = $name;
         $inforeq->email = $email;
         $inforeq->postal_code = $postalCode;
 
         $inforeq->save();
-        
+
     }catch(Exception $e){
         header('HTTP/1.1 500 Internal Server Error');
         error_log($e->getMessage());

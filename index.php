@@ -64,7 +64,7 @@
         <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
         <div id="cta-main">
             <img src="/assets/img/template/getgoing.png" />
-            <a class="btn btn-large btn-warning steembtn steembtn-large" href="#faq-border">Get it now <i class="icon-play"></i></a>
+            <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get it now <i class="icon-play"></i></a>
         </div>
 
         <div id="faq-border"></div>

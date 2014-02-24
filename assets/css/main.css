@@ -98,7 +98,7 @@ div#header-home img#sublogo{
 }
 
 .sunburst.half{
-    height: 310px;
+    height: 380px;
 }
 
 #jetguy-main{
@@ -136,6 +136,10 @@ div#header-home img#sublogo{
     height: 150px;
     padding: 30px 0px;
     text-align: center;
+}
+
+#cta-beta a.btn{
+    margin-top: 30px;
 }
 
 #cta-beta img{
@@ -406,7 +410,7 @@ div#footer-home a{
     }
 
     .sunburst.half{
-        height: 310px;
+        height: 380px;
     }
 
     #faq-border{

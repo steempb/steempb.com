@@ -71,7 +71,8 @@
                 <img src="/assets/img/flip-numbers/dot.png" />
                 <img src="/assets/img/flip-numbers/0.png" />
                 <img src="/assets/img/flip-numbers/0.png" />
-            </span>
+            </span><br />
+            <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get Tickets now <i class="icon-play"></i></a>
         </div>
 
         <div id="faq-border"></div>

@@ -1,5 +1,5 @@
 /*!
- * STEEM PB v1.0
+ * STEEM PB Blag v1.0
  *
  * Copyright 2014 steempb.com
  * Licensed under the Apache License v2.0
@@ -25,6 +25,18 @@ h1{
     text-transform: uppercase;
     font-family: 'Ubuntu Condensed', 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     color: #F47600;
+}
+
+#page-wrap h1 a{
+    color: #F47600;
+}
+
+#page-wrap a p{
+    color: #F47600;
+}
+
+.debold{
+    font-weight: normal;
 }
 
 div#header-home{
@@ -85,7 +97,7 @@ div#header-home img#sublogo{
 
 .sunburst{
     position: relative;
-    height: 700px;
+    height: 400px;
     background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
     background-size: cover;
     z-index: 1;
@@ -93,22 +105,22 @@ div#header-home img#sublogo{
 
 #jetguy-main{
     position: absolute;
-    top: 250px;
+    top: 50px;
     left: 50%;
-    margin-left: -470px;
+    margin-left: -70px;
     z-index: 2;
-    height: 694px;
-    width: 526px;
+    height: 324px;
+    width: 428px;
 }
 
-#cta-main{
+#page-logo-main{
     position: absolute;
-    top: 300px;
+    top: 100px;
     left: 50%;
-    margin-left: 70px;
+    margin-left: -300px;
     z-index: 2;
     width: 230px;
-    height: 110px;
+    height: 90px;
     padding: 30px;
     text-align: center;
     background: #231255;
@@ -127,16 +139,17 @@ div#header-home img#sublogo{
    width: 180px;
 }
 
-.steembtn-large.steembtn-fixed{
-    width: 200px;
-}
-
 .steembtn-small{
    width: 90px !important;
    padding: 5px !important;
 }
 
-#faq-border{
+ul.pager li a{
+    border-radius: 5px; 
+    color: #333;
+}
+
+#page-border{
     position: relative;
     margin-top: -40px;
     z-index: 3;
@@ -144,7 +157,7 @@ div#header-home img#sublogo{
     height: 40px;
 }
 
-#faq-border-bottom{
+#page-border-bottom{
     position: relative;
     left: 0px;
     top: -701px;
@@ -153,7 +166,7 @@ div#header-home img#sublogo{
     height: 40px;
 }
 
-#faq-wrap{
+#page-wrap{
     position: relative;
     min-height: 400px;
     padding: 50px;
@@ -162,140 +175,85 @@ div#header-home img#sublogo{
     z-index: 3;
 }
 
-#faq-section{
+#page-section{
     width: 800px;
     margin: 0 auto;
 }
 
-#letsgo-wrap{
-    height: 700px;
-    width: 100%;
-    position: relative;
-    margin-top: -740px;
-    z-index: 3;
-    overflow: hidden;
-}
-#faq-cta-row{
-    margin-top: 30px;
-    text-align: center;
+#post-post{
+    margin: 20px 10px;
 }
 
-#faq-cta-row h1{
-    margin-bottom: 0px;
+#post-post .sharesies{
+    margin: 20px 0px;
+    height: 37px;
 }
 
-#letsgo{
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    margin-left: -330px;
-    z-index: 2;
-    width: 600px;
-    height: 490px;
-    padding: 30px;
-    text-align: center;
-    background: #eeeeee;
-    background: rgba(238, 238, 238, 0.93);
-    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.5); 
+#post-post .sharesies p{
+    display: block;
+    height: 29px;
+    float: left; 
+    color: #fff;
+    padding: 8px 30px 0px 30px;
+    margin-right: 1px;
 }
 
-#letsgo img#ticketsCost{
-    margin-bottom: 20px;
-}
-
-#ticketWidget{
-    margin-top: 30px;
-}
 
 ul#social-links{
     display: block;
-    margin: 40px 0px 0px 156px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
     list-style-type: none;
 }
 
 ul#social-links{
-    height: 75px;
+    height: 37px;
 }
 
-ul#social-links li{
-    width: 74px;
-}
 ul#social-links li{
     display: block;
     float: left;
     height: 100%;
     margin: 0px;
     padding: 0px;
-    margin-left: 15px;
+    margin-left: 1px;
 }
 
 ul#social-links li img{
     display: block;
 }
 
-#jet-fleet .jetguy{
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    z-index: 2;
+
+span.label{
+    text-transform: uppercase; 
+    color: #222;
 }
 
-/* medium */
-#jet-fleet .jetguy:nth-child(1){ 
-    top: 172px;
-    margin-left: -750px;
+span.label-tag{
+    padding-top: 3px;
 }
 
-/* medium */
-#jet-fleet .jetguy:nth-child(2){ 
-    top: 400px;
-    margin-left: -702px;
+span.label-tag i{
+    margin-top: -1px;
 }
 
-/* full */
-#jet-fleet .jetguy:nth-child(3){ 
-    top: 50px;
-    margin-left: -433px;
-    z-index: 2;
+span.label-tag a{
+    text-decoration: none;
+    color: #222;
 }
 
-/* small */
-#jet-fleet .jetguy:nth-child(4){ 
-    top: 490px;
-    margin-left: -150px;
+p.byline{
+    margin: 10px 10px;
 }
 
-/* full */
-#jet-fleet .jetguy:nth-child(5){ 
-    top: 200px;
-    margin-left: -60px;
+p.byline span{
+    margin: 0px 10px;
 }
 
-/* small */
-#jet-fleet .jetguy:nth-child(6){ 
-    top: 550px;
-    margin-left: 200px;
-}
-
-/* medium */
-#jet-fleet .jetguy:nth-child(7){ 
-    top: 350px;
-    margin-left: 370px;
-}
-
-.jetguy-small{
-    width: 225px; 
-    height: 297px;
-}
-
-.jetguy-medium{
-    width: 324px; 
-    height: 428px;
-}
-
-.jetguy-full{
-    width: 526px; 
-    height: 694px;
+span.datestamp{
+    text-transform: uppercase;
+    color: #aaa;
 }
 
 div#footer-home{
@@ -308,6 +266,42 @@ div#footer-home{
 div#footer-home a{
     color: #FADEB4;
 }
+
+
+/* standard colors for post types */
+.videos{
+    background-color: #FF7400 !important;
+    transition: background-color 0.2s !important;
+    -webkit-transition: background-color 0.2s !important;
+}
+.comics{
+    background-color: #FFE300 !important;
+    transition: background-color 0.2s !important;
+    -webkit-transition: background-color 0.2s !important;
+}
+.articles{
+    background-color: #BEDD22 !important;
+    transition: background-color 0.2s !important;
+    -webkit-transition: background-color 0.2s !important;
+}
+.junk{
+    background-color: #158B70 !important;
+    transition: background-color 0.2s !important;
+    -webkit-transition: background-color 0.2s !important;
+}
+.system1{
+    color: #fff;
+    background-color: #231255 !important;
+    transition: background-color 0.2s !important;
+    -webkit-transition: background-color 0.2s !important;
+}
+.system2{
+    color: #fff;
+    background-color: #004D67 !important;
+    transition: background-color 0.2s !important;
+    -webkit-transition: background-color 0.2s !important;
+}
+
 
 .gifspinner{
     width: 32px;
@@ -362,17 +356,17 @@ div#footer-home a{
 /* retina displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
     .sunburst{
-        height: 700px;
-        background: url(/assets/img/template/sunburst@2x.png) no-repeat center center fixed; 
+        height: 350px;
+        background: url(/assets/img/template/sunburst@2x.png) no-repeat bottom center fixed; 
         background-size: cover;
     }
 
-    #faq-border{
+    #blog-border{
         background: url(/assets/img/template/cloud_top@2x.png) repeat-x;
         background-size: 1280px 40px;
     }
 
-    #faq-border-bottom{
+    #blog-border-bottom{
         background: url(/assets/img/template/cloud_bottom@2x.png) repeat-x;
         background-size: 1280px 40px;
     }

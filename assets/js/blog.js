@@ -80,3 +80,7 @@ $(function() {
         }
     });
 });
+
+if(!(typeof paymentMethod === 'undefined') && paymentMethod == 'DOGE'){
+    suchDogeWow();
+}

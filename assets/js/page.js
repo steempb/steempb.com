@@ -74,19 +74,12 @@ $(document).ready(function(){
         }
     });
 
-    $('#letsgo form button[type="submit"]').click(function(eo){
+    $('#letsgo form#ticketWidget button[type="submit"]').click(function(eo){
         eo.preventDefault();
 
         var valid = true;
 
         data = {};
-        if($.trim($("#inputName").val()) == ''){
-            $("#inputName").focus();
-            valid = false;
-        }else{
-            data['name'] = $.trim($("#inputName").val());
-        }
-
         if($.trim($("#inputEmail").val()) == ''){
             $("#inputEmail").focus();
             valid = false;
@@ -94,14 +87,17 @@ $(document).ready(function(){
             data['email'] = $.trim($("#inputEmail").val());
         }
 
-        if($.trim($("#inputPostalCode").val()) == ''){
-            $("#inputPostalCode").focus();
+        if($.trim($("#inputQuantity").val()) == ''){
+            $("#inputQuantity").focus();
             valid = false;
         }else{
-            data['postalCode'] = $.trim($("#inputPostalCode").val());
+            data['quantity'] = $.trim($("#inputQuantity").val());
         }
 
         if(valid){
+            jetFleetFlyAway();
+            data['product'] = $.trim($("#inputProduct").val());
+            data['payment'] = $(this).attr('data-paymentMethod');
             data['getgoing'] = 'more_like_peanut_BETTER';
             $("#form-container").fadeOut('fast', function(){
                 if($('html').hasClass('csstransforms3d')){
@@ -113,20 +109,15 @@ $(document).ready(function(){
 
                 $.ajax({
                     type: "POST",
-                    url: '/submit',
+                    url: '/ticketCheckout.php',
                     data: data,
                     success: function(data, textStatus, jqXHR){
-                        jetFleetFlyAway();
-                        $("#form-container").fadeOut('fast', function(){
-                            $("#form-container").html(
-                                '<p class="lead">We\'ve got your information and you\'ll hear from us soon!<br />Be sure to follow us on <a href="http://twitter.com/steempb" target="_blank">Twitter</a> and read our <a href="/blog">Blog</a> for updates.</p>' +
-                                '<p class="lead">In the meantime, let your friends know about us!</p>' + shareMarkup);
-                            $("#form-container").fadeIn('fast');
-                        });
+                        console.log(data);
+                        window.location = data.url;
                     },
                     error: function(jqXHR, textStatus, errorThrown){
                         $("#form-container").fadeOut('fast', function(){
-                            $("#form-container").html('<p class="lead" style="color:#dd1010">There was an error saving your information. <br />Please try again later.</p>');
+                            $("#form-container").html('<p class="lead" style="color:#dd1010">There was an error submitting your purchase. <br />Please try again later.</p>');
                             $("#form-container").fadeIn('fast');
                         });
                     }
@@ -194,11 +185,12 @@ function jetFleetFlyIn(){
     }
 }
 
-function jetFleetFlyAway(){
+function jetFleetFlyAway(callback){
     if(!jetFleetAnimating){
         jetFleetAnimating = true;
         var iter = 0;
-        $('#jet-fleet .jetguy').each(function(){
+        var guys = $('#jet-fleet .jetguy').length;
+        $('#jet-fleet .jetguy').each(function(index, value){
             var that = $(this);
             window.setTimeout(function(){
                 var currentCSSOffset = that.css(['top', 'left']);
@@ -206,9 +198,14 @@ function jetFleetFlyAway(){
                     top: -1 * (that.height() + 100),
                     left: "+=300"
                 }, 1500, 'easeInQuart', function(){
-                    jetFleetAnimating = false;
                     that.css('visibility', 'hidden');
                     that.css(currentCSSOffset);
+                    if(index + 1 == guys){
+                        jetFleetAnimating = false;
+                        if(typeof callback === 'function'){
+                            callback();
+                        }
+                    }
                 });
             }, iter * 300);
             iter++;

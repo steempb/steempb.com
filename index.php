@@ -104,14 +104,11 @@
             <div id="letsgo">
                 <h1>Let's get going!</h1>
                 <div id="form-container">
-                    <p class="lead">Let us know how to contact you as soon as STEEM is available for purchase online or in your area.</p>
-                    <form class="form-horizontal" method="POST">
-                        <div class="control-group">
-                            <label class="control-label" for="inputName">Name</label>
-                            <div class="controls">
-                                <input class="input-xlarge" type="text" id="inputName" required placeholder="Name">
-                            </div>
-                        </div>
+                    <p class="lead">Purchase Pre-Order Tickets and join the <a href="/peanutbeta">Peanut Beta</a>!</p>
+                    <img id="ticketsCost" src="/assets/img/template/pbbbp_widget_cost.png" />
+                    <p>Tickets purchased now guarantee a jar and at least $1 off when you place your order after release. For more details, check out the <a href="/peanutbeta">Peanut Beta page</a>.</p>
+                    <form class="form-horizontal" method="POST" id="ticketWidget">
+                        <input type="hidden" id="inputProduct" value="b8cbfab8-04cd-44ed-b45d-d7dd5bb256c4" />
                         <div class="control-group">
                             <label class="control-label" for="inputEmail">Email</label>
                             <div class="controls">
@@ -119,12 +116,13 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPostalCode">Postal Code</label>
+                            <label class="control-label" for="inputQuantity">Quantity</label>
                             <div class="controls">
-                                <input class="input-xlarge" type="text" id="inputPostalCode" required placeholder="Postal Code">
+                                <input class="input-xlarge" type="text" id="inputQuantity" required placeholder="Quantity">
                             </div>
                         </div>
-                        <button type="submit" class="btn steembtn steembtn-large"><strong>Submit</strong></button>
+                        <button type="submit" data-paymentMethod="DOGE" class="btn steembtn steembtn-large steembtn-fixed"><strong>Checkout with Ðogecoin</strong></button>
+                        <button type="submit" data-paymentMethod="PAYPAL" class="btn steembtn steembtn-large steembtn-fixed"><strong>Checkout with PayPal</strong></button>
                     </form>
                 </div>
             </div>

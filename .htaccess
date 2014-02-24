@@ -6,6 +6,8 @@ RewriteRule ^license/?$ license.htm [NC]
 
 RewriteRule ^submit/?$ submit.php [NC,QSA]
 
+RewriteRule ^peanutbeta/?$ peanutbeta.php [NC,QSA]
+
 
 # Blogstuff (everything starts with /blog so omfg precedence)
 

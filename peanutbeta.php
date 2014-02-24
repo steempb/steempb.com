@@ -35,12 +35,11 @@
                                        <link rel="shortcut icon" href="/assets/ico/favicon.ico">
     </head>
 
-    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <body>
         
         <div id="header-home">
             <div class="container">
-                <a href="http://steempb.com"><img id="logo" src="/assets/img/template/logo_big.png" /></a>
-                <img id="sublogo" src="/assets/img/template/caffeinated_sublogo.png" />
+                <a href="http://steempb.com/peanutbeta"><img id="logo" src="/assets/img/template/logo_beta_big.png" /></a>
             </div>
         </div>
 
@@ -60,28 +59,39 @@
             </div>
         </div>
 
-        <div class="sunburst"></div>
-        <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
-        <div id="cta-main">
-            <img src="/assets/img/template/getgoing.png" />
-            <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Pre-order it now <i class="icon-play"></i></a>
+        <div class="sunburst half"></div>
+        <div id="cta-beta">
+            <img src="/assets/img/template/pbbbp_pile.png" />
+            <img src="/assets/img/template/equalsign.png" />
+            <img src="/assets/img/template/jar.png" />
+            <img src="/assets/img/template/minussign.png" />
+            <span class="flipper">
+                <img src="/assets/img/flip-numbers/usd.png" />
+                <img src="/assets/img/flip-numbers/1.png" />
+                <img src="/assets/img/flip-numbers/dot.png" />
+                <img src="/assets/img/flip-numbers/0.png" />
+                <img src="/assets/img/flip-numbers/0.png" />
+            </span>
         </div>
 
         <div id="faq-border"></div>
         <div id="faq-wrap">
             <div id="faq-section">
                 <div class="row">
-                    <h1>What is STEEM?</h1>
-                    <p>STEEM is caffeinated peanut butter. What else do we need to say? STEEM is designed to provide a consistent release of sustained energy, and the naturally slow digestion of peanut butter is the key to that. STEEM delivers protein, electrolytes, and caffeine, granting you hours of endurance and focus, and freeing you from distractions like hunger and fatigue.</p>
-                    <h1>What's in this stuff?</h1>
-                    <p>We only use natural and organic ingredients in STEEM, with NO hydrogenated oils and NO high-fructose corn syrup. Enjoy it however you would normally enjoy peanut butter: spread it on crackers, toast or fruit; re-acquaint yourself with the simple perfection of the peanut butter and jelly sandwich; or just jam a knife or a spoon or a finger into the jar and eat it like you do when no one’s looking. Yes you do. Yes, you <em>do</em>.</p>
-                    <h1>Who is STEEM for?</h1>
-                    <p>STEEM’s steady release of energy (without the jittery feeling) makes it perfect not only for athletes and active people, but also for normal life. How about never having to choose awful breakroom coffee because you don’t want to spend more on caffeine than you spend on your lunch? How about having enough energy to finish that backyard project in one day instead of putting it off for another weekend? How about when an all-night study session has suddenly become the morning of the test? How about never having to bring that damn percolator on camping trips just so you can avoid the crippling caffeine headache you’ll have by noon? How about not worrying about nodding off in meetings, or in class, or at the wheel? How about just having the energy to get going when you need it?</p>
-                    <h1>One last thing…</h1>
-                    <p><strong>DO NOT GIVE TO ANIMALS. EVER.</strong> A fun fact about caffeine is that a lot of domestic animals, like dogs and cats and birds, cannot digest caffeine properly and it can lead to SERIOUS health issues. So we know that your dog loves peanut butter and we know you think it’d be hilarious to get him all jacked up and crazy, BUT DON’T. SERIOUSLY. IT WOULD NOT BE HILARIOUS. STEEM = PEOPLE FOOD.</p>
+                    <div class="span4">
+                        <img src="/assets/img/template/beta_welcome.png" />
+                    </div>
+                    <div class="span4">
+                        <p class="lead">
+                            Some kind of general description goes here about the Tickets and the value and the goal tiers. 
+                        </p>
+                    </div>
                 </div>
+                <p>
+                    A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. 
+                </p>
                 <div class="row" id="faq-cta-row">
-                        <h1>It's time to get going!</h1><a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get it now <i class="icon-play"></i></a>
+                        <h1>It's time to get going!</h1><a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get Tickets now <i class="icon-play"></i></a>
                 </div>
             </div>
         </div>
@@ -104,9 +114,8 @@
             <div id="letsgo">
                 <h1>Let's get going!</h1>
                 <div id="form-container">
-                    <p class="lead">Purchase Pre-Order Tickets and join the <a href="/peanutbeta">Peanut Beta</a>!</p>
+                    <p class="lead">Purchase Pre-Order Tickets and join the <strong>Peanut Beta</strong>!</p>
                     <img id="ticketsCost" src="/assets/img/template/pbbbp_widget_cost.png" />
-                    <p>Tickets purchased now guarantee a jar and at least $1 off when you place your order after release. For more details, check out the <a href="/peanutbeta">Peanut Beta page</a>.</p>
                     <form class="form-horizontal" method="POST" id="ticketWidget">
                         <input type="hidden" id="inputProduct" value="b8cbfab8-04cd-44ed-b45d-d7dd5bb256c4" />
                         <div class="control-group">

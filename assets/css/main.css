@@ -91,6 +91,10 @@ div#header-home img#sublogo{
     z-index: 1;
 }
 
+.sunburst.half{
+    height: 310px;
+}
+
 #jetguy-main{
     position: absolute;
     top: 250px;
@@ -114,6 +118,26 @@ div#header-home img#sublogo{
     background: #231255;
     background: rgba(23, 12, 55, 0.9);
     box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.7); 
+}
+
+#cta-beta{
+    position: absolute;
+    top: 215px;
+    left: 50%;
+    margin-left: -400px;
+    z-index: 2;
+    width: 800px;
+    height: 150px;
+    padding: 30px 0px;
+    text-align: center;
+}
+
+#cta-beta img{
+    margin-right: 30px;
+}
+
+#cta-beta span.flipper img{
+    margin-right: -3px;
 }
 
 .steembtn{
@@ -365,6 +389,10 @@ div#footer-home a{
         height: 700px;
         background: url(/assets/img/template/sunburst@2x.png) no-repeat center center fixed; 
         background-size: cover;
+    }
+
+    .sunburst.half{
+        height: 310px;
     }
 
     #faq-border{

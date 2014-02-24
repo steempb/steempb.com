@@ -90,6 +90,27 @@
                 <p>
                     A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. A more detailed paragraph of words about stuff can go here and things. 
                 </p>
+                <div class="row">
+                    <div class="span4 centered">
+                        <h3>Current Ticket Value</h3>
+                        <span class="flipper">
+                            <img src="/assets/img/flip-numbers/usd.png" />
+                            <img src="/assets/img/flip-numbers/1.png" />
+                            <img src="/assets/img/flip-numbers/dot.png" />
+                            <img src="/assets/img/flip-numbers/0.png" />
+                            <img src="/assets/img/flip-numbers/0.png" />
+                        </span>
+                    </div>
+                    <div class="span4 centered">
+                        <h3>Tickets to Next $0.25</h3>
+                        <span class="flipper">
+                            <img src="/assets/img/flip-numbers/0.png" />
+                            <img src="/assets/img/flip-numbers/1.png" />
+                            <img src="/assets/img/flip-numbers/3.png" />
+                            <img src="/assets/img/flip-numbers/6.png" />
+                        </span>
+                    </div>
+                </div>
                 <div class="row" id="faq-cta-row">
                         <h1>It's time to get going!</h1><a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get Tickets now <i class="icon-play"></i></a>
                 </div>

@@ -391,6 +391,9 @@ div#footer-home a{
     .navbar-fixed-top .navbar-inner{
         padding: 0px;
     }
+    .span4{
+        width: 370px;
+    }
 }
 
 /* sunburst width fixer */

@@ -1,3 +1,60 @@
+<?php
+
+
+    function flipperize($str){
+        $result = '
+        <span class="flipper">';
+        foreach(str_split($str) as $char){
+            if($char == '$'){
+                $char = 'usd';
+            }else if($char == '.'){
+                $char = 'dot';
+            }
+            $result .= '
+            <img src="/assets/img/flip-numbers/' . $char . '.png" />';
+        }
+        $result .= '
+        </span>';
+
+        return $result;
+    }
+
+
+    require('JACKED/jacked_conf.php');
+    $JACKED = new JACKED(array('Syrup'));
+
+    $tickets = $JACKED->Syrup->Ticket->find(array('Promotion' => '2d0727ce-bbe6-41fe-aef0-729fd768d984'));
+    $currentPreorders = count($tickets);
+
+    switch(True){
+        case $currentPreorders >= 2000:
+            $ticketsLeft = 2500 - $currentPreorders;
+            $value = '$2.00';
+            break;
+
+        case 2000 > $currentPreorders && $currentPreorders >= 1500:
+            $ticketsLeft = 2000 - $currentPreorders;
+            $value = '$1.75';
+            break;
+
+        case 1500 > $currentPreorders && $currentPreorders >= 1000:
+            $ticketsLeft = 1500 - $currentPreorders;
+            $value = '$1.50';
+            break;
+
+        case 1000 > $currentPreorders && $currentPreorders >= 500:
+            $ticketsLeft = 1000 - $currentPreorders;
+            $value = '$1.25';
+            break;
+
+        default:
+            $ticketsLeft = 500 - $currentPreorders;
+            $value = '$1.00';
+            break;
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
@@ -65,13 +122,8 @@
             <img src="/assets/img/template/equalsign.png" />
             <img src="/assets/img/template/jar.png" />
             <img src="/assets/img/template/minussign.png" />
-            <span class="flipper">
-                <img src="/assets/img/flip-numbers/usd.png" />
-                <img src="/assets/img/flip-numbers/1.png" />
-                <img src="/assets/img/flip-numbers/dot.png" />
-                <img src="/assets/img/flip-numbers/0.png" />
-                <img src="/assets/img/flip-numbers/0.png" />
-            </span><br />
+            <?php echo flipperize($value); ?>
+            <br />
             <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get Tickets now <i class="icon-play"></i></a>
         </div>
 
@@ -94,22 +146,11 @@
                 <div class="row">
                     <div class="span4 centered">
                         <h3>Current Ticket Value</h3>
-                        <span class="flipper">
-                            <img src="/assets/img/flip-numbers/usd.png" />
-                            <img src="/assets/img/flip-numbers/1.png" />
-                            <img src="/assets/img/flip-numbers/dot.png" />
-                            <img src="/assets/img/flip-numbers/0.png" />
-                            <img src="/assets/img/flip-numbers/0.png" />
-                        </span>
+                        <?php echo flipperize($value); ?>
                     </div>
                     <div class="span4 centered">
                         <h3>Tickets to Next $0.25</h3>
-                        <span class="flipper">
-                            <img src="/assets/img/flip-numbers/0.png" />
-                            <img src="/assets/img/flip-numbers/1.png" />
-                            <img src="/assets/img/flip-numbers/3.png" />
-                            <img src="/assets/img/flip-numbers/6.png" />
-                        </span>
+                        <?php echo flipperize(str_pad($ticketsLeft, 4, '0', STR_PAD_LEFT)); ?>
                     </div>
                 </div>
                 <div class="row" id="faq-cta-row">

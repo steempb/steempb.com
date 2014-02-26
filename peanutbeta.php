@@ -59,16 +59,16 @@
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
-        <title>STEEM Caffeinated Peanut Butter</title>
+        <title>STEEM Caffeinated Peanut Beta</title>
         <meta name="viewport" content="width=900, height=device-height">
         <meta name="description" content="">
         <meta name="author" content="">
 
         <meta property="og:site_name" content="STEEM Caffeinated Peanut Butter" />
-        <meta property="og:title" content="STEEM Caffeinated Peanut Butter" />
-        <meta property="og:url" content="http://steempb.com" />
-        <meta property="og:description" content="STEEM is caffeinated peanut butter. What else do we need to say?" />
-        <meta property="og:image" content="http://steempb.com/assets/img/facebook_og.png" />
+        <meta property="og:title" content="STEEM Peanut Beta" />
+        <meta property="og:url" content="http://steempb.com/peanutbeta" />
+        <meta property="og:description" content="Pre-order STEEM Caffeinated Peanut butter and join the Peanut Beta today! More pre-orders, bigger discount." />
+        <meta property="og:image" content="http://steempb.com/assets/img/facebook_og_pbbbp.png" />
 
 
         <!-- Le styles -->

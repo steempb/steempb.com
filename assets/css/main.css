@@ -114,12 +114,12 @@ div#header-home img#sublogo{
 #cta-main{
     color: #eee;
     position: absolute;
-    top: 370px;
+    top: 390px;
     left: 50%;
     margin-left: 70px;
     z-index: 2;
     width: 230px;
-    height: 150px;
+    height: 130px;
     padding: 30px;
     padding-top: 0px;
     text-align: center;

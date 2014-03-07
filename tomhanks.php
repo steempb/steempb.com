@@ -144,7 +144,7 @@
                     <div class="span4">
                         <ul id="social-links">
                             <li>
-                                <a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com/peanutbeta&text=I can%27t wait for @steempb! %23GetGoing" target="_blank">
+                                <a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com/peanutbeta&text=I just pre-ordered @steempb! Join the Peanut Beta with me! %23GetGoing %23PeanutBeta" target="_blank">
                                     <img src="/assets/img/template/twitter_large.png" title="Share on Twitter" />
                                 </a>
                             </li>

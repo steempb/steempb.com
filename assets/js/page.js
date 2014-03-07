@@ -112,7 +112,6 @@ $(document).ready(function(){
                     url: '/ticketCheckout.php',
                     data: data,
                     success: function(data, textStatus, jqXHR){
-                        console.log(data);
                         window.location.href = data.url;
                     },
                     error: function(jqXHR, textStatus, errorThrown){

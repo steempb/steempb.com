@@ -67,7 +67,7 @@
         <meta property="og:site_name" content="STEEM Caffeinated Peanut Butter" />
         <meta property="og:title" content="STEEM Peanut Beta" />
         <meta property="og:url" content="http://steempb.com/peanutbeta" />
-        <meta property="og:description" content="Pre-order STEEM Caffeinated Peanut butter and join the Peanut Beta for two weeks only!" />
+        <meta property="og:description" content="Pre-order STEEM Caffeinated Peanut butter and join the Peanut Beta!" />
         <meta property="og:image" content="http://steempb.com/assets/img/facebook_og_pbbbp.png" />
 
 

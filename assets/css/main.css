@@ -112,18 +112,26 @@ div#header-home img#sublogo{
 }
 
 #cta-main{
+    color: #eee;
     position: absolute;
-    top: 300px;
+    top: 370px;
     left: 50%;
     margin-left: 70px;
     z-index: 2;
     width: 230px;
-    height: 110px;
+    height: 150px;
     padding: 30px;
+    padding-top: 0px;
     text-align: center;
     background: #231255;
     background: rgba(23, 12, 55, 0.9);
     box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.7); 
+}
+
+#cta-main img#beta-title{
+    max-width: 293px;
+    margin-top: -72px;
+    margin-left: -30px;
 }
 
 #cta-beta{

@@ -63,7 +63,11 @@
         <div class="sunburst"></div>
         <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
         <div id="cta-main">
-            <img src="/assets/img/template/getgoing.png" />
+            <img id="beta-title" src="/assets/img/template/beta_flat.png" />
+            <p class="lead">
+                For two weeks <em>only</em> ! <br />
+                March 7th - March 21st!
+            </p>
             <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Pre-order it now <i class="icon-play"></i></a>
         </div>
 

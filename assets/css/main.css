@@ -146,6 +146,10 @@ div#header-home img#sublogo{
     margin-right: 30px;
 }
 
+#cta-beta img#jar{
+    margin-left: -39px;
+}
+
 #cta-beta span.flipper img{
     margin-right: -3px;
 }

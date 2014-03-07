@@ -120,7 +120,7 @@
         <div id="cta-beta">
             <img src="/assets/img/template/pbbbp_pile.png" />
             <img src="/assets/img/template/equalsign.png" />
-            <img src="/assets/img/template/jar.png" />
+            <img id="jar" src="/assets/img/template/jar.png" />
             <img src="/assets/img/template/minussign.png" />
             <?php echo flipperize($value); ?>
             <br />

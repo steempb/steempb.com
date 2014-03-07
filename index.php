@@ -66,7 +66,8 @@
             <img id="beta-title" src="/assets/img/template/beta_flat.png" />
             <p class="lead">
                 For two weeks <em>only</em> ! <br />
-                March 7th - March 21st!
+                March 7th - March 21st! <br />
+                <a href="/peanutbeta">Find out more</a>
                 <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Pre-order it now <i class="icon-play"></i></a>
             </p>
         </div>

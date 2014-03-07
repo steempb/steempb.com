@@ -74,6 +74,13 @@ $(document).ready(function(){
         }
     });
 
+    $('#letsgo form#ticketWidget input').keydown(function(eo){
+        if(eo.keyCode == 13){
+            eo.preventDefault();
+            return false;
+        }
+    });
+
     $('#letsgo form#ticketWidget button[type="submit"]').click(function(eo){
         eo.preventDefault();
 

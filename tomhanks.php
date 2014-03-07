@@ -47,10 +47,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <meta property="og:site_name" content="STEEM Caffeinated Peanut Butter" />
+        <meta property="og:site_name" content="STEEM Caffeinated Peanut Beta" />
         <meta property="og:title" content="STEEM Caffeinated Peanut Butter" />
-        <meta property="og:url" content="http://steempb.com" />
-        <meta property="og:description" content="STEEM is caffeinated peanut butter. What else do we need to say?" />
+        <meta property="og:url" content="http://steempb.com/peanutbeta" />
+        <meta property="og:description" content="Pre-order STEEM Caffeinated Peanut butter and join the Peanut Beta today!" />
         <meta property="og:image" content="http://steempb.com/assets/img/facebook_og.png" />
 
 
@@ -73,6 +73,18 @@
           <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
                         <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
                                        <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+        <style type="text/css">
+
+            ul#social-links{
+                margin-top: 50px;
+            }
+
+            ul#social-links li{
+                margin-left: 8px;
+            }
+
+        </style>
 
         <script type="text/javascript">
             <?php 
@@ -123,7 +135,35 @@
                     <div class="span4">
                         <h1><?php echo $header; ?></h1>
                         <p class="lead">
-                            <?php echo $message; ?></h1>
+                            <?php echo $message; ?>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="span4">
+                        <ul id="social-links">
+                            <li>
+                                <a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com/peanutbeta&text=I can%27t wait for @steempb! %23GetGoing" target="_blank">
+                                    <img src="/assets/img/template/twitter_large.png" title="Share on Twitter" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://plus.google.com/share?url=http://steempb.com/peanutbeta" target="_blank">
+                                    <img src="/assets/img/template/gplus_large.png" title="Share on Google+" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.facebook.com/sharer.php?u=http://steempb.com/peanutbeta" target="_blank">
+                                    <img src="/assets/img/template/facebook_large.png" title="Share on Facebook" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="span4">
+                        <h1>Tell Your Friends</h1>
+                        <p class="lead">
+                            Remember, the more tickets we sell, the more they're worth when you're buying your first jar. Or second. Or third.
                         </p>
                     </div>
                 </div>
@@ -132,7 +172,7 @@
                 ?>
                         <h1><?php echo $header; ?></h1>
                         <p class="lead">
-                            <?php echo $message; ?></h1>
+                            <?php echo $message; ?>
                         </p>
                 <?php
                     }

@@ -143,13 +143,13 @@
                 <br />
                 <p><strong>COLOSSAL NEWS:</strong> STEEM Caffeinated Peanut Butter will be finally be available for purchase on March 21st, 2014! But why not use the smarts that brought you here in the first place to make sure you're among the first to get your hands on a jar? Then be a part of the STEEM Peanut Beta!</p>
 
-                <p>We want to know how many of you are ready to experience STEEM and change the way you get going each day, so from March 7th to launch day, March 21st, come by the site for a great deal. For the low low cost of ONE DOLLAR, you can buy a golden ticket that will be sent to you via e-mail*. Enter the code from your ticket when you're buying your first jar of STEEM Caffeinated Peanut Butter, the ONE DOLLAR you spent will be worth...ONE DOLLAR! That's...a little underwhelming, but</p>
+                <p>We want to know how many of you are ready to experience STEEM and change the way you get going each day, so from March 7th to launch day, March 21st, come by the site for a great deal. For the low low cost of ONE DOLLAR, you can buy a <strike>golden</strike> ticket that will be sent to you via e-mail*. Enter the code from your ticket when you're buying your first jar of STEEM Caffeinated Peanut Butter, the ONE DOLLAR you spent will be worth…ONE DOLLAR OFF PER JAR! That's...a little underwhelming, but</p>
 
                 <p><em>BUT WAIT</em></p>
 
                 <p>(here's the good part)</p>
 
-                <p>Notice our little counter down there? Once we've sold 500 of these tickets, every ticket will be worth ONE DOLLAR TWENTY-FIVE CENTS ($1.25). So you paid a buck, but because you know a ton of people and they all wanted to buy tickets to be cool like you, now your buck is worth MORE than a buck. The next goal after that is 1,000 tickets sold. Want to find out what your buck will be worth if we get there? Or even past that? Help us reach our goal and you'll find out!</p>
+                <p>Notice our little counter down there? Once we’ve sold 500 of these tickets, every ticket will be worth ONE DOLLAR TWENTY-FIVE CENTS ($1.25) OFF PER JAR. So you paid a buck, but because you know a ton of people and they all wanted to buy tickets to be cool like you, now your buck is worth MORE than a buck. The next goal after that is 1,000 tickets sold. Want to find out what your buck will be worth if we get there? Or even past that? Help us reach our goal and you'll find out!</p>
 
                 <p>Tell your friends. Tell your parents. Tell your friends' parents. Make your Friends list beg for mercy. Tell everyone. Because these tickets will ONLY be available during the STEEM Peanut Beta, and the more we sell, the more they're worth when you're buying your first jar. Or second. Or third.</p>
 

@@ -113,7 +113,7 @@ $(document).ready(function(){
                     data: data,
                     success: function(data, textStatus, jqXHR){
                         console.log(data);
-                        window.location = data.url;
+                        window.location.href = data.url;
                     },
                     error: function(jqXHR, textStatus, errorThrown){
                         $("#form-container").fadeOut('fast', function(){

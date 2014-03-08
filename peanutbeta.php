@@ -141,7 +141,7 @@
                     </div>
                 </div>
                 <br />
-                <p><strong>COLOSSAL NEWS:</strong> STEEM Caffeinated Peanut Butter will be finally be available for purchase on March 21st, 2014! But why not use the smarts that brought you here in the first place to make sure you're among the first to get your hands on a jar? Then be a part of the STEEM Peanut Beta!</p>
+                <p><strong>COLOSSAL NEWS:</strong> STEEM Caffeinated Peanut Butter will finally be available for purchase on March 21st, 2014! But why not use the smarts that brought you here in the first place to make sure you're among the first to get your hands on a jar? Then be a part of the STEEM Peanut Beta!</p>
 
                 <p>We want to know how many of you are ready to experience STEEM and change the way you get going each day, so from March 7th to launch day, March 21st, come by the site for a great deal. For the low low cost of ONE DOLLAR, you can buy a <strike>golden</strike> ticket that will be sent to you via e-mail*. Enter the code from your ticket when you're buying your first jar of STEEM Caffeinated Peanut Butter, the ONE DOLLAR you spent will be worth…ONE DOLLAR OFF PER JAR! That's...a little underwhelming, but</p>
 

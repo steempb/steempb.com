@@ -74,6 +74,13 @@ $(document).ready(function(){
         }
     });
 
+    $('#letsgo form#ticketWidget input').keydown(function(eo){
+        if(eo.keyCode == 13){
+            eo.preventDefault();
+            return false;
+        }
+    });
+
     $('#letsgo form#ticketWidget button[type="submit"]').click(function(eo){
         eo.preventDefault();
 
@@ -112,8 +119,7 @@ $(document).ready(function(){
                     url: '/ticketCheckout.php',
                     data: data,
                     success: function(data, textStatus, jqXHR){
-                        console.log(data);
-                        window.location = data.url;
+                        window.location.href = data.url;
                     },
                     error: function(jqXHR, textStatus, errorThrown){
                         $("#form-container").fadeOut('fast', function(){

@@ -153,6 +153,8 @@
 
                 <p>Tell your friends. Tell your parents. Tell your friends' parents. Make your Friends list beg for mercy. Tell everyone. Because these tickets will ONLY be available during the STEEM Peanut Beta, and the more we sell, the more they're worth when you're buying your first jar. Or second. Or third.</p>
 
+                <p>Want to know more? <a href="http://steempb.com/blog/post/ea553">Check out our Beta FAQs</a></p>
+
                 <p><small>*unless you are harry potter in which case it will most likely be delivered by owl</small></p>
                 <div class="row">
                     <div class="span4 centered">

@@ -47,10 +47,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <meta property="og:site_name" content="STEEM Caffeinated Peanut Beta" />
+        <meta property="og:site_name" content="STEEM Caffeinated Peanut Butter" />
         <meta property="og:title" content="STEEM Caffeinated Peanut Butter" />
-        <meta property="og:url" content="http://steempb.com/peanutbeta" />
-        <meta property="og:description" content="Pre-order STEEM Caffeinated Peanut butter and join the Peanut Beta today!" />
+        <meta property="og:url" content="http://steempb.com" />
+        <meta property="og:description" content="STEEM is Caffeinated Peanut Butter. What else do we need to say?" />
         <meta property="og:image" content="http://steempb.com/assets/img/facebook_og.png" />
 
 
@@ -144,17 +144,17 @@
                     <div class="span4">
                         <ul id="social-links">
                             <li>
-                                <a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com/peanutbeta&text=I just pre-ordered @steempb! Join the Peanut Beta with me! %23GetGoing %23PeanutBeta" target="_blank">
+                                <a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com&text=I just ordered some @steempb Caffeinated Peanut Butter! It's time to %23GetGoing!" target="_blank">
                                     <img src="/assets/img/template/twitter_large.png" title="Share on Twitter" />
                                 </a>
                             </li>
                             <li>
-                                <a href="http://plus.google.com/share?url=http://steempb.com/peanutbeta" target="_blank">
+                                <a href="http://plus.google.com/share?url=http://steempb.com" target="_blank">
                                     <img src="/assets/img/template/gplus_large.png" title="Share on Google+" />
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.facebook.com/sharer.php?u=http://steempb.com/peanutbeta" target="_blank">
+                                <a href="http://www.facebook.com/sharer.php?u=http://steempb.com" target="_blank">
                                     <img src="/assets/img/template/facebook_large.png" title="Share on Facebook" />
                                 </a>
                             </li>
@@ -163,7 +163,7 @@
                     <div class="span4">
                         <h1>Tell Your Friends</h1>
                         <p class="lead">
-                            Remember, the more tickets we sell, the more they're worth when you're buying your first jar. Or second. Or third.
+                            Let everyone know that the best thing they never knew they wanted is finally here, and it's time to get going! 
                         </p>
                     </div>
                 </div>

@@ -202,7 +202,7 @@ $(document).ready(function(){
 });
 
 function updateShippingCost(shippingData){
-    shippingData['weight'] = submissionData['quantity']; // weight calc!
+    shippingData['weight'] = submissionData['quantity'] * .5; // weight calc!
     $('#shippingTotal').html('<div class="gifspinner-small"><img src="/assets/img/template/spinner.gif" /></div>');
     $.ajax({
         type: "POST",
@@ -210,7 +210,24 @@ function updateShippingCost(shippingData){
         data: shippingData,
         success: function(data, textStatus, jqXHR){
             if(data.valid == 'true'){
-                $('#shippingTotal').html('$' + data.cost);
+                $('#shippingTotal').html('$' + data.cost + ' <i id="shippingCostPopover" class="icon-question-sign"></i>');
+
+                $('#shippingCostPopover').popover({
+                    'animation': true,
+                    'placement': 'top',
+                    'trigger': 'manual',
+                    'title': 'Why is shipping so expensive?',
+                    'html': true,
+                    'content': '<p style="font-size:12px; color:#333;">Sorry about that, folks. As we build volume, those prices should go down. <br />BUT, if we may offer a solution:<br />Orders of anywhere from 1 to 4 jars should be the same shipping price <strong>as long as they\'re all being shipped to the same address</strong>, so combining your order with your friends to split it is one way to reduce the cost to each of you.</p>'
+                });
+                $('#shippingCostPopover').hover(function(){
+                    $('#shippingCostPopover').popover('show');
+                }, function(){
+                    $('#shippingCostPopover').popover('hide');
+                });
+                $('#shippingCostPopover').click(function(){
+                    $('#shippingCostPopover').popover('toggle');
+                });
                 shippingUpdated = true;
                 submissionData['shipping'] = data.cost;
                 $(".modal-footer .btn-primary").removeAttr('disabled');

@@ -16,6 +16,8 @@
             }else{
                 $shippingMethod = 'GROUND_HOME_DELIVERY';
             }
+        }elseif($_POST['country'] == 'CA'){
+            $shippingMethod = 'INTERNATIONAL_GROUND';
         }else{
             $shippingMethod = 'INTERNATIONAL_ECONOMY';
         }
@@ -105,6 +107,12 @@
             'Weight' => array(
                 'Value' => $_POST['weight'],
                 'Units' => 'LB'
+            ),
+            'Dimensions' => array(
+                'Length' => 8,
+                'Width' => 6,
+                'Height' => 4,
+                'Units' => 'IN'
             )
         );
 

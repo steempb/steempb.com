@@ -63,12 +63,11 @@
         <div class="sunburst"></div>
         <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
         <div id="cta-main">
-            <img id="beta-title" src="/assets/img/template/beta_flat.png" />
+            <img id="beta-title" src="/assets/img/template/available_now_flat.png" />
+            <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
             <p class="lead">
-                For two weeks <em>only</em> ! <br />
-                March 7th - March 21st! <br />
-                <a href="/peanutbeta">Find out more</a>
-                <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Pre-order it now <i class="icon-play"></i></a>
+            <!--     <a href="#faq-border">Find out more</a> -->
+                <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get it now <i class="icon-play"></i></a>
             </p>
         </div>
 
@@ -109,11 +108,10 @@
             <div id="letsgo">
                 <h1>Let's get going!</h1>
                 <div id="form-container">
-                    <p class="lead">Purchase Pre-Order Tickets and join the <a href="/peanutbeta">Peanut Beta</a>!</p>
-                    <img id="ticketsCost" src="/assets/img/template/pbbbp_widget_cost.png" />
-                    <p>Tickets purchased now guarantee a jar and at least $1 off when you place your order after release. For more details, check out the <a href="/peanutbeta">Peanut Beta page</a>.</p>
-                    <form class="form-horizontal" method="POST" id="ticketWidget">
-                        <input type="hidden" id="inputProduct" value="b8cbfab8-04cd-44ed-b45d-d7dd5bb256c4" />
+                    
+                    <img id="jarsCost" src="/assets/img/template/jar_widget_cost.png" />
+                    <form class="form-horizontal" method="POST" id="jarWidget">
+                        <input type="hidden" id="inputProduct" value="6c403910-6ce3-4d72-9509-9ff8302c975c" />
                         <div class="control-group">
                             <label class="control-label" for="inputEmail">Email</label>
                             <div class="controls">
@@ -124,6 +122,12 @@
                             <label class="control-label" for="inputQuantity">Quantity</label>
                             <div class="controls">
                                 <input class="input-xlarge" type="text" id="inputQuantity" required placeholder="Quantity">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputTickets">Tickets<br /><small>Optional</small></label>
+                            <div class="controls">
+                                <textarea class="input-xlarge" rows="3" id="inputTickets"></textarea>
                             </div>
                         </div>
                         <button type="submit" data-paymentMethod="DOGE" class="btn steembtn steembtn-large steembtn-fixed"><strong>Checkout with Ðogecoin</strong></button>

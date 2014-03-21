@@ -32,6 +32,9 @@ var jetGuyMainAnimating = false;
 var jetFleetPresent = false;
 var jetFleetAnimating = false;
 
+var shippingUpdated = false;
+var submissionData;
+
 $(document).ready(function(){
     $('#jet-fleet .jetguy').each(function(){
         $(this).css({'visibility': 'hidden'});
@@ -74,14 +77,14 @@ $(document).ready(function(){
         }
     });
 
-    $('#letsgo form#ticketWidget input').keydown(function(eo){
+    $('#letsgo form#jarWidget input').keydown(function(eo){
         if(eo.keyCode == 13){
             eo.preventDefault();
             return false;
         }
     });
 
-    $('#letsgo form#ticketWidget button[type="submit"]').click(function(eo){
+    $('#letsgo form#jarWidget button[type="submit"]').click(function(eo){
         eo.preventDefault();
 
         var valid = true;
@@ -101,37 +104,155 @@ $(document).ready(function(){
             data['quantity'] = $.trim($("#inputQuantity").val());
         }
 
-        if(valid){
-            jetFleetFlyAway();
-            data['product'] = $.trim($("#inputProduct").val());
-            data['payment'] = $(this).attr('data-paymentMethod');
-            data['getgoing'] = 'more_like_peanut_BETTER';
-            $("#form-container").fadeOut('fast', function(){
-                if($('html').hasClass('csstransforms3d')){
-                    $("#form-container").html('<div class="spinner"></div>');
-                }else{
-                    $("#form-container").html('<div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>');
-                }
-                $("#form-container").fadeIn('fast');
+        data['tickets'] = $.trim($("#inputTickets").val());
 
-                $.ajax({
-                    type: "POST",
-                    url: '/ticketCheckout.php',
-                    data: data,
-                    success: function(data, textStatus, jqXHR){
-                        window.location.href = data.url;
-                    },
-                    error: function(jqXHR, textStatus, errorThrown){
-                        $("#form-container").fadeOut('fast', function(){
-                            $("#form-container").html('<p class="lead" style="color:#dd1010">There was an error submitting your purchase. <br />Please try again later.</p>');
-                            $("#form-container").fadeIn('fast');
-                        });
-                    }
-                });
+        if(valid){
+            data['payment'] = $(this).attr('data-paymentMethod');
+            submissionData = data;
+            $('#shippingModal').modal({
+                backdrop: true,
+                keyboard: false
             });
         }
     });
+
+    $('form#shippingDetails input,select').change(function(eo){
+        $(".modal-footer .btn-primary").attr('disabled', 'disabled');
+        $('#shippingTotal').html('');
+        shippingUpdated = false;
+    });
+
+    $('.modal-footer .btn-cancel').click(function(eo){
+        $('#shippingModal').modal('hide');
+        submissionData = {};
+    });
+
+    $('#shippingCalc').click(function(eo){
+        eo.preventDefault();
+
+        valid = true;
+
+        data = {};
+        if($.trim($("#inputName").val()) == ''){
+            $("#inputName").focus();
+            valid = false;
+        }else{
+            data['recipient_name'] = $.trim($("#inputName").val());
+        }
+
+        if($.trim($("#inputStreetLine1").val()) == ''){
+            $("#inputStreetLine1").focus();
+            valid = false;
+        }else{
+            data['line1'] = $.trim($("#inputStreetLine1").val());
+        }
+
+        data['line2'] = $.trim($("#inputStreetLine2").val());
+
+        if($.trim($("#inputCity").val()) == ''){
+            $("#inputCity").focus();
+            valid = false;
+        }else{
+            data['city'] = $.trim($("#inputCity").val());
+        }
+
+        if($.trim($("#inputPostalCode").val()) == ''){
+            $("#inputPostalCode").focus();
+            valid = false;
+        }else{
+            data['postal_code'] = $.trim($("#inputPostalCode").val());
+        }
+
+        if($.trim($("#inputState").val()) == ''){
+            $("#inputState").focus();
+            valid = false;
+        }else{
+            data['state'] = $.trim($("#inputState").val());
+        }
+
+        if($.trim($("#inputPhone").val()) == ''){
+            $("#inputPhone").focus();
+            valid = false;
+        }else{
+            data['phone'] = $.trim($("#inputPhone").val());
+        }
+
+        if($.trim($("#inputCountry").val()) == ''){
+            $("#inputCountry").focus();
+            valid = false;
+        }else{
+            data['country'] = $.trim($("#inputCountry").val());
+        }
+
+        if(valid){
+            submissionData = $.extend({}, submissionData, data);
+            updateShippingCost(data);
+        }
+    });
+
+    $('.modal-footer .btn-primary').click(function(eo){
+        if(shippingUpdated){
+            $('#shippingModal').modal('hide');
+            completeFormSubmission();
+        }else{
+            $('#shippingCalc').focus();
+        }
+    });
+
 });
+
+function updateShippingCost(shippingData){
+    shippingData['weight'] = submissionData['quantity']; // weight calc!
+    $('#shippingTotal').html('<div class="gifspinner-small"><img src="/assets/img/template/spinner.gif" /></div>');
+    $.ajax({
+        type: "POST",
+        url: '/shipping.php',
+        data: shippingData,
+        success: function(data, textStatus, jqXHR){
+            if(data.valid == 'true'){
+                $('#shippingTotal').html('$' + data.cost);
+                shippingUpdated = true;
+                submissionData['shipping'] = data.cost;
+                $(".modal-footer .btn-primary").removeAttr('disabled');
+            }else{
+                $('#shippingTotal').html('Invalid Address');
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            $('#shippingTotal').html('Error Getting Data');
+        }
+    });
+}
+
+function completeFormSubmission(){
+    data = submissionData;
+    jetFleetFlyAway();
+    data['product'] = $.trim($("#inputProduct").val());
+    data['getgoing'] = 'more_like_peanut_BETTER';
+    $("#form-container").fadeOut('fast', function(){
+        if($('html').hasClass('csstransforms3d')){
+            $("#form-container").html('<div class="spinner"></div>');
+        }else{
+            $("#form-container").html('<div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>');
+        }
+        $("#form-container").fadeIn('fast');
+
+        $.ajax({
+            type: "POST",
+            url: '/checkout.php',
+            data: data,
+            success: function(data, textStatus, jqXHR){
+                window.location.href = data.url;
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                $("#form-container").fadeOut('fast', function(){
+                    $("#form-container").html('<p class="lead" style="color:#dd1010">There was an error submitting your purchase. <br />Please try again later.</p>');
+                    $("#form-container").fadeIn('fast');
+                });
+            }
+        });
+    });
+}
 
 function jetGuyHover(){
     $('#jetguy-main').animate({

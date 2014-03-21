@@ -33,6 +33,25 @@ h3{
     color: #F47600;
 }
 
+.modal-body{
+    max-height: 600px;
+}
+
+.modal-body #shippingCalc{
+    float: left;
+}
+
+.modal-body #shippingTotal{
+    float: left;
+    height: 30px;
+    width: 250px;
+    padding-top: 13px;
+    margin: 0px 25px;
+    font-size: 28px;
+    color: #231255;
+    text-align: center;
+}
+
 div#header-home{
     position: relative;
     z-index: 100;
@@ -369,6 +388,12 @@ div#footer-home a{
     width: 32px;
     height: 32px;
     margin: 100px auto;   
+}
+
+.gifspinner-small{
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;   
 }
 
 .spinner {

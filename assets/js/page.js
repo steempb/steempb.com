@@ -90,7 +90,7 @@ $(document).ready(function(){
         'trigger': 'manual',
         'title': 'Quantity Too Large',
         'html': true,
-        'content': '<p style="font-size:12px; color:#333;">Orders are currently limited to three jars each while supplies are limited.</p>'
+        'content': '<p style="font-size:12px; color:#333;">Limit of three jars per transaction to save shipping costs.</p>'
     });
 
     $('#letsgo form#jarWidget button[type="submit"]').click(function(eo){

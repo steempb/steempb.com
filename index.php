@@ -288,7 +288,7 @@
                     <div class="control-group">
                         <label class="control-label" for="inputState">State/Province</label>
                         <div class="controls">
-                            <input class="input-xlarge" type="text" id="inputState" required placeholder="State/Province">
+                            <input class="input-xlarge" maxlength="2" type="text" id="inputState" required placeholder="State/Province">
                         </div>
                     </div>
                     <div class="control-group">

@@ -403,7 +403,7 @@
                         <div class="control-group">
                             <label class="control-label" for="inputTickets">Tickets<br /><small>Optional</small></label>
                             <div class="controls">
-                                <textarea class="input-xlarge" rows="3" id="inputTickets"></textarea>
+                                <textarea class="input-xlarge" rows="3" id="inputTickets" placeholder="Separate multiple tickets with commas"></textarea>
                             </div>
                         </div>
                         <button type="submit" data-paymentMethod="DOGE" class="btn steembtn steembtn-large steembtn-fixed"><strong>Checkout with Ðogecoin</strong></button>

@@ -26,6 +26,10 @@ if(isRetina){
 }
 
 
+var jarLimit = 4;
+var jarLimitStr = "four";
+
+
 var jetGuyMainPresent = true;
 var jetGuyMainAnimating = false;
 
@@ -90,7 +94,7 @@ $(document).ready(function(){
         'trigger': 'manual',
         'title': 'Quantity Too Large',
         'html': true,
-        'content': '<p style="font-size:12px; color:#333;">Limit of three jars per transaction to save shipping costs.</p>'
+        'content': '<p style="font-size:12px; color:#333;">Limit of ' + jarLimitStr + ' jars per transaction to save shipping costs.</p>'
     });
 
     $('#inputCountry').popover({
@@ -120,7 +124,7 @@ $(document).ready(function(){
             valid = false;
         }else{
             var value = $.trim($("#inputQuantity").val());
-            if(value > 3 || !$.isNumeric(value)){
+            if(value > jarLimit || !$.isNumeric(value)){
                 $('#inputQuantity').popover('show');
                 $("#inputQuantity").focus();
                 $("#inputQuantity").keydown(function(){
@@ -263,7 +267,7 @@ function updateShippingCost(shippingData){
                     'trigger': 'manual',
                     'title': 'Why is shipping so expensive?',
                     'html': true,
-                    'content': '<p style="font-size:12px; color:#333;">Sorry about that, folks. As we build volume, those prices should go down. <br />BUT, if we may offer a solution:<br />Orders of anywhere from 1 to 3 jars should be the same shipping price <strong>as long as they\'re all being shipped to the same address</strong>, so combining your order with your friends to split it is one way to reduce the cost to each of you.</p>'
+                    'content': '<p style="font-size:12px; color:#333;">Sorry about that, folks. As we build volume, those prices should go down. <br />BUT, if we may offer a solution:<br />Orders of anywhere from 1 to ' + jarLimitStr + ' jars should be the same shipping price <strong>as long as they\'re all being shipped to the same address</strong>, so combining your order with your friends to split it is one way to reduce the cost to each of you.</p>'
                 });
                 $('#shippingCostPopover').hover(function(){
                     $('#shippingCostPopover').popover('show');

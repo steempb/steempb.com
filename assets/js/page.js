@@ -84,6 +84,15 @@ $(document).ready(function(){
         }
     });
 
+    $('#inputQuantity').popover({
+        'animation': true,
+        'placement': 'left',
+        'trigger': 'manual',
+        'title': 'Quantity Too Large',
+        'html': true,
+        'content': '<p style="font-size:12px; color:#333;">Orders are currently limited to three jars each while supplies are limited.</p>'
+    });
+
     $('#letsgo form#jarWidget button[type="submit"]').click(function(eo){
         eo.preventDefault();
 
@@ -101,7 +110,24 @@ $(document).ready(function(){
             $("#inputQuantity").focus();
             valid = false;
         }else{
-            data['quantity'] = $.trim($("#inputQuantity").val());
+            var value = $.trim($("#inputQuantity").val());
+            if(value > 3 || !$.isNumeric(value)){
+                $('#inputQuantity').popover('show');
+                $("#inputQuantity").focus();
+                $("#inputQuantity").keydown(function(){
+                    $('#inputQuantity').popover('hide');
+                    $('#inputQuantity').unbind('keydown');
+                    $('#inputQuantity').unbind('blur');
+                });
+                $("#inputQuantity").blur(function(){
+                    $('#inputQuantity').popover('hide');
+                    $('#inputQuantity').unbind('keydown');
+                    $('#inputQuantity').unbind('blur');
+                });
+                valid = false;
+            }else{
+                data['quantity'] = $.trim($("#inputQuantity").val());
+            }
         }
 
         data['tickets'] = $.trim($("#inputTickets").val());

@@ -14,7 +14,7 @@
         $tickets = $_POST['tickets'];
 
         if($tickets){
-            $tickets = array_map(trim, explode(",", $tickets));
+            $tickets = array_map("trim", explode(",", $tickets));
         }
 
         $user = $JACKED->Syrup->User->findOne(array('email' => $email));

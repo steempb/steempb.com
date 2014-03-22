@@ -217,7 +217,7 @@ $(document).ready(function(){
             valid = false;
         }else{
             var value = $.trim($("#inputCountry").val());
-            if(value != 'US'){
+            if(value != 'US' && value != 'CA'){
                 $('#inputCountry').popover('show');
                 $("#inputCountry").focus();
                 $("#inputCountry").blur(function(){

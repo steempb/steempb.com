@@ -93,6 +93,15 @@ $(document).ready(function(){
         'content': '<p style="font-size:12px; color:#333;">Limit of three jars per transaction to save shipping costs.</p>'
     });
 
+    $('#inputCountry').popover({
+        'animation': true,
+        'placement': 'bottom',
+        'trigger': 'manual',
+        'title': 'Shipping Only to the US',
+        'html': true,
+        'content': '<p style="font-size:12px; color:#333;">Our apologies, but we\'re not yet able to ship STEEM Peanut Butter outside of the United States, but we\'re working on it. If you reside in a country outside of the US and you participated in our Peanut Beta, please email us at: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a></p>'
+    });
+
     $('#letsgo form#jarWidget button[type="submit"]').click(function(eo){
         eo.preventDefault();
 
@@ -207,7 +216,17 @@ $(document).ready(function(){
             $("#inputCountry").focus();
             valid = false;
         }else{
-            data['country'] = $.trim($("#inputCountry").val());
+            var value = $.trim($("#inputCountry").val());
+            if(value != 'US'){
+                $('#inputCountry').popover('show');
+                $("#inputCountry").focus();
+                $("#inputCountry").blur(function(){
+                    $('#inputCountry').popover('hide');
+                    $('#inputCountry').unbind('blur');
+                });
+            }else{
+                data['country'] = value;
+            }
         }
 
         if(valid){

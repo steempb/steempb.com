@@ -236,7 +236,7 @@ function updateShippingCost(shippingData){
         data: shippingData,
         success: function(data, textStatus, jqXHR){
             if(data.valid == 'true'){
-                $('#shippingTotal').html('$' + data.cost + ' <i id="shippingCostPopover" class="icon-question-sign"></i>');
+                $('#shippingTotal').html('$' + data.cost + ' <img style="vertical-align:top;" id="shippingCostPopover" src="/assets/img/template/big_info' + (isRetina? '@2x' : '') + '.png" width="20" height="20" />');
 
                 $('#shippingCostPopover').popover({
                     'animation': true,

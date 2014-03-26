@@ -119,7 +119,12 @@
         $response = $client -> getRates($request);
         if($response->HighestSeverity != 'FAILURE' && $response->HighestSeverity != 'ERROR'){
             $valid = 'true';
-            $cost = $response->RateReplyDetails->RatedShipmentDetails[0]->ShipmentRateDetail->TotalNetCharge->Amount;
+            // temp fixed pricing, see steempb/steempb.com#35
+            if($_POST['country'] == 'US' && !($_POST['state'] == 'HI' || $_POST['state'] == 'AK')){
+                $cost = '6.75';
+            }else{
+                $cost = $response->RateReplyDetails->RatedShipmentDetails[0]->ShipmentRateDetail->TotalNetCharge->Amount;
+            }
         }else{
             $valid = 'false';
             $cost = 0;

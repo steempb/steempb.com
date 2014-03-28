@@ -18,7 +18,7 @@
                 $JACKED->Purveyor->executePayPalPayment($tid, $_GET['PayerID']);
 
                 $header = 'Thanks for your order!';
-                $image = '/assets/img/template/tickets.png';
+                $image = '/assets/img/template/jars.png';
                 $message = 'Your order has been verified and you will receive an email receipt shortly.';
             }catch(Exception $e){
                 $header = 'We had a problem confirming your order';

@@ -351,14 +351,27 @@
         <div id="faq-wrap">
             <div id="faq-section">
                 <div class="row">
-                    <h1>What is STEEM?</h1>
-                    <p>STEEM is caffeinated peanut butter. What else do we need to say? STEEM is designed to provide a consistent release of sustained energy, and the naturally slow digestion of peanut butter is the key to that. STEEM delivers protein, electrolytes, and caffeine, granting you hours of endurance and focus, and freeing you from distractions like hunger and fatigue.</p>
-                    <h1>What's in this stuff?</h1>
-                    <p>STEEM is made with natural peanut butter, and no artificial sweeteners. Oh, and as much caffeine as two cups of coffee, so stick with the normal serving suggestions for the best effect. Enjoy it however you would normally enjoy peanut butter: spread it on crackers, toast or fruit; re-acquaint yourself with the simple perfection of the peanut butter and jelly sandwich; or just jam a knife or a spoon or a finger into the jar and eat it like you do when no one’s looking. Yes you do. Yes, you <em>do</em>.</p>
-                    <h1>Who is STEEM for?</h1>
-                    <p>STEEM’s steady release of energy (without the jittery feeling) makes it perfect not only for athletes and active people, but also for normal life. How about never having to choose awful breakroom coffee because you don’t want to spend more on caffeine than you spend on your lunch? How about having enough energy to finish that backyard project in one day instead of putting it off for another weekend? How about when an all-night study session has suddenly become the morning of the test? How about never having to bring that damn percolator on camping trips just so you can avoid the crippling caffeine headache you’ll have by noon? How about not worrying about nodding off in meetings, or in class, or at the wheel? How about just having the energy to get going when you need it?</p>
-                    <h1>One last thing…</h1>
-                    <p><strong>DO NOT GIVE TO ANIMALS. EVER.</strong> A fun fact about caffeine is that a lot of domestic animals, like dogs and cats and birds, cannot digest caffeine properly and it can lead to SERIOUS health issues. So we know that your dog loves peanut butter and we know you think it’d be hilarious to get him all jacked up and crazy, BUT DON’T. SERIOUSLY. IT WOULD NOT BE HILARIOUS. <br />STEEM = PEOPLE FOOD.</p>
+                    <div class="span9">
+                        <h1>What is STEEM?</h1>
+                        <p>STEEM is caffeinated peanut butter. What else do we need to say? STEEM is designed to provide a consistent release of sustained energy, and the naturally slow digestion of peanut butter is the key to that. STEEM delivers protein, electrolytes, and caffeine, granting you hours of endurance and focus, and freeing you from distractions like hunger and fatigue.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4">
+                        <h1>What's in this stuff?</h1>
+                        <p>STEEM is made with natural peanut butter, and no artificial sweeteners. Oh, and as much caffeine as two cups of coffee, so stick with the normal serving suggestions for the best effect. Enjoy it however you would normally enjoy peanut butter: spread it on crackers, toast or fruit; re-acquaint yourself with the simple perfection of the peanut butter and jelly sandwich; or just jam a knife or a spoon or a finger into the jar and eat it like you do when no one’s looking. Yes you do. Yes, you <em>do</em>.</p>
+                        <h1>Who is STEEM for?</h1>
+                        <p>STEEM’s steady release of energy (without the jittery feeling) makes it perfect not only for athletes and active people, but also for normal life. How about never having to choose awful breakroom coffee because you don’t want to spend more on caffeine than you spend on your lunch? How about having enough energy to finish that backyard project in one day instead of putting it off for another weekend? How about when an all-night study session has suddenly become the morning of the test? How about never having to bring that damn percolator on camping trips just so you can avoid the crippling caffeine headache you’ll have by noon? How about not worrying about nodding off in meetings, or in class, or at the wheel? How about just having the energy to get going when you need it?</p>
+                    </div>
+                    <div  style="width:400px;" class="span5">
+                        <img style="margin-top:60px;" src="/assets/img/template/two_jars.png" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        <h1>One last thing…</h1>
+                        <p><strong>DO NOT GIVE TO ANIMALS. EVER.</strong> A fun fact about caffeine is that a lot of domestic animals, like dogs and cats and birds, cannot digest caffeine properly and it can lead to SERIOUS health issues. So we know that your dog loves peanut butter and we know you think it’d be hilarious to get him all jacked up and crazy, BUT DON’T. SERIOUSLY. IT WOULD NOT BE HILARIOUS. <br />STEEM = PEOPLE FOOD.</p>
+                    </div>
                 </div>
                 <div class="row" id="faq-cta-row">
                         <h1>It's time to get going!</h1><a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get it now <i class="icon-play"></i></a>

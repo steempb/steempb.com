@@ -351,7 +351,7 @@
         <div id="faq-wrap">
             <div id="faq-section">
                 <div class="row">
-                    <div class="span9">
+                    <div class="span8">
                         <h1>What is STEEM?</h1>
                         <p>STEEM is caffeinated peanut butter. What else do we need to say? STEEM is designed to provide a consistent release of sustained energy, and the naturally slow digestion of peanut butter is the key to that. STEEM delivers protein, electrolytes, and caffeine, granting you hours of endurance and focus, and freeing you from distractions like hunger and fatigue.</p>
                     </div>
@@ -363,14 +363,15 @@
                         <h1>Who is STEEM for?</h1>
                         <p>STEEM’s steady release of energy (without the jittery feeling) makes it perfect not only for athletes and active people, but also for normal life. How about never having to choose awful breakroom coffee because you don’t want to spend more on caffeine than you spend on your lunch? How about having enough energy to finish that backyard project in one day instead of putting it off for another weekend? How about when an all-night study session has suddenly become the morning of the test? How about never having to bring that damn percolator on camping trips just so you can avoid the crippling caffeine headache you’ll have by noon? How about not worrying about nodding off in meetings, or in class, or at the wheel? How about just having the energy to get going when you need it?</p>
                     </div>
-                    <div  style="width:400px;" class="span5">
+                    <div style="width:400px;" class="span5">
                         <img style="margin-top:60px;" src="/assets/img/template/two_jars.png" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span9">
+                    <div class="span8">
                         <h1>One last thing…</h1>
                         <p><strong>DO NOT GIVE TO ANIMALS. EVER.</strong> A fun fact about caffeine is that a lot of domestic animals, like dogs and cats and birds, cannot digest caffeine properly and it can lead to SERIOUS health issues. So we know that your dog loves peanut butter and we know you think it’d be hilarious to get him all jacked up and crazy, BUT DON’T. SERIOUSLY. IT WOULD NOT BE HILARIOUS. <br />STEEM = PEOPLE FOOD.</p>
+                
                     </div>
                 </div>
                 <div class="row" id="faq-cta-row">
@@ -435,6 +436,7 @@
         <script type="text/javascript" src="/assets/js/retina.js"></script>
         <script type="text/javascript" src="/assets/js/konami.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.easing.1.3.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
         <script type="text/javascript" src="/assets/js/page.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

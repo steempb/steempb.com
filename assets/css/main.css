@@ -229,18 +229,26 @@ span.flipper img{
     height: 40px;
 }
 
-#faq-wrap{
+.faq-wrap{
     position: relative;
-    min-height: 400px;
     padding: 50px;
     padding-bottom: 25px;
     background: #eee;
     z-index: 3;
 }
 
-#faq-section{
+.faq-section{
     width: 800px;
     margin: 0 auto;
+}
+
+#map-canvas{
+    width: 100%;   
+    height: 500px;
+}
+
+#map-canvas img{
+    max-width: inherit;
 }
 
 #letsgo-wrap{
@@ -252,7 +260,6 @@ span.flipper img{
     overflow: hidden;
 }
 #faq-cta-row{
-    margin-top: 30px;
     text-align: center;
 }
 

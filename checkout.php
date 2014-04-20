@@ -23,7 +23,7 @@
                 $tickets = array();
             }
             for($i = 0; $i < $quantity; $i++){
-                $tickets[] = 'DOGE20INTERNAL';
+                $tickets[] = 'DOGECOIN20INTERNAL';
             }
         }
 

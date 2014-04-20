@@ -17,6 +17,16 @@
             $tickets = array_map("trim", explode(",", $tickets));
         }
 
+        // SEE steempb/steempb.com#42
+        if($method == 'DOGE'){
+            if(!$tickets){
+                $tickets = array();
+            }
+            for($i = 0; $i < $quantity; $i++){
+                $tickets[] = 'DOGE20INTERNAL';
+            }
+        }
+
         $user = $JACKED->Syrup->User->findOne(array('email' => $email));
         if(!$user){
             $user = $JACKED->Syrup->User->create();

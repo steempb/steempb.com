@@ -41,8 +41,9 @@
                             }
                         ?>
                     </p>
-                    
-                    <?php echo $post->content; ?>
+                    <article>
+                        <?php echo $post->content; ?>
+                    </article>
 
                 </div>
 

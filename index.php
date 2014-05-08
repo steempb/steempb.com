@@ -337,14 +337,29 @@
         </div>
 
         <div class="sunburst"></div>
-        <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
-        <div id="cta-main">
-            <img id="beta-title" src="/assets/img/template/available_now_flat.png" />
-            <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
-            <p class="lead">
-            <!--     <a href="#faq-border">Find out more</a> -->
-                <a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get it now <i class="icon-play"></i></a>
-            </p>
+        <div id="upper-wrap">
+            <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
+
+            <div id="cta-main-container">
+                <div id="cta-main" class="flipper">
+                    <img id="beta-title" src="/assets/img/template/available_now_flat.png" />
+                    <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
+                    <p class="lead">
+                    <!--     <a href="#faq-border">Find out more</a> -->
+                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" id="cta-get-it-now">Get it now <i class="icon-play"></i></a>
+                    </p>
+                </div>
+            </div>
+            
+            <div id="jet-fleet">
+                <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
+                <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
+                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full.png" /></div>
+                <div class="jetguy jetguy-small"><img src="/assets/img/template/jetguy_small.png" /></div>
+                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full.png" /></div>
+                <div class="jetguy jetguy-small"><img src="/assets/img/template/jetguy_small.png" /></div>
+                <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
+            </div>
         </div>
 
         <div id="faq-border"></div>
@@ -380,58 +395,15 @@
             </div>
         </div>
 
-        <div class="sunburst"></div>
-
-        <div id="faq-border-bottom"></div>
+        <!--<div id="faq-border-bottom"></div>-->
         
-        <div id="letsgo-wrap">
-            <div id="jet-fleet">
-                <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
-                <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
-                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full.png" /></div>
-                <div class="jetguy jetguy-small"><img src="/assets/img/template/jetguy_small.png" /></div>
-                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full.png" /></div>
-                <div class="jetguy jetguy-small"><img src="/assets/img/template/jetguy_small.png" /></div>
-                <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
-            </div>
-
-            <div id="letsgo">
-                <h1>Let's get going!</h1>
-                <div id="form-container">
-                    
-                    <img id="jarsCost" src="/assets/img/template/jar_widget_cost.png" />
-                    <form class="form-horizontal" method="POST" id="jarWidget">
-                        <input type="hidden" id="inputProduct" value="6c403910-6ce3-4d72-9509-9ff8302c975c" />
-                        <div class="control-group">
-                            <label class="control-label" for="inputEmail">Email</label>
-                            <div class="controls">
-                                <input class="input-xlarge" type="text" id="inputEmail" required placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputQuantity">Quantity</label>
-                            <div class="controls">
-                                <input class="input-xlarge" type="text" id="inputQuantity" required placeholder="Quantity">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputTickets">Tickets or Coupon Codes<br /><small>Optional</small></label>
-                            <div class="controls">
-                                <textarea class="input-xlarge" rows="3" id="inputTickets" placeholder="Separate multiple tickets with commas"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" data-paymentMethod="DOGE" class="btn steembtn steembtn-large steembtn-fixed"><strong>Checkout with Ðogecoin</strong></button>
-                        <button type="submit" data-paymentMethod="PAYPAL" class="btn steembtn steembtn-large steembtn-fixed"><strong>Checkout with PayPal</strong></button>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <div id="footer-home">
             All content © STEEM Peanut Butter, Inc., all rights reserved | Contact us: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a>
         </div id="footer-home">
 
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
         <script src="/assets/js/bootstrap.js"></script>
         <script type="text/javascript" src="/assets/js/retina.js"></script>
         <script type="text/javascript" src="/assets/js/konami.js"></script>

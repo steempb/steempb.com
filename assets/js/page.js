@@ -40,9 +40,6 @@ var shippingUpdated = false;
 var submissionData;
 
 $(document).ready(function(){
-    $('#jet-fleet .jetguy').each(function(){
-        $(this).css({'visibility': 'hidden'});
-    });
     jetGuyFlyIn();
     // Konami loader
     var eggloader = new Konami(function(){
@@ -68,16 +65,12 @@ $(document).ready(function(){
         // $(window).height() is bugged in mobilesafari
         var winHeight = window.innerHeight ? window.innerHeight : $(window).height();
         var currentST = $(this).scrollTop();
-        var fleetStartMarker = $("#letsgo").offset().top + $("#letsgo").height();
 
-        if(currentST > 200 && currentST < fleetStartMarker && jetGuyMainPresent){
+        if(!jetFleetPresent && jetGuyMainPresent && currentST > 200){
             jetGuyFlyAway();
         }
-        if(currentST < 200 && !jetGuyMainPresent){
+        if(!jetFleetPresent && currentST < 200 && !jetGuyMainPresent){
             jetGuyFlyIn();
-        }
-        if(currentST + winHeight > fleetStartMarker + 20 && !jetFleetPresent){
-            jetFleetFlyIn();
         }
     });
 
@@ -104,6 +97,43 @@ $(document).ready(function(){
         'title': 'Shipping Only to the US',
         'html': true,
         'content': '<p style="font-size:12px; color:#333;">Our apologies, but we\'re not yet able to ship STEEM Peanut Butter outside of the United States, but we\'re working on it. If you reside in a country outside of the US and you participated in our Peanut Beta, please email us at: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a></p>'
+    });
+
+    $('#cta-get-it-now').click(function(eo){
+        jetGuyFlyAway();
+        $("#cta-main").children().each(function(){
+            $(this).fadeOut('fast', function(){
+                $(this).remove()
+            });
+        });
+        // if($('html').hasClass('csstransforms3d')){
+        //     $("#cta-main").append('<div class="spinner"></div>');
+        // }else{
+        //     $("#cta-main").append('<div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>');
+        // }
+        jetFleetFlyIn();
+        $("#cta-main").animate({
+            backgroundColor: 'rgba(238, 238, 238, 0.96)'
+        }, 500, 'easeInBack');
+        $("#cta-main-container").animate(
+            {
+                marginLeft: -425,
+                width: 800, 
+                height: 520
+            }, 
+            501,
+            'easeInBack', function(){
+                $("#cta-main").html('<div class="front"><h1>Butts</h1><button class="flipbtn">click me</button></div><div class="back"><h2>Lol</h2><button class="flipbtn">click me</button></div>');
+                $("#cta-main").css({
+                    backgroundColor: 'rgba(238, 238, 238, 0)',
+                    boxShadow: 'none',
+                    transition: '0.6s'
+                });
+                $(".flipbtn").click(function(){
+                    $("#cta-main-container").toggleClass('flip');
+                });
+            }
+        );
     });
 
     $('#letsgo form#jarWidget button[type="submit"]').click(function(eo){
@@ -423,7 +453,7 @@ $(function() {
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
             if (target.length) {
                 $('html,body').animate({
-                    scrollTop: target.offset().top
+                    scrollTop: target.offset().top - 60
                 }, 1000, function(){
                     $(window).scroll();
                 });

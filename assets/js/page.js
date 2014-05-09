@@ -19,13 +19,6 @@
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 // console.log('@2x support: ' + isRetina);
 
-if(isRetina){
-    var shareMarkup = '<ul id="social-links"><li><a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com&text=I can%27t wait for @steempb! %23GetGoing" target="_blank"><img src="/assets/img/template/share_twitter@2x.png" title="Share on Twitter" /></a></li><li><a href="http://plus.google.com/share?url=http://steempb.com" target="_blank"><img src="/assets/img/template/share_gplus@2x.png" title="Share on Google+" /></a></li><li><a href="http://www.facebook.com/sharer.php?u=http://steempb.com" target="_blank"><img src="/assets/img/template/share_facebook@2x.png" title="Share on Facebook" /></a></li></ul>';
-}else{
-    var shareMarkup = '<ul id="social-links"><li><a href="http://twitter.com/share?url=http%3A%2F%2Fsteempb.com&text=I can%27t wait for @steempb! %23GetGoing" target="_blank"><img src="/assets/img/template/share_twitter.png" title="Share on Twitter" /></a></li><li><a href="http://plus.google.com/share?url=http://steempb.com" target="_blank"><img src="/assets/img/template/share_gplus.png" title="Share on Google+" /></a></li><li><a href="http://www.facebook.com/sharer.php?u=http://steempb.com" target="_blank"><img src="/assets/img/template/share_facebook.png" title="Share on Facebook" /></a></li></ul>';
-}
-
-
 var jarLimit = 4;
 var jarLimitStr = "four";
 
@@ -539,4 +532,20 @@ $.extend(Template.prototype, {
     urlFor: function(name) {
         return "/assets/templates/"+ name + ".handlebars";
     }
+});
+
+/*
+ * Retina Images using Handlebars.js
+ *
+ * Created by [Makis Tracend](@tracend)
+ * Released under the [MIT license](http://makesites.org/licenses/MIT) 
+ *
+ * Usage: <img src="{{retina 'http://mydoma.in/path/to/image.jpg'}}">
+ */
+Handlebars.registerHelper('retina', function( src ) {
+
+  return ( isRetina ) 
+    ? src.replace(/\.\w+$/, function(match) { return "@2x" + match; }) 
+    : src;
+  
 });

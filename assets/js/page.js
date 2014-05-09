@@ -119,15 +119,16 @@ $(document).ready(function(){
             {
                 marginLeft: -425,
                 width: 800, 
-                height: 520
+                height: 520,
+                boxShadow: 'none'
             }, 
             501,
             'easeInBack', function(){
                 $("#cta-main").html('<div class="front"><h1>Butts</h1><button class="flipbtn">click me</button></div><div class="back"><h2>Lol</h2><button class="flipbtn">click me</button></div>');
                 $("#cta-main").css({
                     backgroundColor: 'rgba(238, 238, 238, 0)',
-                    boxShadow: 'none',
-                    transition: '0.6s'
+                    transition: '0.6s',
+                    boxShadow: 'none'
                 });
                 $(".flipbtn").click(function(){
                     $("#cta-main-container").toggleClass('flip');

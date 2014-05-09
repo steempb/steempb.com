@@ -282,7 +282,7 @@ div#header-home img#sublogo{
     height: 40px;
 }
 
-#faq-wrap{
+.faq-wrap{
     position: relative;
     min-height: 400px;
     padding: 50px;
@@ -291,7 +291,7 @@ div#header-home img#sublogo{
     z-index: 3;
 }
 
-#faq-section{
+.faq-section{
     width: 800px;
     margin: 0 auto;
 }

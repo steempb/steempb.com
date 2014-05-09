@@ -174,23 +174,28 @@ div#header-home img#sublogo{
 
 /* entire container, keeps perspective */
 #cta-main-container {
-    -webkit-perspective: 1000;
+    -webkit-perspective: 1000px;
     -webkit-transform-style: preserve-3d;
-    perspective: 1000;
+    -moz-perspective: 1000px;
+    -moz-transform-style: preserve-3d;
+    -ms-perspective: 1000px;
+    -ms-transform-style: preserve-3d;
+    perspective: 1000px;
     transform-style: preserve-3d;
 }
 
 #cta-main-container.flip .flipper {
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 #cta-main-container.flip .back {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
 }
 #cta-main-container.flip .front {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
 }
 
 .front, .back {
@@ -202,8 +207,10 @@ div#header-home img#sublogo{
 
 /* flip speed goes here */
 .flipper {
-    transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 
     position: relative;
 }
@@ -212,8 +219,13 @@ div#header-home img#sublogo{
 .front, .back {
     -webkit-backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+    -moz-transform-style: preserve-3d;
+    -ms-backface-visibility: hidden;
+    -ms-transform-style: preserve-3d;
     backface-visibility: hidden;
     transform-style: preserve-3d;
+
     transition: 0.6s;
 
     position: absolute;
@@ -225,16 +237,23 @@ div#header-home img#sublogo{
 .front {
     background-color: rgba(238, 238, 238, 0.96);
     z-index: 2;
+
     -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
     background-color: rgba(20, 238, 238, 0.96);
+
     -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
+
 
 .steembtn{
    color: #333 !important;

@@ -416,6 +416,7 @@
         <script type="text/javascript" src="/assets/js/retina.js"></script>
         <script type="text/javascript" src="/assets/js/konami.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="/assets/js/handlebars-v1.3.0.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
         <script type="text/javascript" src="/assets/js/page.js"></script>
         <script>

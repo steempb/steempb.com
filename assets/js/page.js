@@ -36,8 +36,17 @@ var jetGuyMainAnimating = false;
 var jetFleetPresent = false;
 var jetFleetAnimating = false;
 
+var paymentMethod = 'USD';
+
 var shippingUpdated = false;
 var submissionData;
+
+// get the current value of Doge from Moolah
+var dogeValue = false;
+$.get('https://moolah.io/api/rates?f=USD&t=DOGE&a=1', function(data){
+    dogeValue = parseFloat(data.replace(/,/g, ''));
+})
+
 
 $(document).ready(function(){
     jetGuyFlyIn();
@@ -55,7 +64,6 @@ $(document).ready(function(){
                     break;
             }
         }else{
-            // console.log("Konami-san doesn't know wtf to do with that definition. You get doge instead.");
             suchDogeWow();
         }
     }); 
@@ -124,14 +132,23 @@ $(document).ready(function(){
             }, 
             501,
             'easeInBack', function(){
-                $("#cta-main").html('<div class="front"><h1>Butts</h1><button class="flipbtn">click me</button></div><div class="back"><h2>Lol</h2><button class="flipbtn">click me</button></div>');
                 $("#cta-main").css({
                     backgroundColor: 'rgba(238, 238, 238, 0)',
                     transition: '0.6s',
                     boxShadow: 'none'
                 });
-                $(".flipbtn").click(function(){
-                    $("#cta-main-container").toggleClass('flip');
+
+                context = {
+                    title: 'haha oh wow'
+                };
+
+                T.render('store_front_page', function(t) {
+                    $('#cta-main').html( t(context) );
+
+                    $(".flipbtn").click(function(){
+                        $("#cta-main-container").toggleClass('flip');
+                    });
+
                 });
             }
         );
@@ -351,6 +368,10 @@ function completeFormSubmission(){
     });
 }
 
+function bigBoxTransition(callback){
+    $
+}
+
 function jetGuyHover(){
     $('#jetguy-main').animate({
             top: 240
@@ -462,4 +483,60 @@ $(function() {
             }
         }
     });
+});
+
+
+/*
+ * This decorates Handlebars.js with the ability to load
+ * templates from an external source, with light caching.
+ * 
+ * To render a template, pass a closure that will receive the 
+ * template as a function parameter, eg, 
+ *   T.render('templateName', function(t) {
+ *       $('#somediv').html( t() );
+ *   });
+ * Source: https://github.com/wycats/handlebars.js/issues/82
+ */
+var Template = function() {
+    this.cached = {};
+};
+var T = new Template();
+$.extend(Template.prototype, {
+    render: function(name, callback) {
+        if (T.isCached(name)) {
+            callback(T.cached[name]);
+        } else {
+            $.get(T.urlFor(name), function(raw) {
+                T.store(name, raw);
+                T.render(name, callback);
+            });
+        }
+    },
+    renderSync: function(name, callback) {
+        if (!T.isCached(name)) {
+            T.fetch(name);
+        }
+        T.render(name, callback);
+    },
+    prefetch: function(name) {
+        $.get(T.urlFor(name), function(raw) { 
+            T.store(name, raw);
+        });
+    },
+    fetch: function(name) {
+        // synchronous, for those times when you need it.
+        if (! T.isCached(name)) {
+            var raw = $.ajax({'url': T.urlFor(name), 'async': false}).responseText;
+            T.store(name, raw);         
+        }
+    },
+    isCached: function(name) {
+        return !!T.cached[name];
+    },
+    store: function(name, raw) {
+        T.cached[name] = Handlebars.compile(raw);
+    },
+    urlFor: function(name) {
+        return "/assets/templates/"+ name + ".handlebars";
+    }
 });

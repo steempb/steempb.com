@@ -255,39 +255,101 @@ div#header-home img#sublogo{
 }
 
 #store .span4{
-    height: 450px;
+    width: 390px;
+    height: 330px;
     padding: 10px;
-    margin-top: 40px;
-    margin-left: 45px;
+    margin-top: 90px;
+    margin-left: 42px;
 }
 
-#store p.lead{
-    margin-bottom: 10px;
+#store .storeContainer{
+    float: none;
+    clear: both;
 }
 
-#store .span4 form input.input-small{
-    margin-left: -110px;
+#store .storeContainer .split{
+    width: 50%;
+}
+
+#store .storeContainer .split p{
+    text-align: left;
+    display: block;    
+    margin: 0px 5px 0px 20px;
+}
+
+#store .storeContainer .split p.description{
+    margin-top: 30px;
+}
+
+#store .storeContainer .split p.lead{
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+
+#store .storeContainer .split p.lead strong{
+    color: #F47600;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+#store form{
+    padding-top: 10px;
+}
+
+#store .span4 form .split{
+    height: 70px;
+}
+
+#store .span4 form label{
+    margin-left: 10px;
+    width: 60px;
 }
 
 #store .span4 form select{
-    margin-left: -110px;
     width: 100px;
     font-size: 12px;
     height: 25px;
     margin-top: 3px;
 }
 
+#store .span4 form .control-split{
+    width: 200px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+
 #store .span4 form .control-group{
     margin-bottom: 0px;
+    margin-left: 10px;
+    position: relative;
+    top: 50%;
+    height: 60px;
+    margin-top: -30px;
+}
+
+#store .span4 form .control-group.single-control{
+    padding-top: 15px;
+    height: 40px;
+}
+
+#store .span4 form .control-group .controls{
+    margin-left: 0px;
 }
 
 #store .span4 form .btn{
-    margin-top: 20px;
+    position: relative;
+    top: 50%;
+    margin-top: -25px;
 }
 
 #store .special{
     background: #FADEB4;
+    background: rgba(250, 222, 180, 0.4);
     box-shadow: inset 0 0 10px #000000;
+    margin-left: 10px;
 }
 
 .steembtn{

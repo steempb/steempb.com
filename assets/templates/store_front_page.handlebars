@@ -1,11 +1,45 @@
-<div class="front">
-    <h1>{{title}}</h1>
+<div class="front" id="store">
     <div class="row">
         <div class="span4">
-            <img src="{{retina '/assets/img/template/jars.png'}}" />
+            <img src="{{retina '/assets/img/template/checkout_jars.png'}}" width="207" height="260" />
+            <p class="lead">$4.99 Per 8oz Jar</p>
+            <p>+ $6.75 Shipping Per Order*</p>
+            <form class="form-horizontal" method="POST" id="storeStage1">
+                <div class="control-group">
+                    <label class="control-label" for="inputQuantity">Quantity:</label>
+                    <div class="controls">
+                        <input class="input-small" type="text" id="inputQuantity" required />
+                    </div>
+                </div>
+                <button class="btn btn-large btn-warning steembtn">Buy Me</button>
+            </form>
         </div>
-        <div class="span4">
-            <img src="/assets/img/template/pbbbp_pile.png" />
+        <div class="span4 special">
+            <img src="{{retina '/assets/img/template/checkout_valuemeal.png'}}" width="257" height="268" />
+            <p class="lead">$20 Including Shipping</p>
+            <form class="form-horizontal" method="POST" id="storeStage1_special">
+                <div class="control-group">
+                    <label class="control-label" for="inputQuantity">Color:</label>
+                    <div class="controls">
+                        <select>
+                            <option>Aubergine</option>
+                            <option>Navy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputQuantity">Size:</label>
+                    <div class="controls">
+                        <select>
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Large</option>
+                            <option>X-Large</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-large btn-warning steembtn">Buy Me</button>
+            </form>
         </div>
     </div>
 </div>

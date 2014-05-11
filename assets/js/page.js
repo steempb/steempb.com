@@ -37,7 +37,7 @@ var submissionData;
 // get the current value of Doge from Moolah
 var dogeValue = false;
 $.get('https://moolah.io/api/rates?f=USD&t=DOGE&a=1', function(data){
-    dogeValue = parseFloat(data.replace(/,/g, ''));
+    dogeValue = parseInt(data.replace(/,/g, ''));
 })
 
 
@@ -132,13 +132,19 @@ $(document).ready(function(){
                 });
 
                 context = {
-                    title: 'haha oh wow'
+                    
                 };
 
-                T.render('store_front_page', function(t) {
+                loadTemplate('store_front_page', function(t) {
+                    context.flip_side = 'front';
+                    context.usd = true;
                     $('#cta-main').html( t(context) );
 
-                    $(".flipbtn").click(function(){
+                    context.flip_side = 'back';
+                    context.usd = false;
+                    $('#cta-main').append( t(context) );
+
+                    $(".dogetoggle").click(function(){
                         $("#cta-main-container").toggleClass('flip');
                     });
 
@@ -478,30 +484,12 @@ $(function() {
     });
 });
 
-
-/*
- * This decorates Handlebars.js with the ability to load
- * templates from an external source, with light caching.
- * 
- * To render a template, pass a closure that will receive the 
- * template as a function parameter, eg, 
- *   T.render('templateName', function(t) {
- *       $('#somediv').html( t() );
- *   });
- * Source: https://github.com/wycats/handlebars.js/issues/82
- */
-var Template = function(){};
-var T = new Template();
-$.extend(Template.prototype, {
-    render: function(name, callback) {
-        $.get(T.urlFor(name), function(raw) {
-            callback(Handlebars.compile(raw));
-        });
-    },
-    urlFor: function(name) {
-        return "/assets/templates/"+ name + ".handlebars";
-    }
-});
+// load one of our Handlebars templates
+function loadTemplate(name, callback){
+    $.get("/assets/templates/"+ name + ".handlebars", function(raw) {
+        callback(Handlebars.compile(raw));
+    });
+}
 
 /*
  * Retina Images using Handlebars.js
@@ -513,8 +501,16 @@ $.extend(Template.prototype, {
  */
 Handlebars.registerHelper('retina', function( src ) {
 
-  return ( isRetina ) 
-    ? src.replace(/\.\w+$/, function(match) { return "@2x" + match; }) 
-    : src;
+    return (isRetina) 
+        ? src.replace(/\.\w+$/, function(match) { return "@2x" + match; }) 
+        : src;
+  
+});
+
+// change prices to DOGE
+Handlebars.registerHelper('formatPrice', function( value ) {
+    return (this.usd)
+        ? '$' + value
+        : 'Ð' + (parseInt(value) * dogeValue);
   
 });

@@ -246,12 +246,21 @@ div#header-home img#sublogo{
 
 /* back, initially hidden pane */
 .back {
-    background-color: rgba(20, 238, 238, 0.96);
+    background-image: url('/assets/img/template/dogebg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(238, 238, 238, 0.96);
 
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
+}
+
+.dogetoggle{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
 }
 
 #store .span4{

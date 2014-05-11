@@ -148,6 +148,23 @@ $(document).ready(function(){
                         $("#cta-main-container").toggleClass('flip');
                     });
 
+                    $('select[name=inputQuantity]').change(function(){
+                        if($(this).val()){
+                            var quantity = parseInt($(this).val());
+                            $(this).parents('form').find('.checkoutbtn').fadeOut(function(){
+                                if($("#cta-main-container").hasClass('flip')){
+                                    btnLabel = 'Ð' + ((6.75 * parseInt(dogeValue)) + (4.99 * quantity * parseInt(dogeValue))).toFixed(2);
+                                }else{
+                                    btnLabel = '$' + (6.75 + (4.99 * quantity)).toFixed(2);
+                                }
+                                $(this).html(btnLabel + ' <i class="icon-play"></i>');
+                                $(this).fadeIn();
+                            });
+                        }else{
+                            //invalidate form
+                        }
+                    });
+
                 });
             }
         );
@@ -367,10 +384,6 @@ function completeFormSubmission(){
     });
 }
 
-function bigBoxTransition(callback){
-    $
-}
-
 function jetGuyHover(){
     $('#jetguy-main').animate({
             top: 240
@@ -483,6 +496,7 @@ $(function() {
         }
     });
 });
+
 
 // load one of our Handlebars templates
 function loadTemplate(name, callback){

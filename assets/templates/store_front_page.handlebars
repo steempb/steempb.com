@@ -1,4 +1,4 @@
-<div class="{{flip_side}}" id="store">
+<div class="{{flip_side}} store-side">
     <div class="row">
         <div class="span3 offset6">
             <button class="btn btn-large dogetoggle">
@@ -19,21 +19,31 @@
                 <div class="split pull-right">
                     <p class="description">Delicious peanut butter. Put it in your face and do stuff! It tastes good and I'm writing words.</p>
                     <p class="lead"><strong>{{formatPrice '4.99'}} </strong> <br /> Per 8oz Jar</p>
-                    <p>{{formatPrice '6.75'}} US Shipping</p>
+                    <p>{{formatPrice '6.75'}} Shipping to Contiguous US</p>
                 </div>
             </div>
             <div class="storeContainer">
-                <form class="form-horizontal" method="POST" id="storeStage1">
+                <form class="form-horizontal" method="POST">
                     <div class="split pull-left">
                         <div class="control-group single-control">
-                            <label class="control-label" for="inputQuantity">Quantity:</label>
-                            <div class="controls">
-                                <input class="input-small" type="text" id="inputQuantity" required />
+                            <div class="control-split">
+                                <label class="control-label" for="inputQuantity">Quantity:</label>
+                                <div class="controls">
+                                    <select name="inputQuantity">
+                                        <option></option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="split pull-right">
-                        <button class="btn btn-large btn-warning steembtn">Buy Me</button>
+                        <button class="btn btn-large btn-warning steembtn checkoutbtn">Buy Me</button>
                     </div>
                 </form>
             </div>
@@ -47,7 +57,7 @@
                 <div class="split pull-right">
                     <p class="description">A limited edition STEEM T-Shirt so you can do stuff and advertise us for free all at once!</p>
                     <p class="lead"><strong>{{formatPrice '19.99'}}</strong> <br /> 2 8oz Jars + Shirt</p>
-                    <p>Free US Shipping</p>
+                    <p>Free Shipping to Contiguous US</p>
                 </div>
             </div>
             <div class="storeContainer">

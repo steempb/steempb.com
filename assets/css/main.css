@@ -263,7 +263,7 @@ div#header-home img#sublogo{
     border-top: 0;
 }
 
-#store .span4{
+.store-side .span4{
     width: 390px;
     height: 330px;
     padding: 10px;
@@ -271,58 +271,62 @@ div#header-home img#sublogo{
     margin-left: 42px;
 }
 
-#store .storeContainer{
+.store-side .storeContainer{
     float: none;
     clear: both;
 }
 
-#store .storeContainer .split{
+.store-side .storeContainer .split{
     width: 50%;
 }
 
-#store .storeContainer .split p{
+.store-side .storeContainer .split p{
     text-align: left;
     display: block;    
     margin: 0px 5px 0px 20px;
 }
 
-#store .storeContainer .split p.description{
+.store-side .storeContainer .split p.description{
     margin-top: 30px;
 }
 
-#store .storeContainer .split p.lead{
+.store-side .storeContainer .split p.lead{
     margin-top: 30px;
     margin-bottom: 5px;
 }
 
 
-#store .storeContainer .split p.lead strong{
+.store-side .storeContainer .split p.lead strong{
     color: #F47600;
     font-size: 36px;
     font-weight: normal;
 }
 
-#store form{
+.store-side form{
     padding-top: 10px;
 }
 
-#store .span4 form .split{
+.store-side form .checkoutbtn{
+
+}
+
+.store-side .span4 form .split{
     height: 70px;
 }
 
-#store .span4 form label{
+.store-side .span4 form label{
     margin-left: 10px;
     width: 60px;
 }
 
-#store .span4 form select{
+.store-side .span4 form select{
     width: 100px;
     font-size: 12px;
     height: 25px;
     margin-top: 3px;
 }
 
-#store .span4 form .control-split{
+.store-side .span4 form .control-split{
     width: 200px;
     height: 30px;
     margin: 0px;
@@ -330,7 +334,7 @@ div#header-home img#sublogo{
     display: block;
 }
 
-#store .span4 form .control-group{
+.store-side .span4 form .control-group{
     margin-bottom: 0px;
     margin-left: 10px;
     position: relative;
@@ -339,22 +343,22 @@ div#header-home img#sublogo{
     margin-top: -30px;
 }
 
-#store .span4 form .control-group.single-control{
+.store-side .span4 form .control-group.single-control{
     padding-top: 15px;
     height: 40px;
 }
 
-#store .span4 form .control-group .controls{
+.store-side .span4 form .control-group .controls{
     margin-left: 0px;
 }
 
-#store .span4 form .btn{
+.store-side .span4 form .btn{
     position: relative;
     top: 50%;
     margin-top: -25px;
 }
 
-#store .special{
+.store-side .special{
     background: #FADEB4;
     background: rgba(250, 222, 180, 0.4);
     box-shadow: inset 0 0 10px #000000;

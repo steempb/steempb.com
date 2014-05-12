@@ -192,7 +192,7 @@ $(document).ready(function(){
                         }
                     });
 
-                    $('form.checkout').click(function(eo){
+                    $('form.checkout').submit(function(eo){
                         eo.preventDefault();
                         if($(this).find('.checkoutbtn').hasClass('noclicky')){
                             eo.preventDefault();

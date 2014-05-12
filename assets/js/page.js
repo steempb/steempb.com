@@ -127,10 +127,12 @@ $(document).ready(function(){
 
                 loadTemplate('store_front_page', function(t) {
                     context.flip_side = 'front';
+                    context.payment_method = 'usd';
                     context.usd = true;
                     $('#cta-main').html( t(context) );
 
                     context.flip_side = 'back';
+                    context.payment_method = 'doge';
                     context.usd = false;
                     $('#cta-main').append( t(context) );
 
@@ -154,15 +156,23 @@ $(document).ready(function(){
                     });
 
                     $('select[name=inputQuantity]').change(function(){
-                        $(this).tooltip('destroy');
+                        $('select[name=inputQuantity]').val($(this).val());
+                        $('select[name=inputQuantity]').tooltip('destroy');
                         if($(this).val()){
                             var quantity = parseInt($(this).val());
-                            if($("#cta-main-container").hasClass('flip')){                                
-                                btnLabel = 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2) + ' <i class="icon-play"></i>';
-                            }else{
-                                btnLabel = '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>';
-                            }
-                            alterButton($(this), btnLabel, true);
+                                   
+                            var labels = {
+                                doge: 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
+                                usd: '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>'
+                            }                       
+
+                            $('.checkoutbtn[data-payment-method="' + currentSide() + '"]').fadeOut('fast', function(){
+                                $(this).removeClass('btn-disabled').removeClass('noclicky');
+                                $(this).html(labels[currentSide()]);
+                                $(this).fadeIn();
+                            });
+                            $('.checkoutbtn[data-payment-method="' + oppositeSide() + '"]').html(labels[oppositeSide()]).removeClass('noclicky');
+
                         }else{
                             $(this).tooltip({
                                 'animation': true,
@@ -170,8 +180,33 @@ $(document).ready(function(){
                                 'trigger': 'manual',
                                 'title': 'Please select a quantity.'
                             });
-                            alterButton($(this), 'Buy Me', false);
                             $(this).tooltip('show');
+
+                            $('.checkoutbtn[data-payment-method="' + currentSide() + '"]').fadeOut('fast', function(){
+                                $(this).addClass('btn-disabled').addClass('noclicky');
+                                $(this).html('Buy Me');
+                                $(this).fadeIn();
+                            });
+                            $('.checkoutbtn[data-payment-method="' + oppositeSide() + '"]').html('Buy Me').addClass('noclicky');
+                            
+                        }
+                    });
+
+                    $('form.checkout').click(function(eo){
+                        eo.preventDefault();
+                        if($(this).find('.checkoutbtn').hasClass('noclicky')){
+                            eo.preventDefault();
+                            select = $(this).find('select[name=inputQuantity]');
+                            select.tooltip({
+                                'animation': true,
+                                'placement': 'bottom',
+                                'trigger': 'manual',
+                                'title': 'Please select a quantity.'
+                            });
+                            select.tooltip('show');
+                        }else{
+                            alert('page2trigger');
+                            //form submission omg
                         }
                     });
 
@@ -324,16 +359,16 @@ $(document).ready(function(){
 
 });
 
-function alterButton(formobj, btnLabel, enabled){
-    formobj.parents('form').find('.checkoutbtn').fadeOut('fast', function(){
-        if(enabled){
-            $(this).removeClass('btn-disabled').removeClass('noclicky').removeAttr('disabled');
-        }else{
-            $(this).addClass('btn-disabled').addClass('noclicky').attr('disabled', 'disabled');
-        }
-        $(this).html(btnLabel);
-        $(this).fadeIn();
-    });
+function currentSide(){
+    return ($("#cta-main-container").hasClass('flip'))
+        ? 'doge'
+        : 'usd';
+}
+
+function oppositeSide(){
+    return ($("#cta-main-container").hasClass('flip'))
+        ? 'usd'
+        : 'doge';
 }
 
 function updateShippingCost(shippingData){

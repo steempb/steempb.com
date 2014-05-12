@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="storeContainer">
-                <form class="form-horizontal" method="POST">
+                <form class="form-horizontal checkout" method="POST">
                     <div class="split pull-left">
                         <div class="control-group single-control">
                             <div class="control-split">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="split pull-right">
-                        <button class="btn btn-large btn-warning steembtn checkoutbtn">Buy Me</button>
+                        <button class="btn btn-large btn-warning steembtn checkoutbtn" data-payment-method="{{payment_method}}">Buy Me</button>
                     </div>
                 </form>
             </div>
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="storeContainer">
-                <form class="form-horizontal" method="POST" id="storeStage1_special">
+                <form class="form-horizontal checkout-special" method="POST">
                     <div class="split pull-left">
                         <div class="control-group double-control">
                             <div class="control-split">

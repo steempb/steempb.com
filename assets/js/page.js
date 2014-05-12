@@ -40,7 +40,6 @@ $.get('https://moolah.io/api/rates?f=USD&t=DOGE&a=1', function(data){
     dogeValue = parseInt(data.replace(/,/g, ''));
 })
 
-
 $(document).ready(function(){
     jetGuyFlyIn();
     // Konami loader
@@ -80,15 +79,6 @@ $(document).ready(function(){
             eo.preventDefault();
             return false;
         }
-    });
-
-    $('#inputQuantity').popover({
-        'animation': true,
-        'placement': 'left',
-        'trigger': 'manual',
-        'title': 'Quantity Too Large',
-        'html': true,
-        'content': '<p style="font-size:12px; color:#333;">Limit of ' + jarLimitStr + ' jars per transaction to save shipping costs.</p>'
     });
 
     $('#inputCountry').popover({
@@ -149,21 +139,24 @@ $(document).ready(function(){
                     });
 
                     $('select[name=inputQuantity]').change(function(){
+                        $(this).tooltip('destroy');
                         if($(this).val()){
                             var quantity = parseInt($(this).val());
-                            $(this).parents('form').find('.checkoutbtn').fadeOut('fast', function(){
-                                if($("#cta-main-container").hasClass('flip')){
-                                    console.log(dogeValue);
-                                    console.log(quantity);
-                                    btnLabel = 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2);
-                                }else{
-                                    btnLabel = '$' + (6.75 + (4.99 * quantity)).toFixed(2);
-                                }
-                                $(this).html(btnLabel + ' <i class="icon-play"></i>');
-                                $(this).fadeIn();
-                            });
+                            if($("#cta-main-container").hasClass('flip')){                                
+                                btnLabel = 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2) + ' <i class="icon-play"></i>';
+                            }else{
+                                btnLabel = '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>';
+                            }
+                            alterButton($(this), btnLabel, true);
                         }else{
-                            //invalidate form
+                            alterButton($(this), 'Buy Me', false);
+                            $(this).tooltip({
+                                'animation': true,
+                                'placement': 'bottom',
+                                'trigger': 'manual',
+                                'title': 'Please select a quantity.'
+                            });
+                            $(this).tooltip('show');
                         }
                     });
 
@@ -315,6 +308,18 @@ $(document).ready(function(){
     });
 
 });
+
+function alterButton(formobj, btnLabel, enabled){
+    formobj.parents('form').find('.checkoutbtn').fadeOut('fast', function(){
+        if(enabled){
+            $(this).removeClass('btn-disabled').removeAttr('disabled');
+        }else{
+            $(this).addClass('btn-disabled').attr('disabled', 'disabled');
+        }
+        $(this).html(btnLabel);
+        $(this).fadeIn();
+    });
+}
 
 function updateShippingCost(shippingData){
     shippingData['weight'] = submissionData['quantity'] * .5; // weight calc!

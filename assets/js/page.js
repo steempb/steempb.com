@@ -151,9 +151,11 @@ $(document).ready(function(){
                     $('select[name=inputQuantity]').change(function(){
                         if($(this).val()){
                             var quantity = parseInt($(this).val());
-                            $(this).parents('form').find('.checkoutbtn').fadeOut(function(){
+                            $(this).parents('form').find('.checkoutbtn').fadeOut('fast', function(){
                                 if($("#cta-main-container").hasClass('flip')){
-                                    btnLabel = 'Ð' + ((6.75 * parseInt(dogeValue)) + (4.99 * quantity * parseInt(dogeValue))).toFixed(2);
+                                    console.log(dogeValue);
+                                    console.log(quantity);
+                                    btnLabel = 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2);
                                 }else{
                                     btnLabel = '$' + (6.75 + (4.99 * quantity)).toFixed(2);
                                 }
@@ -525,6 +527,6 @@ Handlebars.registerHelper('retina', function( src ) {
 Handlebars.registerHelper('formatPrice', function( value ) {
     return (this.usd)
         ? '$' + value
-        : 'Ð' + (parseInt(value) * dogeValue);
+        : 'Ð' + (parseFloat(value) * dogeValue).toFixed(2);
   
 });

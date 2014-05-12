@@ -605,6 +605,10 @@ div#footer-home a{
     text-align: center;
 }
 
+.noclicky{
+    cursor: not-allowed;
+}
+
 /* wider window */
 @media (min-width: 1280px) {
 

@@ -138,6 +138,21 @@ $(document).ready(function(){
                         $("#cta-main-container").toggleClass('flip');
                     });
 
+                    btn = $('select[name=inputQuantity]').parents('form').find('.checkoutbtn');
+                    btn.addClass('noclicky');
+                    btn.mouseover(function(){
+                        if($(this).hasClass('noclicky')){
+                            select = $(this).parents('form').find('select[name=inputQuantity]');
+                            select.tooltip({
+                                'animation': true,
+                                'placement': 'bottom',
+                                'trigger': 'manual',
+                                'title': 'Please select a quantity.'
+                            });
+                            select.tooltip('show');
+                        }
+                    });
+
                     $('select[name=inputQuantity]').change(function(){
                         $(this).tooltip('destroy');
                         if($(this).val()){
@@ -149,13 +164,13 @@ $(document).ready(function(){
                             }
                             alterButton($(this), btnLabel, true);
                         }else{
-                            alterButton($(this), 'Buy Me', false);
                             $(this).tooltip({
                                 'animation': true,
                                 'placement': 'bottom',
                                 'trigger': 'manual',
                                 'title': 'Please select a quantity.'
                             });
+                            alterButton($(this), 'Buy Me', false);
                             $(this).tooltip('show');
                         }
                     });
@@ -312,9 +327,9 @@ $(document).ready(function(){
 function alterButton(formobj, btnLabel, enabled){
     formobj.parents('form').find('.checkoutbtn').fadeOut('fast', function(){
         if(enabled){
-            $(this).removeClass('btn-disabled').removeAttr('disabled');
+            $(this).removeClass('btn-disabled').removeClass('noclicky').removeAttr('disabled');
         }else{
-            $(this).addClass('btn-disabled').attr('disabled', 'disabled');
+            $(this).addClass('btn-disabled').addClass('noclicky').attr('disabled', 'disabled');
         }
         $(this).html(btnLabel);
         $(this).fadeIn();

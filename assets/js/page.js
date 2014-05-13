@@ -140,6 +140,8 @@ $(document).ready(function(){
                         $("#cta-main-container").toggleClass('flip');
                     });
 
+                    // Checkout stuff
+
                     btn = $('select[name=inputQuantity]').parents('form').find('.checkoutbtn');
                     btn.addClass('noclicky');
                     btn.mouseover(function(){
@@ -168,13 +170,13 @@ $(document).ready(function(){
                                 usd: '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>'
                             }                       
 
-                            $('.checkoutbtn[data-payment-method="' + currentSide() + '"]').fadeOut('fast', function(){
+                            $('.checkoutbtn[data-payment-method="' + currentSideCurrency() + '"]').fadeOut('fast', function(){
                                 $(this).removeClass('btn-disabled').removeClass('noclicky');
-                                $(this).html(labels[currentSide()]);
+                                $(this).html(labels[currentSideCurrency()]);
                                 $(this).fadeIn();
                                 $('select[name=inputQuantity]').tooltip('destroy');
                             });
-                            $('.checkoutbtn[data-payment-method="' + oppositeSide() + '"]').html(labels[oppositeSide()]).removeClass('noclicky');
+                            $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html(labels[oppositeSideCurrency()]).removeClass('noclicky');
 
                         }else{
                             $(this).tooltip({
@@ -185,12 +187,12 @@ $(document).ready(function(){
                             });
                             $(this).tooltip('show');
 
-                            $('.checkoutbtn[data-payment-method="' + currentSide() + '"]').fadeOut('fast', function(){
+                            $('.checkoutbtn[data-payment-method="' + currentSideCurrency() + '"]').fadeOut('fast', function(){
                                 $(this).addClass('btn-disabled').addClass('noclicky');
                                 $(this).html('Buy Me');
                                 $(this).fadeIn();
                             });
-                            $('.checkoutbtn[data-payment-method="' + oppositeSide() + '"]').html('Buy Me').addClass('noclicky');
+                            $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html('Buy Me').addClass('noclicky');
                             
                         }
                     });
@@ -211,6 +213,26 @@ $(document).ready(function(){
                             alert('page2trigger');
                             //form submission omg
                         }
+                    });
+
+                    // Special stuff
+
+                    $('select[name=inputColor]').change(function(){
+                        $('.' + oppositeSide() + ' select[name=inputColor]').val($(this).val());
+                        var that = $(this);
+                        $('.img-special').fadeOut(function(){
+                            $(this).attr('src', '/assets/img/template/checkout_valuemeal_' + that.val() + (isRetina? '@2x' : '') + '.png');
+                            $(this).fadeIn();
+                        });
+                    });
+
+                    $('select[name=inputSize]').change(function(){
+                        $('.' + oppositeSide() + ' select[name=inputSize]').val($(this).val());
+                    });
+
+                    $('form.checkout-special').submit(function(eo){
+                        eo.preventDefault();
+                        alert('page2trigger');
                     });
 
                 });
@@ -364,11 +386,23 @@ $(document).ready(function(){
 
 function currentSide(){
     return ($("#cta-main-container").hasClass('flip'))
+        ? 'back'
+        : 'front';
+}
+
+function oppositeSide(){
+    return ($("#cta-main-container").hasClass('flip'))
+        ? 'front'
+        : 'back';
+}
+
+function currentSideCurrency(){
+    return ($("#cta-main-container").hasClass('flip'))
         ? 'doge'
         : 'usd';
 }
 
-function oppositeSide(){
+function oppositeSideCurrency(){
     return ($("#cta-main-container").hasClass('flip'))
         ? 'usd'
         : 'doge';

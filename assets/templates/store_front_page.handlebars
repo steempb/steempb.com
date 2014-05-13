@@ -52,7 +52,7 @@
         <div class="span4 special">
             <div class="storeContainer">
                 <div class="split pull-left">
-                    <img src="{{retina '/assets/img/template/checkout_valuemeal.png'}}" width="207" height="268" />
+                    <img class="img-special" src="{{retina '/assets/img/template/checkout_valuemeal_aubergine.png'}}" width="207" height="268" />
                 </div>
                 <div class="split pull-right">
                     <p class="description">A limited edition STEEM T-Shirt so you can do stuff and advertise us for free all at once!</p>
@@ -65,18 +65,18 @@
                     <div class="split pull-left">
                         <div class="control-group double-control">
                             <div class="control-split">
-                                <label class="control-label" for="inputQuantity">Color:</label>
+                                <label class="control-label" for="inputColor">Color:</label>
                                 <div class="controls">
-                                    <select>
-                                        <option>Aubergine</option>
-                                        <option>Navy</option>
+                                    <select name="inputColor">
+                                        <option value="aubergine">Aubergine</option>
+                                        <option value="navy">Navy</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="control-split">
-                                <label class="control-label" for="inputQuantity">Size:</label>
+                                <label class="control-label" for="inputSize">Size:</label>
                                 <div class="controls">
-                                    <select>
+                                    <select name="inputSize">
                                         <option>Small</option>
                                         <option>Medium</option>
                                         <option>Large</option>

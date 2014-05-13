@@ -143,8 +143,8 @@ $(document).ready(function(){
                     btn = $('select[name=inputQuantity]').parents('form').find('.checkoutbtn');
                     btn.addClass('noclicky');
                     btn.mouseover(function(){
+                        select = $(this).parents('form').find('select[name=inputQuantity]');
                         if($(this).hasClass('noclicky')){
-                            select = $(this).parents('form').find('select[name=inputQuantity]');
                             select.tooltip({
                                 'animation': true,
                                 'placement': 'bottom',
@@ -152,6 +152,8 @@ $(document).ready(function(){
                                 'title': 'Please select a quantity.'
                             });
                             select.tooltip('show');
+                        }else{
+                            select.tooltip('destroy');
                         }
                     });
 
@@ -170,6 +172,7 @@ $(document).ready(function(){
                                 $(this).removeClass('btn-disabled').removeClass('noclicky');
                                 $(this).html(labels[currentSide()]);
                                 $(this).fadeIn();
+                                $('select[name=inputQuantity]').tooltip('destroy');
                             });
                             $('.checkoutbtn[data-payment-method="' + oppositeSide() + '"]').html(labels[oppositeSide()]).removeClass('noclicky');
 

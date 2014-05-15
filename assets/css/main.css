@@ -263,11 +263,24 @@ div#header-home img#sublogo{
     border-top: 0;
 }
 
+.store-side .store-heading{
+    width: 860px;
+    height: 90px;
+}
+
+.store-side .store-heading .span5{
+    width: 600px;
+}
+
+.store-side .store-heading .span3{
+    width: 200px;
+}
+
 .store-side .span4{
     width: 390px;
     height: 330px;
     padding: 10px;
-    margin-top: 90px;
+    margin-top: 50px;
     margin-left: 42px;
 }
 

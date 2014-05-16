@@ -210,8 +210,7 @@ $(document).ready(function(){
                             });
                             select.tooltip('show');
                         }else{
-                            alert('page2trigger');
-                            //form submission omg
+                            checkoutSlide(2);
                         }
                     });
 
@@ -232,7 +231,7 @@ $(document).ready(function(){
 
                     $('form.checkout-special').submit(function(eo){
                         eo.preventDefault();
-                        alert('page2trigger');
+                        checkoutSlide(2);
                     });
 
                 });
@@ -407,6 +406,18 @@ function oppositeSideCurrency(){
         ? 'usd'
         : 'doge';
 }
+
+function checkoutSlide(slide){
+    if(slide == 1){
+        newMargin = 0;
+    }else{
+        newMargin = -872;
+    }
+    $('.store-slide[data-store-slide=1]').animate({
+        marginLeft: newMargin
+    }, 300);
+}
+
 
 function updateShippingCost(shippingData){
     shippingData['weight'] = submissionData['quantity'] * .5; // weight calc!

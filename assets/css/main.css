@@ -263,6 +263,20 @@ div#header-home img#sublogo{
     border-top: 0;
 }
 
+.store-side{
+    overflow: hidden;
+}
+
+.store-slide-container{
+    width: 1744px;
+    height: 100%;
+}
+
+.row.store-slide{
+    float: left;
+    width: 872px;
+}
+
 .store-side .store-heading{
     width: 860px;
     height: 90px;

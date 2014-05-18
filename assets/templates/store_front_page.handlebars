@@ -1,7 +1,7 @@
 <div class="{{flip_side}} store-side">
     <div class="row store-heading">
         <div class="span5">
-            <span>STEEM store</span>
+            
         </div>
         <div class="span3">
             <button class="btn btn-large dogetoggle">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="storeContainer">
-                    <form class="form-horizontal checkout-special" method="POST">
+                    <form class="form-horizontal checkout checkout-special" method="POST">
                         <div class="split pull-left">
                             <div class="control-group double-control">
                                 <div class="control-split">
@@ -100,26 +100,82 @@
 
         <div class="row store-slide" data-store-slide="2">
             <div class="span4">
-                <form class="form-horizontal shipping" method="POST">
-                    <div class="control-group">
-                        <label class="control-label" for="inputQuantity">Quantity:</label>
-                        <div class="controls">
-                            <select name="inputQuantity">
-                                <option></option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
+                <div class="storeContainer">
+                    <h3>Shipping Address</h3>
+                    <form class="form-horizontal shipping" method="POST">
+                        <div class="control-group">
+                            <label class="control-label" for="inputName">Name</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" name="inputName" required placeholder="Recipient Name">
+                            </div>
                         </div>
-                    </div>
-                    <button class="btn btn-large btn-warning steembtn checkoutbtn" data-payment-method="{{payment_method}}">Buy Me</button>
-                </form>
+                        <div class="control-group">
+                            <label class="control-label" for="inputStreetLine1">Line 1</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" name="inputStreetLine1" required placeholder="Line1">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputStreetLine2">Line 2</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" name="inputStreetLine2" placeholder="Line2">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputCity">City</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" name="inputCity" required placeholder="City">
+                            </div>
+                        </div>
+                        <div class="split pull-left">
+                            <div class="control-group">
+                                <label class="control-label" for="inputState">State</label>
+                                <div class="controls">
+                                    <input class="input-mini" maxlength="2" type="text" name="inputState" required placeholder="State">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="split pull-left">
+                            <div class="control-group">
+                                <label class="control-label" for="inputPostalCode">Zip Code</label>
+                                <div class="controls">
+                                    <input class="input-small" type="text" name="inputPostalCode" required placeholder="Zip Code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputCountry">Country</label>
+                            <div class="controls">
+                                <select class="input-xlarge" name="inputCountry" required disabled="disabled">
+                                    <option value="US" selected="selected">United States</option>
+                                <select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="span4">
-                <h1>Total or whatever</h1>
+            <div class="span4 summary-container">
+                <h3>Order Summary</h3>
+                <dl class="dl-horizontal store-summary">
+                    <dt>STEEM Jar (7)</dt>
+                    <dd>{{formatPrice '34.99'}}</dd>
+                    
+                    <dt>Shipping</dt>
+                    <dd>{{formatPrice '6.75'}}</dd>
+                    
+                    <dt class="discount">Hat Owner Discount</dt>
+                    <dd class="discount">- {{formatPrice '5.00'}}</dd>
+
+                    <hr />
+
+                    <dt class="total">Total</dt>
+                    <dd class="total">{{formatPrice '36.74'}}</dd>
+
+                </dl>
+
+
+
+                <button class="btn btn-large btn-warning steembtn">Checkout with {{checkoutService}}</button>
             </div>
         </div>
     </div>

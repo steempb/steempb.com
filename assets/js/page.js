@@ -110,7 +110,7 @@ $(document).ready(function(){
             {
                 marginLeft: -425,
                 width: 800, 
-                height: 520,
+                height: 470,
                 boxShadow: 'none'
             }, 
             501,
@@ -138,6 +138,11 @@ $(document).ready(function(){
 
                     $(".dogetoggle").click(function(){
                         $("#cta-main-container").toggleClass('flip');
+                    });
+
+                    // sync the shipping form on both sides
+                    $('form.shipping input').change(function(eo){
+                        $('.' + oppositeSide() + ' form.shipping input[name=' + $(this).attr('name') + ']').val($(this).val());
                     });
 
                     // Checkout stuff
@@ -411,11 +416,12 @@ function checkoutSlide(slide){
     if(slide == 1){
         newMargin = 0;
     }else{
-        newMargin = -872;
+        newMargin = -914;
     }
     $('.store-slide[data-store-slide=1]').animate({
         marginLeft: newMargin
     }, 300);
+    $('.checkoutbar').attr('src', '/assets/img/template/checkoutbar_step' + slide + (isRetina? '@2x' : '') + '.png');
 }
 
 
@@ -631,5 +637,13 @@ Handlebars.registerHelper('formatPrice', function( value ) {
     return (this.usd)
         ? '$' + value
         : 'Ð' + (parseFloat(value) * dogeValue).toFixed(2);
+  
+});
+
+// return the payment service name
+Handlebars.registerHelper('checkoutService', function() {
+    return (this.usd)
+        ? 'PayPal'
+        : 'Moolah';
   
 });

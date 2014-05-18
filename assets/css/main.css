@@ -268,21 +268,22 @@ div#header-home img#sublogo{
 }
 
 .store-slide-container{
-    width: 1744px;
+    width: 1828px;
     height: 100%;
 }
 
 .row.store-slide{
     float: left;
-    width: 872px;
+    width: 914px;
 }
 
 .store-side .store-heading{
     width: 860px;
-    height: 90px;
+    height: 80px;
 }
 
 .store-side .store-heading .span5{
+    padding-top: 15px;
     width: 600px;
 }
 
@@ -294,7 +295,7 @@ div#header-home img#sublogo{
     width: 390px;
     height: 330px;
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 15px;
     margin-left: 42px;
 }
 
@@ -329,31 +330,85 @@ div#header-home img#sublogo{
     font-weight: normal;
 }
 
-.store-side form{
+.store-side .summary-container{
+    margin-left: 20px;
+}
+
+.store-side .store-summary{
+    margin-left: 40px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.store-side .store-summary hr{
+    width: 300px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
+}
+
+.store-side .store-summary dt,dd{
+    margin-bottom: 10px;
+}
+
+.store-side .store-summary .discount{
+    color: #F47600;
+}
+
+.store-side .store-summary dd.discount{
+    margin-left: 173px;
+}
+
+.store-side .store-summary .total{
+    font-size: 28px;
+}
+
+.store-side form.shipping{
+    text-align: left;
+    margin: 0px;
+}
+
+.store-side form.shipping h2{
+    
+}
+
+.store-side form.shipping .split{
+    width: 179px;
+}
+
+.store-side form.shipping .control-label{
+    width: 60px;
+    margin-right: 15px;
+}
+
+.store-side form.shipping .controls{
+    margin-left: 0px;
+}
+
+.store-side form.checkout{
     padding-top: 10px;
 }
 
-.store-side form .checkoutbtn{
+.store-side form.checkout .checkoutbtn{
 
 }
 
-.store-side .span4 form .split{
+.store-side .span4 form.checkout .split{
     height: 70px;
 }
 
-.store-side .span4 form label{
+.store-side .span4 form.checkout label{
     margin-left: 10px;
     width: 60px;
 }
 
-.store-side .span4 form select{
+.store-side .span4 form.checkout select{
     width: 100px;
     font-size: 12px;
     height: 25px;
     margin-top: 3px;
 }
 
-.store-side .span4 form .control-split{
+.store-side .span4 form.checkout .control-split{
     width: 200px;
     height: 30px;
     margin: 0px;
@@ -361,7 +416,7 @@ div#header-home img#sublogo{
     display: block;
 }
 
-.store-side .span4 form .control-group{
+.store-side .span4 form.checkout .control-group{
     margin-bottom: 0px;
     margin-left: 10px;
     position: relative;
@@ -370,16 +425,16 @@ div#header-home img#sublogo{
     margin-top: -30px;
 }
 
-.store-side .span4 form .control-group.single-control{
+.store-side .span4 form.checkout .control-group.single-control{
     padding-top: 15px;
     height: 40px;
 }
 
-.store-side .span4 form .control-group .controls{
+.store-side .span4 form.checkout .control-group .controls{
     margin-left: 0px;
 }
 
-.store-side .span4 form .btn{
+.store-side .span4 form.checkout .btn{
     position: relative;
     top: 50%;
     margin-top: -25px;

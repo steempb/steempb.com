@@ -1,0 +1,15 @@
+                    <dt>{{item_name}} ({{item_quantity}})</dt>
+                    <dd>{{formatPrice item_subtotal}}</dd>
+                    
+                    <dt>Shipping</dt>
+                    <dd>{{formatPrice shipping_total}}</dd>
+
+                    {{#each discounts}}
+                    <dt class="discount">{{this.name}}</dt>
+                    <dd class="discount">- {{formatPrice this.value}}</dd>
+                    {{/each}}
+
+                    <hr />
+
+                    <dt class="total">Total</dt>
+                    <dd class="total">{{formatPrice total}}</dd>

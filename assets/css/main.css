@@ -341,7 +341,7 @@ div#header-home img#sublogo{
 }
 
 .store-side .store-summary hr{
-    width: 300px;
+    width: 325px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #eee;
 }
@@ -359,6 +359,7 @@ div#header-home img#sublogo{
 }
 
 .store-side .store-summary .total{
+    height: 27px;
     font-size: 28px;
 }
 

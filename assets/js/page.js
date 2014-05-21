@@ -17,7 +17,6 @@
 
 //determine if this is @2x territory
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
-// console.log('@2x support: ' + isRetina);
 
 var jarLimit = 4;
 var jarLimitStr = "four";
@@ -33,6 +32,14 @@ var paymentMethod = 'USD';
 
 var shippingUpdated = false;
 var submissionData;
+
+var cart_context = {
+    'item_name': 'None',
+    'item_quantity': 0,
+    'item_subtotal': 0,
+    'shipping_total': 0,
+    'discounts': []
+};
 
 // get the current value of Doge from Moolah
 var dogeValue = false;
@@ -202,7 +209,7 @@ $(document).ready(function(){
                         }
                     });
 
-                    $('form.checkout').submit(function(eo){
+                    $('form.checkout-normal').submit(function(eo){
                         eo.preventDefault();
                         if($(this).find('.checkoutbtn').hasClass('noclicky')){
                             eo.preventDefault();
@@ -215,6 +222,10 @@ $(document).ready(function(){
                             });
                             select.tooltip('show');
                         }else{
+                            cart_context.item_name = 'STEEM Jar';
+                            cart_context.item_quantity = $(this).find('select[name=inputQuantity]').val();
+                            cart_context.item_subtotal = cart_context.item_quantity * 4.99;
+                            cart_context.shipping_total = 6.75;
                             checkoutSlide(2);
                         }
                     });
@@ -236,6 +247,10 @@ $(document).ready(function(){
 
                     $('form.checkout-special').submit(function(eo){
                         eo.preventDefault();
+                        cart_context.item_name = '2 Jars + T-Shirt';
+                        cart_context.item_quantity = 1;
+                        cart_context.item_subtotal = 19.99;
+                        cart_context.shipping_total = 0;
                         checkoutSlide(2);
                     });
 
@@ -416,12 +431,29 @@ function checkoutSlide(slide){
     if(slide == 1){
         newMargin = 0;
     }else{
+        updateSummary();
         newMargin = -914;
     }
     $('.store-slide[data-store-slide=1]').animate({
         marginLeft: newMargin
     }, 300);
     $('.checkoutbar').attr('src', '/assets/img/template/checkoutbar_step' + slide + (isRetina? '@2x' : '') + '.png');
+}
+
+function updateSummary(){
+    cart_context.total = cart_context.item_subtotal + cart_context.shipping_total;
+
+    loadTemplate('store_summary', function(t) {
+        context_front = cart_context;
+        context_front.usd = true;
+        $('.store-side.front dl.store-summary').html( t(context_front) );
+    });
+
+    loadTemplate('store_summary', function(t) { 
+        context_back = cart_context;
+        context_back.usd = false;
+        $('.store-side.back dl.store-summary').html( t(context_back) );
+    });
 }
 
 
@@ -635,7 +667,7 @@ Handlebars.registerHelper('retina', function( src ) {
 // change prices to DOGE
 Handlebars.registerHelper('formatPrice', function( value ) {
     return (this.usd)
-        ? '$' + value
+        ? '$' + parseFloat(value).toFixed(2)
         : 'Ð' + (parseFloat(value) * dogeValue).toFixed(2);
   
 });

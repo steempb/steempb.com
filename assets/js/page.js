@@ -460,6 +460,10 @@ function updateSummary(){
     context_back = cart_context;
     context_back.usd = false;
     $('.store-side.back dl.store-summary').html( summary_template(context_back) );
+
+    $('.cart-edit-link').click(function(){
+        checkoutSlide(1);
+    });
 }
 
 

@@ -354,6 +354,12 @@ div#header-home img#sublogo{
     color: #F47600;
 }
 
+.store-side .store-summary .cart-edit-link{
+    font-weight: normal;
+    font-size: 12px;
+    cursor: pointer;
+}
+
 .store-side .store-summary dd.discount{
     margin-left: 173px;
 }

@@ -47,6 +47,18 @@ $.get('https://moolah.io/api/rates?f=USD&t=DOGE&a=1', function(data){
     dogeValue = parseInt(data.replace(/,/g, ''));
 })
 
+// get our templates
+var store_template;
+$.get("/assets/templates/store_front_page.handlebars", function(raw) {
+    store_template = Handlebars.compile(raw);
+});
+
+var summary_template;
+$.get("/assets/templates/store_summary.handlebars", function(raw) {
+    summary_template = Handlebars.compile(raw);
+});
+
+
 $(document).ready(function(){
     jetGuyFlyIn();
     // Konami loader
@@ -132,129 +144,127 @@ $(document).ready(function(){
                     
                 };
 
-                loadTemplate('store_front_page', function(t) {
-                    context.flip_side = 'front';
-                    context.payment_method = 'usd';
-                    context.usd = true;
-                    $('#cta-main').html( t(context) );
+                context.flip_side = 'front';
+                context.payment_method = 'usd';
+                context.usd = true;
+                $('#cta-main').html( store_template(context) );
 
-                    context.flip_side = 'back';
-                    context.payment_method = 'doge';
-                    context.usd = false;
-                    $('#cta-main').append( t(context) );
+                context.flip_side = 'back';
+                context.payment_method = 'doge';
+                context.usd = false;
+                $('#cta-main').append( store_template(context) );
 
-                    $(".dogetoggle").click(function(){
-                        $("#cta-main-container").toggleClass('flip');
-                    });
+                $(".dogetoggle").click(function(){
+                    $("#cta-main-container").toggleClass('flip');
+                });
 
-                    // sync the shipping form on both sides
-                    $('form.shipping input').change(function(eo){
-                        $('.' + oppositeSide() + ' form.shipping input[name=' + $(this).attr('name') + ']').val($(this).val());
-                    });
+                // sync the shipping form on both sides
+                $('form.shipping input').change(function(eo){
+                    $('.' + oppositeSide() + ' form.shipping input[name=' + $(this).attr('name') + ']').val($(this).val());
+                });
 
-                    // Checkout stuff
+                // Checkout stuff
 
-                    btn = $('select[name=inputQuantity]').parents('form').find('.checkoutbtn');
-                    btn.addClass('noclicky');
-                    btn.mouseover(function(){
-                        select = $(this).parents('form').find('select[name=inputQuantity]');
-                        if($(this).hasClass('noclicky')){
-                            select.tooltip({
-                                'animation': true,
-                                'placement': 'bottom',
-                                'trigger': 'manual',
-                                'title': 'Please select a quantity.'
-                            });
-                            select.tooltip('show');
-                        }else{
-                            select.tooltip('destroy');
-                        }
-                    });
+                btn = $('select[name=inputQuantity]').parents('form').find('.checkoutbtn');
+                btn.addClass('noclicky');
+                btn.mouseover(function(){
+                    select = $(this).parents('form').find('select[name=inputQuantity]');
+                    if($(this).hasClass('noclicky')){
+                        select.tooltip({
+                            'animation': true,
+                            'placement': 'bottom',
+                            'trigger': 'manual',
+                            'title': 'Please select a quantity.'
+                        });
+                        select.tooltip('show');
+                    }else{
+                        select.tooltip('destroy');
+                    }
+                });
 
-                    $('select[name=inputQuantity]').change(function(){
-                        $('select[name=inputQuantity]').val($(this).val());
-                        $('select[name=inputQuantity]').tooltip('destroy');
-                        if($(this).val()){
-                            var quantity = parseInt($(this).val());
-                                   
-                            var labels = {
-                                doge: 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
-                                usd: '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>'
-                            }                       
+                $('select[name=inputQuantity]').change(function(){
+                    $('select[name=inputQuantity]').val($(this).val());
+                    $('select[name=inputQuantity]').tooltip('destroy');
+                    if($(this).val()){
+                        var quantity = parseInt($(this).val());
+                               
+                        var labels = {
+                            doge: 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
+                            usd: '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>'
+                        }                       
 
-                            $('.checkoutbtn[data-payment-method="' + currentSideCurrency() + '"]').fadeOut('fast', function(){
-                                $(this).removeClass('btn-disabled').removeClass('noclicky');
-                                $(this).html(labels[currentSideCurrency()]);
-                                $(this).fadeIn();
-                                $('select[name=inputQuantity]').tooltip('destroy');
-                            });
-                            $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html(labels[oppositeSideCurrency()]).removeClass('noclicky');
+                        $('.checkoutbtn[data-payment-method="' + currentSideCurrency() + '"]').fadeOut('fast', function(){
+                            $(this).removeClass('btn-disabled').removeClass('noclicky');
+                            $(this).html(labels[currentSideCurrency()]);
+                            $(this).fadeIn();
+                            $('select[name=inputQuantity]').tooltip('destroy');
+                        });
+                        $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html(labels[oppositeSideCurrency()]).removeClass('noclicky');
 
-                        }else{
-                            $(this).tooltip({
-                                'animation': true,
-                                'placement': 'bottom',
-                                'trigger': 'manual',
-                                'title': 'Please select a quantity.'
-                            });
-                            $(this).tooltip('show');
+                    }else{
+                        $(this).tooltip({
+                            'animation': true,
+                            'placement': 'bottom',
+                            'trigger': 'manual',
+                            'title': 'Please select a quantity.'
+                        });
+                        $(this).tooltip('show');
 
-                            $('.checkoutbtn[data-payment-method="' + currentSideCurrency() + '"]').fadeOut('fast', function(){
-                                $(this).addClass('btn-disabled').addClass('noclicky');
-                                $(this).html('Buy Me');
-                                $(this).fadeIn();
-                            });
-                            $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html('Buy Me').addClass('noclicky');
-                            
-                        }
-                    });
-
-                    $('form.checkout-normal').submit(function(eo){
-                        eo.preventDefault();
-                        if($(this).find('.checkoutbtn').hasClass('noclicky')){
-                            eo.preventDefault();
-                            select = $(this).find('select[name=inputQuantity]');
-                            select.tooltip({
-                                'animation': true,
-                                'placement': 'bottom',
-                                'trigger': 'manual',
-                                'title': 'Please select a quantity.'
-                            });
-                            select.tooltip('show');
-                        }else{
-                            cart_context.item_name = 'STEEM Jar';
-                            cart_context.item_quantity = $(this).find('select[name=inputQuantity]').val();
-                            cart_context.item_subtotal = cart_context.item_quantity * 4.99;
-                            cart_context.shipping_total = 6.75;
-                            checkoutSlide(2);
-                        }
-                    });
-
-                    // Special stuff
-
-                    $('select[name=inputColor]').change(function(){
-                        $('.' + oppositeSide() + ' select[name=inputColor]').val($(this).val());
-                        var that = $(this);
-                        $('.img-special').fadeOut(function(){
-                            $(this).attr('src', '/assets/img/template/checkout_valuemeal_' + that.val() + (isRetina? '@2x' : '') + '.png');
+                        $('.checkoutbtn[data-payment-method="' + currentSideCurrency() + '"]').fadeOut('fast', function(){
+                            $(this).addClass('btn-disabled').addClass('noclicky');
+                            $(this).html('Buy Me');
                             $(this).fadeIn();
                         });
-                    });
-
-                    $('select[name=inputSize]').change(function(){
-                        $('.' + oppositeSide() + ' select[name=inputSize]').val($(this).val());
-                    });
-
-                    $('form.checkout-special').submit(function(eo){
-                        eo.preventDefault();
-                        cart_context.item_name = '2 Jars + T-Shirt';
-                        cart_context.item_quantity = 1;
-                        cart_context.item_subtotal = 19.99;
-                        cart_context.shipping_total = 0;
-                        checkoutSlide(2);
-                    });
-
+                        $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html('Buy Me').addClass('noclicky');
+                        
+                    }
                 });
+
+                $('form.checkout-normal').submit(function(eo){
+                    eo.preventDefault();
+                    if($(this).find('.checkoutbtn').hasClass('noclicky')){
+                        eo.preventDefault();
+                        select = $(this).find('select[name=inputQuantity]');
+                        select.tooltip({
+                            'animation': true,
+                            'placement': 'bottom',
+                            'trigger': 'manual',
+                            'title': 'Please select a quantity.'
+                        });
+                        select.tooltip('show');
+                    }else{
+                        cart_context.item_name = 'STEEM Jar';
+                        cart_context.item_quantity = $(this).find('select[name=inputQuantity]').val();
+                        cart_context.item_subtotal = cart_context.item_quantity * 4.99;
+                        cart_context.shipping_total = 6.75;
+                        checkoutSlide(2);
+                    }
+                });
+
+                // Special stuff
+
+                $('select[name=inputColor]').change(function(){
+                    $('.' + oppositeSide() + ' select[name=inputColor]').val($(this).val());
+                    var that = $(this);
+                    $('.img-special').fadeOut(function(){
+                        $(this).attr('src', '/assets/img/template/checkout_valuemeal_' + that.val() + (isRetina? '@2x' : '') + '.png');
+                        $(this).fadeIn();
+                    });
+                });
+
+                $('select[name=inputSize]').change(function(){
+                    $('.' + oppositeSide() + ' select[name=inputSize]').val($(this).val());
+                });
+
+                $('form.checkout-special').submit(function(eo){
+                    eo.preventDefault();
+                    cart_context.item_name = '2 Jars + T-Shirt';
+                    cart_context.item_quantity = 1;
+                    cart_context.item_subtotal = 19.99;
+                    cart_context.shipping_total = 0;
+                    checkoutSlide(2);
+                });
+
             }
         );
     });
@@ -429,7 +439,7 @@ function oppositeSideCurrency(){
 
 function checkoutSlide(slide){
     if(slide == 1){
-        newMargin = 0;
+        newMargin = -20;
     }else{
         updateSummary();
         newMargin = -914;
@@ -443,17 +453,13 @@ function checkoutSlide(slide){
 function updateSummary(){
     cart_context.total = cart_context.item_subtotal + cart_context.shipping_total;
 
-    loadTemplate('store_summary', function(t) {
-        context_front = cart_context;
-        context_front.usd = true;
-        $('.store-side.front dl.store-summary').html( t(context_front) );
-    });
+    context_front = cart_context;
+    context_front.usd = true;
+    $('.store-side.front dl.store-summary').html( summary_template(context_front) );
 
-    loadTemplate('store_summary', function(t) { 
-        context_back = cart_context;
-        context_back.usd = false;
-        $('.store-side.back dl.store-summary').html( t(context_back) );
-    });
+    context_back = cart_context;
+    context_back.usd = false;
+    $('.store-side.back dl.store-summary').html( summary_template(context_back) );
 }
 
 

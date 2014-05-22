@@ -101,12 +101,18 @@
         <div class="row store-slide" data-store-slide="2">
             <div class="span4">
                 <div class="storeContainer">
-                    <h3>Shipping Address</h3>
+                    <h3>Shipping Details</h3>
                     <form class="form-horizontal shipping" method="POST">
                         <div class="control-group">
                             <label class="control-label" for="inputName">Name</label>
                             <div class="controls">
                                 <input class="input-xlarge" type="text" name="inputName" required placeholder="Recipient Name">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail">Email</label>
+                            <div class="controls">
+                                <input class="input-xlarge" type="text" name="inputEmail" required placeholder="Email Address">
                             </div>
                         </div>
                         <div class="control-group">
@@ -143,14 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputCountry">Country</label>
-                            <div class="controls">
-                                <select class="input-xlarge" name="inputCountry" required disabled="disabled">
-                                    <option value="US" selected="selected">United States</option>
-                                <select>
-                            </div>
-                        </div>
+                        <a class="international-shipping-info" data-toggle="popover" data-placement="top" data-title="Shipping Only to the US" data-html="true">Shipping outside the US?</a>
                     </form>
                 </div>
             </div>

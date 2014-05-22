@@ -18,20 +18,11 @@
 //determine if this is @2x territory
 var isRetina = Math.floor(window.devicePixelRatio) > 1;
 
-var jarLimit = 4;
-var jarLimitStr = "four";
-
-
 var jetGuyMainPresent = true;
 var jetGuyMainAnimating = false;
 
 var jetFleetPresent = false;
 var jetFleetAnimating = false;
-
-var paymentMethod = 'USD';
-
-var shippingUpdated = false;
-var submissionData;
 
 var cart_context = {
     'item_name': 'None',
@@ -93,20 +84,14 @@ $(document).ready(function(){
         }
     });
 
-    $('#letsgo form#jarWidget input').keydown(function(eo){
-        if(eo.keyCode == 13){
-            eo.preventDefault();
-            return false;
+    //close any popovers with an oustide click
+    $('body').on('click', function (e) {
+        //did not click a popover toggle or popover
+        if ($(e.target).data('toggle') !== 'popover'
+            && $(e.target).parents('.popover.in').length === 0) { 
+            $('[data-toggle="popover"]').popover('hide');
+            console.log('lol');
         }
-    });
-
-    $('#inputCountry').popover({
-        'animation': true,
-        'placement': 'bottom',
-        'trigger': 'manual',
-        'title': 'Shipping Only to the US',
-        'html': true,
-        'content': '<p style="font-size:12px; color:#333;">Our apologies, but we\'re not yet able to ship STEEM Peanut Butter outside of the United States, but we\'re working on it. If you reside in a country outside of the US and you participated in our Peanut Beta, please email us at: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a></p>'
     });
 
     $('#cta-get-it-now').click(function(eo){
@@ -157,6 +142,8 @@ $(document).ready(function(){
                 $(".dogetoggle").click(function(){
                     $("#cta-main-container").toggleClass('flip');
                 });
+
+                $('.international-shipping-info').attr('data-content', '<p style="font-size:12px; color:#333;">Our apologies, but we\'re not yet able to ship STEEM Peanut Butter outside of the United States, but we\'re working on it. If you reside in a country outside of the US and you participated in our Peanut Beta, please email us at: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a></p>');
 
                 // sync the shipping form on both sides
                 $('form.shipping input').change(function(eo){
@@ -269,148 +256,6 @@ $(document).ready(function(){
         );
     });
 
-    $('#letsgo form#jarWidget button[type="submit"]').click(function(eo){
-        eo.preventDefault();
-
-        var valid = true;
-
-        data = {};
-        if($.trim($("#inputEmail").val()) == ''){
-            $("#inputEmail").focus();
-            valid = false;
-        }else{
-            data['email'] = $.trim($("#inputEmail").val());
-        }
-
-        if($.trim($("#inputQuantity").val()) == ''){
-            $("#inputQuantity").focus();
-            valid = false;
-        }else{
-            var value = $.trim($("#inputQuantity").val());
-            if(value > jarLimit || !$.isNumeric(value)){
-                $('#inputQuantity').popover('show');
-                $("#inputQuantity").focus();
-                $("#inputQuantity").keydown(function(){
-                    $('#inputQuantity').popover('hide');
-                    $('#inputQuantity').unbind('keydown');
-                    $('#inputQuantity').unbind('blur');
-                });
-                $("#inputQuantity").blur(function(){
-                    $('#inputQuantity').popover('hide');
-                    $('#inputQuantity').unbind('keydown');
-                    $('#inputQuantity').unbind('blur');
-                });
-                valid = false;
-            }else{
-                data['quantity'] = $.trim($("#inputQuantity").val());
-            }
-        }
-
-        data['tickets'] = $.trim($("#inputTickets").val());
-
-        if(valid){
-            data['payment'] = $(this).attr('data-paymentMethod');
-            submissionData = data;
-            $('#shippingModal').modal({
-                backdrop: true,
-                keyboard: false
-            });
-        }
-    });
-
-    $('form#shippingDetails input,select').change(function(eo){
-        $(".modal-footer .btn-primary").attr('disabled', 'disabled');
-        $('#shippingTotal').html('');
-        shippingUpdated = false;
-    });
-
-    $('.modal-footer .btn-cancel').click(function(eo){
-        $('#shippingModal').modal('hide');
-        submissionData = {};
-    });
-
-    $('#shippingCalc').click(function(eo){
-        eo.preventDefault();
-
-        valid = true;
-
-        data = {};
-        if($.trim($("#inputName").val()) == ''){
-            $("#inputName").focus();
-            valid = false;
-        }else{
-            data['recipient_name'] = $.trim($("#inputName").val());
-        }
-
-        if($.trim($("#inputStreetLine1").val()) == ''){
-            $("#inputStreetLine1").focus();
-            valid = false;
-        }else{
-            data['line1'] = $.trim($("#inputStreetLine1").val());
-        }
-
-        data['line2'] = $.trim($("#inputStreetLine2").val());
-
-        if($.trim($("#inputCity").val()) == ''){
-            $("#inputCity").focus();
-            valid = false;
-        }else{
-            data['city'] = $.trim($("#inputCity").val());
-        }
-
-        if($.trim($("#inputPostalCode").val()) == ''){
-            $("#inputPostalCode").focus();
-            valid = false;
-        }else{
-            data['postal_code'] = $.trim($("#inputPostalCode").val());
-        }
-
-        if($.trim($("#inputState").val()) == ''){
-            $("#inputState").focus();
-            valid = false;
-        }else{
-            data['state'] = $.trim($("#inputState").val());
-        }
-
-        if($.trim($("#inputPhone").val()) == ''){
-            $("#inputPhone").focus();
-            valid = false;
-        }else{
-            data['phone'] = $.trim($("#inputPhone").val());
-        }
-
-        if($.trim($("#inputCountry").val()) == ''){
-            $("#inputCountry").focus();
-            valid = false;
-        }else{
-            var value = $.trim($("#inputCountry").val());
-            if(value != 'US' && value != 'CA'){
-                $('#inputCountry').popover('show');
-                $("#inputCountry").focus();
-                $("#inputCountry").blur(function(){
-                    $('#inputCountry').popover('hide');
-                    $('#inputCountry').unbind('blur');
-                });
-            }else{
-                data['country'] = value;
-            }
-        }
-
-        if(valid){
-            submissionData = $.extend({}, submissionData, data);
-            updateShippingCost(data);
-        }
-    });
-
-    $('.modal-footer .btn-primary').click(function(eo){
-        if(shippingUpdated){
-            $('#shippingModal').modal('hide');
-            completeFormSubmission();
-        }else{
-            $('#shippingCalc').focus();
-        }
-    });
-
 });
 
 function currentSide(){
@@ -463,77 +308,6 @@ function updateSummary(){
 
     $('.cart-edit-link').click(function(){
         checkoutSlide(1);
-    });
-}
-
-
-function updateShippingCost(shippingData){
-    shippingData['weight'] = submissionData['quantity'] * .5; // weight calc!
-    $('#shippingTotal').html('<div class="gifspinner-small"><img src="/assets/img/template/spinner.gif" /></div>');
-    $.ajax({
-        type: "POST",
-        url: '/shipping.php',
-        data: shippingData,
-        success: function(data, textStatus, jqXHR){
-            if(data.valid == 'true'){
-                $('#shippingTotal').html('$' + data.cost + ' <img style="vertical-align:top;" id="shippingCostPopover" src="/assets/img/template/big_info' + (isRetina? '@2x' : '') + '.png" width="20" height="20" />');
-
-                $('#shippingCostPopover').popover({
-                    'animation': true,
-                    'placement': 'top',
-                    'trigger': 'manual',
-                    'title': 'Why is shipping so expensive?',
-                    'html': true,
-                    'content': '<p style="font-size:12px; color:#333;">Sorry about that, folks. As we build volume, those prices should go down. <br />BUT, if we may offer a solution:<br />Orders of anywhere from 1 to ' + jarLimitStr + ' jars should be the same shipping price <strong>as long as they\'re all being shipped to the same address</strong>, so combining your order with your friends to split it is one way to reduce the cost to each of you.</p>'
-                });
-                $('#shippingCostPopover').hover(function(){
-                    $('#shippingCostPopover').popover('show');
-                }, function(){
-                    $('#shippingCostPopover').popover('hide');
-                });
-                $('#shippingCostPopover').click(function(){
-                    $('#shippingCostPopover').popover('toggle');
-                });
-                shippingUpdated = true;
-                submissionData['shipping'] = data.cost;
-                $(".modal-footer .btn-primary").removeAttr('disabled');
-            }else{
-                $('#shippingTotal').html('Invalid Address');
-            }
-        },
-        error: function(jqXHR, textStatus, errorThrown){
-            $('#shippingTotal').html('Error Getting Data');
-        }
-    });
-}
-
-function completeFormSubmission(){
-    data = submissionData;
-    jetFleetFlyAway();
-    data['product'] = $.trim($("#inputProduct").val());
-    data['getgoing'] = 'more_like_peanut_BETTER';
-    $("#form-container").fadeOut('fast', function(){
-        if($('html').hasClass('csstransforms3d')){
-            $("#form-container").html('<div class="spinner"></div>');
-        }else{
-            $("#form-container").html('<div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>');
-        }
-        $("#form-container").fadeIn('fast');
-
-        $.ajax({
-            type: "POST",
-            url: '/checkout.php',
-            data: data,
-            success: function(data, textStatus, jqXHR){
-                window.location.href = data.url;
-            },
-            error: function(jqXHR, textStatus, errorThrown){
-                $("#form-container").fadeOut('fast', function(){
-                    $("#form-container").html('<p class="lead" style="color:#dd1010">There was an error submitting your purchase. <br />Please try again later.</p>');
-                    $("#form-container").fadeIn('fast');
-                });
-            }
-        });
     });
 }
 

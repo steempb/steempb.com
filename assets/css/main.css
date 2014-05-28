@@ -376,6 +376,11 @@ div#header-home img#sublogo{
     font-size: 28px;
 }
 
+#ticketInput{
+    margin-left: 40px;
+    margin-top: 8px;
+}
+
 .store-side form.shipping{
     text-align: left;
     margin: 0px;

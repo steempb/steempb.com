@@ -90,7 +90,6 @@ $(document).ready(function(){
         if ($(e.target).data('toggle') !== 'popover'
             && $(e.target).parents('.popover.in').length === 0) { 
             $('[data-toggle="popover"]').popover('hide');
-            console.log('lol');
         }
     });
 
@@ -309,6 +308,16 @@ function updateSummary(){
     $('.cart-edit-link').click(function(){
         checkoutSlide(1);
     });
+
+    $('.btn.promo-codes').click(function(){
+        collectPromoCode($(this));
+    });
+}
+
+function collectPromoCode(that){
+    that.parent('dd').siblings('dt.promo-placeholder').replaceWith('<input type="text" id="ticketInput" /> <button class="btn btn-mini btn-warning promo-codes-submit">Add</button>');
+    that.parent('dd').remove();
+
 }
 
 function jetGuyHover(){

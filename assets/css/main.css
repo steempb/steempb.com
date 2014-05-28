@@ -376,7 +376,7 @@ div#header-home img#sublogo{
     font-size: 28px;
 }
 
-#ticketInput{
+#promo-code-input{
     margin-left: 40px;
     margin-top: 8px;
 }
@@ -707,6 +707,14 @@ div#footer-home a{
 }
 
 .noclicky{
+    cursor: not-allowed;
+}
+
+.btn.ladda-button[disabled]{
+    overflow: visible;
+    padding-right: 1px;
+    opacity: 1;
+    background-color: rgba(244, 118, 0, 0.56);
     cursor: not-allowed;
 }
 

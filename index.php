@@ -18,6 +18,7 @@
         <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
         <link href="/assets/css/bootstrap.css" rel="stylesheet">
         <link href="/assets/css/main.css" rel="stylesheet">
+        <link href="/assets/css/ladda-themeless.min.css" rel="stylesheet">
 
         <!-- Modernizr -->
         <script type="text/javascript" src="/assets/js/modernizr.min.js"></script>
@@ -160,6 +161,9 @@
         <script type="text/javascript" src="/assets/js/konami.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="/assets/js/handlebars-v1.3.0.js"></script>
+        <script type="text/javascript" src="/assets/js/spin.min.js"></script>
+        <script type="text/javascript" src="/assets/js/ladda.min.js"></script>
+        <script type="text/javascript" src="/assets/js/ladda.jquery.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
         <script type="text/javascript" src="/assets/js/page.js"></script>
         <script>

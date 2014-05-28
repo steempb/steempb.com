@@ -315,8 +315,17 @@ function updateSummary(){
 }
 
 function collectPromoCode(that){
-    that.parent('dd').siblings('dt.promo-placeholder').replaceWith('<input type="text" id="ticketInput" /> <button class="btn btn-mini btn-warning promo-codes-submit">Add</button>');
+    that.parent('dd').siblings('dt.promo-placeholder').replaceWith('<input type="text" id="promo-code-input" /> <button id="promo-code-submit" class="btn btn-small btn-warning ladda-button" data-style="slide-left" data-size="xs"><span class="ladda-label">Add</span></button>');
     that.parent('dd').remove();
+    $("#promo-code-submit").click(function(eo){
+        eo.preventDefault();
+
+        var btn = $("#promo-code-submit").ladda();
+        btn.ladda('start');
+        $("#promo-code-input").attr('disabled', true);
+
+
+    });
 
 }
 

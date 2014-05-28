@@ -17,10 +17,8 @@
                     <dd class="discount">- {{formatPrice this.value}}</dd>
                     {{/each}}
 
-                    {{#unless discounts}}
-                    <dt>Discounts</dt>
-                    <dd><button class="btn btn-mini">Add promo code</button></dd>
-                    {{/unless}}
+                    <dt class="promo-placeholder">&nbsp;</dt>
+                    <dd><button class="btn btn-mini promo-codes">Add promo code</button></dd>
 
                     <hr />
 

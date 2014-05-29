@@ -113,7 +113,7 @@ $(document).ready(function(){
             {
                 marginLeft: -425,
                 width: 800, 
-                height: 470,
+                height: 500,
                 boxShadow: 'none'
             }, 
             501,
@@ -291,7 +291,34 @@ function checkoutSlide(slide){
     $('.store-slide[data-store-slide=1]').animate({
         marginLeft: newMargin
     }, 300);
-    $('.checkoutbar').attr('src', '/assets/img/template/checkoutbar_step' + slide + (isRetina? '@2x' : '') + '.png');
+    wizardTransition(slide);
+}
+
+function wizardTransition(targetNum){
+    currentNum = $('.bs-wizard-step.active').attr('data-bs-wizard-step');
+
+    current = $('.bs-wizard-step[data-bs-wizard-step=' + currentNum + ']');
+    target = $('.bs-wizard-step[data-bs-wizard-step=' + targetNum + ']');
+
+    if(targetNum < currentNum){
+        current.addClass('disabled');
+        current.removeClass('active');
+        setTimeout(function(){
+            target.removeClass('complete');
+            target.addClass('active');
+        }, 100);
+    }else if(targetNum > currentNum){
+        current.addClass('complete');
+        current.removeClass('active');
+        setTimeout(function(){
+            target.addClass('active');
+            setTimeout(function(){
+                target.removeClass('disabled');
+            }, 100);
+        }, 100);
+    }else{
+        console.log('wat');
+    }
 }
 
 function updateSummary(){

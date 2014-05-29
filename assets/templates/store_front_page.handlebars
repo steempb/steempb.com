@@ -1,7 +1,26 @@
 <div class="{{flip_side}} store-side">
     <div class="row store-heading">
         <div class="span5">
-             <img class="checkoutbar" src="{{retina '/assets/img/template/checkoutbar_step1.png'}}" width="500" height="50" />
+             <div class="row bs-wizard" style="border-bottom:0;">
+                
+                <div class="span3 bs-wizard-step active" data-bs-wizard-step="1">
+                    <div class="text-center bs-wizard-stepnum">Shop</div>
+                    <div class="progress"><div class="bar"></div></div>
+                    <a class="bs-wizard-dot"></a>
+                </div>
+                
+                <div class="span3 bs-wizard-step disabled" data-bs-wizard-step="2">
+                    <div class="text-center bs-wizard-stepnum">Confirm</div>
+                    <div class="progress"><div class="bar"></div></div>
+                    <a class="bs-wizard-dot"></a>
+                </div>
+                
+                <div class="span3 bs-wizard-step disabled" data-bs-wizard-step="3">
+                    <div class="text-center bs-wizard-stepnum">Checkout</div>
+                    <div class="progress"><div class="bar"></div></div>
+                    <a class="bs-wizard-dot"></a>
+                </div>
+            </div>
         </div>
         <div class="span3">
             <button class="btn btn-large dogetoggle">

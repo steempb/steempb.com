@@ -18,15 +18,32 @@
         foreach($tickets as $ticket){
             try{
                 $ticketObj = $JACKED->Purveyor->validateTicket($ticket);
-                $valid[] = array($ticketObj->guid => $ticketObj->Promotion->value);
+                $valid[] = array(
+                    'code' => $ticketObj->guid, 
+                    'promo_name' => $ticketObj->Promotion->name,
+                    'value' => $ticketObj->Promotion->value / 100,
+                    'single_use' => $ticketObj->single_use
+                );
             }catch(TicketInvalidException $e){
-                $invalid[] = array($ticket => 'This promo code is no longer accepted.');
+                $invalid[] = array(
+                    'code' => $ticket, 
+                    'reason' => 'Promo code no longer accepted.'
+                );
             }catch(PromotionInactiveException $e){
-                $invalid[] = array($ticket => 'This promo code is no longer accepted.');
+                $invalid[] = array(
+                    'code' => $ticket, 
+                    'reason' => 'Promo code no longer accepted.'
+                );
             }catch(TicketAlreadyRedeemedException $e){
-                $invalid[] = array($ticket => 'This promo code has already been redeemed.');
+                $invalid[] = array(
+                    'code' => $ticket, 
+                    'reason' => 'Promo code already redeemed.'
+                );
             }catch(Exception $e){
-                $invalid[] = array($ticket => 'This promo code was not found.');
+                $invalid[] = array(
+                    'code' => $ticket, 
+                    'reason' => 'Promo code not recognized.'
+                );
             }
         }
 

@@ -12,9 +12,17 @@
                     <dt>Shipping</dt>
                     <dd>{{formatPrice shipping_total}}</dd>
 
-                    {{#each discounts}}
-                    <dt class="discount">{{this.name}}</dt>
-                    <dd class="discount">- {{formatPrice this.value}}</dd>
+                    {{formatDiscounts discounts}}
+
+                    {{#each rejected_discounts}}
+                         <div class="discount-rejected">
+                              <strong>{{this.code}}</strong>
+                              {{#if this.reason}}
+                                   {{this.reason}}
+                              {{else}}
+                                   Unable to verify promo code.
+                              {{/if}}
+                         </div>
                     {{/each}}
 
                     <dt class="promo-placeholder">&nbsp;</dt>

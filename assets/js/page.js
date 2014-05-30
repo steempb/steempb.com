@@ -29,7 +29,9 @@ var cart_context = {
     'item_quantity': 0,
     'item_subtotal': 0,
     'shipping_total': 0,
-    'discounts': []
+    'verified_codes': [],
+    'discounts': [],
+    'rejected_discounts': []
 };
 
 // get the current value of Doge from Moolah
@@ -322,7 +324,11 @@ function wizardTransition(targetNum){
 }
 
 function updateSummary(){
-    cart_context.total = cart_context.item_subtotal + cart_context.shipping_total;
+    var discount_total = 0;
+    for(var i = 0; i < cart_context.discounts.length; i++){
+        discount_total += cart_context.discounts[i].value;
+    }
+    cart_context.total = cart_context.item_subtotal + cart_context.shipping_total - discount_total;
 
     context_front = cart_context;
     context_front.usd = true;
@@ -344,6 +350,7 @@ function updateSummary(){
 function collectPromoCode(that){
     that.parent('dd').siblings('dt.promo-placeholder').replaceWith('<input type="text" id="promo-code-input" /> <button id="promo-code-submit" class="btn btn-small btn-warning ladda-button" data-style="slide-left" data-size="xs"><span class="ladda-label">Add</span></button>');
     that.parent('dd').remove();
+    $("#promo-code-input").focus();
     $("#promo-code-submit").click(function(eo){
         eo.preventDefault();
 
@@ -351,7 +358,23 @@ function collectPromoCode(that){
         btn.ladda('start');
         $("#promo-code-input").attr('disabled', true);
 
-
+        $.post('/ticketCheck.php', {
+            'tickets': $("#promo-code-input").val()
+        }, function(data){
+            for(var i = 0; i < data.valid.length; i++){
+                if($.inArray(data.valid[i].code, cart_context.verified_codes) === -1){
+                    cart_context.verified_codes.push(data.valid[i].code);
+                    cart_context.discounts = $.merge([data.valid[i]], cart_context.discounts);
+                }
+            }
+            cart_context.rejected_discounts = data.invalid;
+        })
+        .fail(function(){
+            cart_context.rejected_discounts = {'code': $("#promo-code-input").val()};
+        })
+        .always(function(){
+            updateSummary();
+        });
     });
 
 }
@@ -499,6 +522,20 @@ Handlebars.registerHelper('formatPrice', function( value ) {
         ? '$' + parseFloat(value).toFixed(2)
         : 'Ð' + (parseFloat(value) * dogeValue).toFixed(2);
   
+});
+
+// helper to print discounts because context scope with #each uggggh
+Handlebars.registerHelper('formatDiscounts', function( discounts ) {
+    var output = '';
+    for(var i = discounts.length - 1; i > -1; i--){
+        output += '<dt class="discount">' + discounts[i].promo_name + '</dt>';
+        output += '<dd class="discount">- ';
+        output += (this.usd)
+            ? '$' + parseFloat(discounts[i].value).toFixed(2)
+            : 'Ð' + (parseFloat(discounts[i].value) * dogeValue).toFixed(2);
+        output += '</dd>';
+    }
+    return new Handlebars.SafeString(output);
 });
 
 // return the payment service name

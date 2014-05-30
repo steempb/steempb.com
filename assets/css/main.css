@@ -381,6 +381,15 @@ div#header-home img#sublogo{
     margin-top: 8px;
 }
 
+.discount-rejected{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    color: #dd1010;
+    margin: 0px 0px 5px -20px;
+}
+
 .store-side form.shipping{
     text-align: left;
     margin: 0px;

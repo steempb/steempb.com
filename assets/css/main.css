@@ -390,6 +390,10 @@ div#header-home img#sublogo{
     margin: 0px 0px 5px -20px;
 }
 
+.store-side .span4 h3{
+    margin-top:-20px;
+}
+
 .store-side form.shipping{
     text-align: left;
     margin: 0px;

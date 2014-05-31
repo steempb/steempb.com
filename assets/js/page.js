@@ -350,6 +350,11 @@ function updateSummary(){
 function collectPromoCode(that){
     that.parent('dd').siblings('dt.promo-placeholder').replaceWith('<input type="text" id="promo-code-input" /> <button id="promo-code-submit" class="btn btn-small btn-warning ladda-button" data-style="slide-left" data-size="xs"><span class="ladda-label">Add</span></button>');
     that.parent('dd').remove();
+    $("#promo-code-input").keypress(function(eo){
+        if(eo.which == 13){
+            $("#promo-code-submit").click();
+        }
+    });
     $("#promo-code-input").focus();
     $("#promo-code-submit").click(function(eo){
         eo.preventDefault();

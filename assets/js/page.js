@@ -26,7 +26,7 @@ var jetFleetAnimating = false;
 
 var cart_context = {
     'item_name': 'None',
-    ''
+    'item_id': '',
     'item_quantity': 0,
     'item_subtotal': 0,
     'shipping_total': 0,
@@ -222,6 +222,13 @@ $(document).ready(function(){
                         });
                         select.tooltip('show');
                     }else{
+                        if(
+                            (cart_context.item_id != 'a4c1b91a-1a6d-422b-848e-ad662370fa36') ||
+                            ($(this).find('select[name=inputQuantity]').val() != cart_context.item_quantity)
+                        ){
+                            resetPromos();
+                        }
+                        cart_context.item_id = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
                         cart_context.item_name = 'STEEM Jar';
                         cart_context.item_quantity = $(this).find('select[name=inputQuantity]').val();
                         cart_context.item_subtotal = cart_context.item_quantity * 4.99;
@@ -247,6 +254,10 @@ $(document).ready(function(){
 
                 $('form.checkout-special').submit(function(eo){
                     eo.preventDefault();
+                    if(cart_context.item_id != '6c403910-6ce3-4d72-9509-9ff8302c975c'){
+                        resetPromos();
+                    }
+                    cart_context.item_id = '6c403910-6ce3-4d72-9509-9ff8302c975c';
                     cart_context.item_name = '2 Jars + T-Shirt';
                     cart_context.item_quantity = 1;
                     cart_context.item_subtotal = 19.99;
@@ -383,6 +394,12 @@ function collectPromoCode(that){
         });
     });
 
+}
+
+function resetPromos(){
+    cart_context.verified_codes = [];
+    cart_context.discounts = [];
+    cart_context.rejected_discounts = [];
 }
 
 function jetGuyHover(){

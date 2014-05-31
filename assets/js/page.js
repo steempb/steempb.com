@@ -1,7 +1,7 @@
 /*!
- * STEEM PB v1.0
+ * STEEM PB v2.0
  *
- * Copyright 2013 WarrantyNowVoid.com
+ * Copyright 2014 steempb.com
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -26,6 +26,7 @@ var jetFleetAnimating = false;
 
 var cart_context = {
     'item_name': 'None',
+    ''
     'item_quantity': 0,
     'item_subtotal': 0,
     'shipping_total': 0,

@@ -149,7 +149,7 @@ $(document).ready(function(){
 
                 // sync the shipping form on both sides
                 $('form.shipping input').change(function(eo){
-                    $('.' + oppositeSide() + ' form.shipping input[name=' + $(this).attr('name') + ']').val($(this).val());
+                    $('.' + oppositeSide() + ' form.shipping input[name=' + $(this).attr('name') + ']').val($(this).val()).keyup();
                 });
 
                 // Checkout stuff
@@ -430,7 +430,7 @@ function collectShipping(){
                 });
                 $(this).tooltip('show');
 
-                $(this).keypress(function(){
+                $(this).keyup(function(){
                     $(this).tooltip('destroy');
                 });
 

@@ -265,6 +265,16 @@ $(document).ready(function(){
                     checkoutSlide(2);
                 });
 
+                // step 2 
+
+                $('.confirm-checkout-btn').click(function(eo){
+                    var shipping = collectShipping();
+                    if(!shipping){
+                        return false;
+                    }
+
+
+                });
             }
         );
     });
@@ -400,6 +410,60 @@ function resetPromos(){
     cart_context.verified_codes = [];
     cart_context.discounts = [];
     cart_context.rejected_discounts = [];
+}
+
+function collectShipping(){
+    var valid = true;
+    var data = {};
+    $('.' + currentSide() + ' form.shipping input').each(function(){
+        var field = $(this).attr('data-field-name');
+        if(field != 'line2'){
+            var value = $.trim($(this).val());
+            if(value == ''){
+                $(this).focus();
+
+                $(this).tooltip({
+                    'animation': true,
+                    'placement': 'right',
+                    'trigger': 'manual',
+                    'title': 'This field is required.'
+                });
+                $(this).tooltip('show');
+
+                $(this).keypress(function(){
+                    $(this).tooltip('destroy');
+                });
+
+                valid = false;
+                return false;
+            }else if(field == 'state' && (value == 'AK' || value == 'HI')){
+                $(this).focus();
+
+                $(this).tooltip({
+                    'animation': true,
+                    'placement': 'right',
+                    'trigger': 'manual',
+                    'title': 'Our apologies, but we are only able to offer shipping to the Continugous US at this time.'
+                });
+                $(this).tooltip('show');
+
+                $(this).keyup(function(){
+                    $(this).tooltip('destroy');
+                });
+
+                valid = false;
+                return false;
+            }else{
+                valid = valid && true;
+                data[field] = value;
+            }
+        }
+    });
+
+    return (valid)
+        ? data
+        : false;
+
 }
 
 function jetGuyHover(){

@@ -125,38 +125,38 @@
                         <div class="control-group">
                             <label class="control-label" for="inputName">Name</label>
                             <div class="controls">
-                                <input class="input-xlarge" type="text" name="inputName" required placeholder="Recipient Name">
+                                <input class="input-xlarge" type="text" name="inputName" data-field-name="recipient_name" required placeholder="Recipient Name">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputEmail">Email</label>
                             <div class="controls">
-                                <input class="input-xlarge" type="text" name="inputEmail" required placeholder="Email Address">
+                                <input class="input-xlarge" type="text" name="inputEmail" data-field-name="email" required placeholder="Email Address">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputStreetLine1">Line 1</label>
                             <div class="controls">
-                                <input class="input-xlarge" type="text" name="inputStreetLine1" required placeholder="Line1">
+                                <input class="input-xlarge" type="text" name="inputStreetLine1" data-field-name="line1" required placeholder="Line1">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputStreetLine2">Line 2</label>
                             <div class="controls">
-                                <input class="input-xlarge" type="text" name="inputStreetLine2" placeholder="Line2">
+                                <input class="input-xlarge" type="text" name="inputStreetLine2" data-field-name="line2" placeholder="Line2">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputCity">City</label>
                             <div class="controls">
-                                <input class="input-xlarge" type="text" name="inputCity" required placeholder="City">
+                                <input class="input-xlarge" type="text" name="inputCity" data-field-name="city" required placeholder="City">
                             </div>
                         </div>
                         <div class="split pull-left">
                             <div class="control-group">
                                 <label class="control-label" for="inputState">State</label>
                                 <div class="controls">
-                                    <input class="input-mini" maxlength="2" type="text" name="inputState" required placeholder="State">
+                                    <input class="input-mini" maxlength="2" type="text" name="inputState" data-field-name="state" required placeholder="State">
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="inputPostalCode">Zip Code</label>
                                 <div class="controls">
-                                    <input class="input-small" type="text" name="inputPostalCode" required placeholder="Zip Code">
+                                    <input class="input-small" type="text" name="inputPostalCode" data-field-name="postal_code" required placeholder="Zip Code">
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
 
 
 
-                <button class="btn btn-large btn-warning steembtn">Checkout with {{checkoutService}}</button>
+                <button class="btn btn-large btn-warning confirm-checkout-btn steembtn">Checkout with {{checkoutService}}</button>
             </div>
         </div>
     </div>

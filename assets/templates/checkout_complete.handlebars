@@ -1,0 +1,24 @@
+                    {{#if error}}
+
+                    <div class="span8 checkout-error">
+                         <h2>Oops! We ran into an error while checking out</h2>
+                         <p class="lead">{{error_message}}</p>
+                         <p>Click here to go back and try again.</p>
+                         <p>
+                              <strong>Having trouble checking out?</strong>
+                              <br />Email us at <a href="mailto:steempb@steempb.com">steempb@steempb.com</a> with the following error details:
+                              <code>{{error_json}}</code>
+                         </p>
+                    </div>
+
+                    {{else}}
+                    
+                    <div class="span3 offset4">
+                         {{bigSpinner}}
+                         <h3>Checking Out</h3>
+                         <p class="checkoutlols">
+                             reticulating splines...
+                         </p>
+                    </div>
+
+                    {{/if}}

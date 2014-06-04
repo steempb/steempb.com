@@ -45,7 +45,23 @@ var checkout_lol_messages = [
     'refueling jetpacks...',
     'reversing the polarity...',
     'crossing the streams...',
-    'gathering PB&J supplies...'
+    'gathering PB&J supplies...', 
+    'mining pbcoins...',
+    'targeting electrolyte cannon...',
+    'building deliciousness matrix...',
+    'buffering protein streams...',
+    'peanut beta butter bartering...',
+    'programming robotic jars...',
+    'getting going...',
+    'tweeting pictures of lunch...',
+    'getting the spoon ready...',
+    'changing your life...',
+    'developing next-gen Q-Nuts...',
+    'initializing nut smasher...<br />...actually, keep that one off.',
+    'opening DO_NOT_OPEN.exe...',
+    'engaging dance protocols...',
+    'priming regret servos...',
+
 ];
 
 // get the current value of Doge from Moolah
@@ -63,6 +79,11 @@ $.get("/assets/templates/store_front_page.handlebars", function(raw) {
 var summary_template;
 $.get("/assets/templates/store_summary.handlebars", function(raw) {
     summary_template = Handlebars.compile(raw);
+});
+
+var checkout_template;
+$.get("/assets/templates/checkout_complete.handlebars", function(raw) {
+    checkout_template = Handlebars.compile(raw);
 });
 
 
@@ -286,9 +307,38 @@ $(document).ready(function(){
                         return false;
                     }
 
+                    $('.checkout-status').html(checkout_template( {} ));
                     checkoutMessageRotate();
                     checkoutSlide(3);
-                    jetFleetFlyAway();
+                    jetFleetFlyAway(function(){
+                        $.post('/checkout.php', {
+                            'product': cart_context.item_id,
+                            'quantity': cart_context.item_quantity,
+                            'payment': (currentSideCurrency() == 'usd')? 'PAYPAL' : 'DOGE', 
+                            'tickets': stringifyDiscounts(),
+                            'email': shipping.email,
+                            'recipient_name': shipping.recipient_name,
+                            'line1': shipping.line1,
+                            'line2': shipping.line2,
+                            'city': shipping.city,
+                            'state': shipping.state,
+                            'postal_code': shipping.postal_code
+                        }, function(data){
+                            if(typeof data.url === "undefined"){
+                                checkoutError({
+                                    'error': {
+                                        'code': 'invalid_redirect',
+                                        'message': 'Unable to create sale with ' + ((currentSideCurrency() == 'usd')? 'PayPal' : 'Moolah')
+                                    }
+                                });
+                            }else{
+                                window.location.href = data.url;
+                            }
+                        })
+                        .fail(function(jqXHR){
+                            checkoutError(jqXHR.responseJSON);
+                        });
+                    });
                 });
             }
         );
@@ -318,6 +368,22 @@ function oppositeSideCurrency(){
     return ($("#cta-main-container").hasClass('flip'))
         ? 'usd'
         : 'doge';
+}
+
+function stringifyDiscounts(){
+    var result = '';
+    for(var i = 0; i < cart_context.discounts.length; i++){
+        var disc = cart_context.discounts[i];
+        if(disc.single_use != '1'){
+            for(var iter = 0; iter < cart_context.item_quantity; iter++){
+                result += disc.code + ",";
+            }
+        }else{
+            result += disc.code + ",";
+        }
+    }
+
+    return result.replace(/,+$/, "");
 }
 
 function checkoutSlide(slide){
@@ -522,6 +588,17 @@ function checkoutMessageRotate(){
     setTimeout(function(){
         checkoutMessageRotate();
     }, randRange(5, 10) * 100);
+}
+
+function checkoutError(errData){
+    console.log(errData);
+
+    var context = {
+        'error': true,
+        'error_json': JSON.stringify(errData),
+        'error_message': errData.error.message
+    };
+    $('.checkout-status').html(checkout_template(context));
 }
 
 function jetGuyHover(){

@@ -436,7 +436,7 @@ function collectShipping(){
 
                 valid = false;
                 return false;
-            }else if(field == 'state' && (value == 'AK' || value == 'HI')){
+            }else if(field == 'state' && (value.toLowerCase() == 'ak' || value.toLowerCase() == 'hi')){
                 $(this).focus();
 
                 $(this).tooltip({

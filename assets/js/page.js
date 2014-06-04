@@ -273,7 +273,7 @@ $(document).ready(function(){
                         return false;
                     }
 
-
+                    checkoutSlide(3);
                 });
             }
         );
@@ -306,15 +306,25 @@ function oppositeSideCurrency(){
 }
 
 function checkoutSlide(slide){
-    if(slide == 1){
-        newMargin = -20;
-    }else{
+    var margins = [
+        -20, -20, -20
+    ];
+    if(slide == 3){
+        $('.btn.dogetoggle').fadeOut('fast');
+        margins[0] = -1808;
+        margins[1] = -914;
+    }else if(slide == 2){
+        $('.btn.dogetoggle').fadeIn('fast');
         updateSummary();
-        newMargin = -914;
+        margins[0] = -914;
+    }else{
+        $('.btn.dogetoggle').fadeIn('fast');
     }
-    $('.store-slide[data-store-slide=1]').animate({
-        marginLeft: newMargin
-    }, 300);
+    for(var i = 0; i <= margins.length; i++){
+        $('.store-slide[data-store-slide=' + (i + 1) + ']').animate({
+            marginLeft: margins[i]
+        }, 300);
+    }
     wizardTransition(slide);
 }
 

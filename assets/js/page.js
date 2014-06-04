@@ -257,12 +257,12 @@ $(document).ready(function(){
                         select.tooltip('show');
                     }else{
                         if(
-                            (cart_context.item_id != 'a4c1b91a-1a6d-422b-848e-ad662370fa36') ||
+                            (cart_context.item_id != '6c403910-6ce3-4d72-9509-9ff8302c975c') ||
                             ($(this).find('select[name=inputQuantity]').val() != cart_context.item_quantity)
                         ){
                             resetPromos();
                         }
-                        cart_context.item_id = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
+                        cart_context.item_id = '6c403910-6ce3-4d72-9509-9ff8302c975c';
                         cart_context.item_name = 'STEEM Jar';
                         cart_context.item_quantity = $(this).find('select[name=inputQuantity]').val();
                         cart_context.item_subtotal = cart_context.item_quantity * 4.99;
@@ -288,10 +288,10 @@ $(document).ready(function(){
 
                 $('form.checkout-special').submit(function(eo){
                     eo.preventDefault();
-                    if(cart_context.item_id != '6c403910-6ce3-4d72-9509-9ff8302c975c'){
+                    if(cart_context.item_id != 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
                         resetPromos();
                     }
-                    cart_context.item_id = '6c403910-6ce3-4d72-9509-9ff8302c975c';
+                    cart_context.item_id = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
                     cart_context.item_name = '2 Jars + T-Shirt';
                     cart_context.item_quantity = 1;
                     cart_context.item_subtotal = 19.99;
@@ -480,7 +480,7 @@ function collectPromoCode(that){
         btn.ladda('start');
         $("#promo-code-input").attr('disabled', true);
 
-        if(cart_context.item_id == '6c403910-6ce3-4d72-9509-9ff8302c975c'){
+        if(cart_context.item_id == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
             cart_context.rejected_discounts = [{
                 'code': '',
                 'reason': 'Promo Codes not accepted on this item.'

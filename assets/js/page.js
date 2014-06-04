@@ -385,23 +385,31 @@ function collectPromoCode(that){
         btn.ladda('start');
         $("#promo-code-input").attr('disabled', true);
 
-        $.post('/ticketCheck.php', {
-            'tickets': $("#promo-code-input").val()
-        }, function(data){
-            for(var i = 0; i < data.valid.length; i++){
-                if($.inArray(data.valid[i].code, cart_context.verified_codes) === -1){
-                    cart_context.verified_codes.push(data.valid[i].code);
-                    cart_context.discounts = $.merge([data.valid[i]], cart_context.discounts);
-                }
-            }
-            cart_context.rejected_discounts = data.invalid;
-        })
-        .fail(function(){
-            cart_context.rejected_discounts = {'code': $("#promo-code-input").val()};
-        })
-        .always(function(){
+        if(cart_context.item_id == '6c403910-6ce3-4d72-9509-9ff8302c975c'){
+            cart_context.rejected_discounts = [{
+                'code': '',
+                'reason': 'Promo Codes not accepted on this item.'
+            }];
             updateSummary();
-        });
+        }else{
+            $.post('/ticketCheck.php', {
+                'tickets': $("#promo-code-input").val()
+            }, function(data){
+                for(var i = 0; i < data.valid.length; i++){
+                    if($.inArray(data.valid[i].code, cart_context.verified_codes) === -1){
+                        cart_context.verified_codes.push(data.valid[i].code);
+                        cart_context.discounts = $.merge([data.valid[i]], cart_context.discounts);
+                    }
+                }
+                cart_context.rejected_discounts = data.invalid;
+            })
+            .fail(function(){
+                cart_context.rejected_discounts = {'code': $("#promo-code-input").val()};
+            })
+            .always(function(){
+                updateSummary();
+            });
+        }
     });
 
 }

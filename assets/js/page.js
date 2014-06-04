@@ -349,7 +349,6 @@ function updateSummary(){
     var discount_total = 0;
     for(var i = 0; i < cart_context.discounts.length; i++){
         if(cart_context.discounts[i].single_use == "0"){
-            cart_context.discounts[i].value = cart_context.discounts[i].value * cart_context.item_quantity;
             discount_total += cart_context.discounts[i].value * cart_context.item_quantity;
         }else{
             discount_total += cart_context.discounts[i].value;
@@ -628,14 +627,18 @@ Handlebars.registerHelper('formatPrice', function( value ) {
 Handlebars.registerHelper('formatDiscounts', function( discounts ) {
     var output = '';
     for(var i = discounts.length - 1; i > -1; i--){
+        var value = discounts[i].value;
         output += '<dt class="discount">' + discounts[i].promo_name;
-        output += (discounts[i].single_use)
-            ? '</dt>'
-            : ' (' + this.item_quantity + ')</dt>';
+        if(discounts[i].single_use == "1"){
+            output += '</dt>';
+        }else{
+            output += ' (' + this.item_quantity + ')</dt>';
+            value *= this.item_quantity;
+        }
         output += '<dd class="discount">- ';
         output += (this.usd)
-            ? '$' + parseFloat(discounts[i].value).toFixed(2)
-            : 'Ð' + (parseFloat(discounts[i].value) * dogeValue).toFixed(2);
+            ? '$' + parseFloat(value).toFixed(2)
+            : 'Ð' + (parseFloat(value) * dogeValue).toFixed(2);
         output += '</dd>';
     }
     return new Handlebars.SafeString(output);

@@ -35,6 +35,19 @@ var cart_context = {
     'rejected_discounts': []
 };
 
+var checkout_lol_messages = [
+    'reticulating splines...',
+    'grinding peanuts...',
+    'buttering peanuts...',
+    'initializing caffeine generators...',
+    'fighting off elephants...',
+    'doing, like, a bunch of stuff...',
+    'refueling jetpacks...',
+    'reversing the polarity...',
+    'crossing the streams...',
+    'gathering PB&J supplies...'
+];
+
 // get the current value of Doge from Moolah
 var dogeValue = false;
 $.get('https://moolah.io/api/rates?f=USD&t=DOGE&a=1', function(data){
@@ -273,7 +286,9 @@ $(document).ready(function(){
                         return false;
                     }
 
+                    checkoutMessageRotate();
                     checkoutSlide(3);
+                    jetFleetFlyAway();
                 });
             }
         );
@@ -496,6 +511,19 @@ function collectShipping(){
 
 }
 
+function randRange(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function checkoutMessageRotate(){
+    $('p.checkoutlols').html(
+        checkout_lol_messages[randRange(0, checkout_lol_messages.length)]
+    );
+    setTimeout(function(){
+        checkoutMessageRotate();
+    }, randRange(5, 10) * 100);
+}
+
 function jetGuyHover(){
     $('#jetguy-main').animate({
             top: 240
@@ -668,4 +696,13 @@ Handlebars.registerHelper('checkoutService', function() {
         ? 'PayPal'
         : 'Moolah';
   
+});
+
+// show a spinner based on browser capabilities
+Handlebars.registerHelper('bigSpinner', function() {
+    var result = ($('html').hasClass('csstransforms3d'))
+        ? '<div class="spinner"></div>'
+        : '<div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>';
+
+    return new Handlebars.SafeString(result);
 });

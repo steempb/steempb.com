@@ -348,7 +348,12 @@ function wizardTransition(targetNum){
 function updateSummary(){
     var discount_total = 0;
     for(var i = 0; i < cart_context.discounts.length; i++){
-        discount_total += cart_context.discounts[i].value;
+        if(cart_context.discounts[i].single_use == "0"){
+            cart_context.discounts[i].value = cart_context.discounts[i].value * cart_context.item_quantity;
+            discount_total += cart_context.discounts[i].value * cart_context.item_quantity;
+        }else{
+            discount_total += cart_context.discounts[i].value;
+        }
     }
     cart_context.total = cart_context.item_subtotal + cart_context.shipping_total - discount_total;
 
@@ -623,7 +628,10 @@ Handlebars.registerHelper('formatPrice', function( value ) {
 Handlebars.registerHelper('formatDiscounts', function( discounts ) {
     var output = '';
     for(var i = discounts.length - 1; i > -1; i--){
-        output += '<dt class="discount">' + discounts[i].promo_name + '</dt>';
+        output += '<dt class="discount">' + discounts[i].promo_name;
+        output += (discounts[i].single_use)
+            ? '</dt>'
+            : ' (' + this.item_quantity + ')</dt>';
         output += '<dd class="discount">- ';
         output += (this.usd)
             ? '$' + parseFloat(discounts[i].value).toFixed(2)

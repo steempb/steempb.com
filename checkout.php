@@ -14,7 +14,7 @@
         $email = $_POST['email'];
         $tickets = $_POST['tickets'];
 
-        if($product == '6c403910-6ce3-4d72-9509-9ff8302c975c'){
+        if($product == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
             $shipping = 0;
         }else{
             $shipping = 6.75;

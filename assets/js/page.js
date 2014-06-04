@@ -456,6 +456,10 @@ function collectShipping(){
                     $(this).tooltip('destroy');
                 });
 
+                $(this).blur(function(){
+                    $(this).tooltip('destroy');
+                });
+
                 valid = false;
                 return false;
             }else if(field == 'state' && (value.toLowerCase() == 'ak' || value.toLowerCase() == 'hi')){
@@ -470,6 +474,10 @@ function collectShipping(){
                 $(this).tooltip('show');
 
                 $(this).keyup(function(){
+                    $(this).tooltip('destroy');
+                });
+
+                $(this).blur(function(){
                     $(this).tooltip('destroy');
                 });
 

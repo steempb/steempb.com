@@ -302,43 +302,7 @@ $(document).ready(function(){
                 // step 2 
 
                 $('.confirm-checkout-btn').click(function(eo){
-                    var shipping = collectShipping();
-                    if(!shipping){
-                        return false;
-                    }
-
-                    $('.checkout-status').html(checkout_template( {} ));
-                    checkoutMessageRotate();
-                    checkoutSlide(3);
-                    jetFleetFlyAway(function(){
-                        $.post('/checkout.php', {
-                            'product': cart_context.item_id,
-                            'quantity': cart_context.item_quantity,
-                            'payment': (currentSideCurrency() == 'usd')? 'PAYPAL' : 'DOGE', 
-                            'tickets': stringifyDiscounts(),
-                            'email': shipping.email,
-                            'recipient_name': shipping.recipient_name,
-                            'line1': shipping.line1,
-                            'line2': shipping.line2,
-                            'city': shipping.city,
-                            'state': shipping.state,
-                            'postal_code': shipping.postal_code
-                        }, function(data){
-                            if(typeof data.url === "undefined"){
-                                checkoutError({
-                                    'error': {
-                                        'code': 'invalid_redirect',
-                                        'message': 'Unable to create sale with ' + ((currentSideCurrency() == 'usd')? 'PayPal' : 'Moolah')
-                                    }
-                                });
-                            }else{
-                                window.location.href = data.url;
-                            }
-                        })
-                        .fail(function(jqXHR){
-                            checkoutError(jqXHR.responseJSON);
-                        });
-                    });
+                    performCheckout();
                 });
             }
         );
@@ -577,6 +541,47 @@ function collectShipping(){
 
 }
 
+function performCheckout(){
+    var shipping = collectShipping();
+    if(!shipping){
+        checkoutSlide(2)
+        return false;
+    }
+
+    $('.checkout-status').html(checkout_template( {} ));
+    checkoutMessageRotate();
+    checkoutSlide(3);
+    jetFleetFlyAway(function(){
+        $.post('/checkout.php', {
+            'product': cart_context.item_id,
+            'quantity': cart_context.item_quantity,
+            'payment': (currentSideCurrency() == 'usd')? 'PAYPAL' : 'DOGE', 
+            'tickets': stringifyDiscounts(),
+            'email': shipping.email,
+            'recipient_name': shipping.recipient_name,
+            'line1': shipping.line1,
+            'line2': shipping.line2,
+            'city': shipping.city,
+            'state': shipping.state,
+            'postal_code': shipping.postal_code
+        }, function(data){
+            if(typeof data.url === "undefined"){
+                checkoutError({
+                    'error': {
+                        'code': 'invalid_redirect',
+                        'message': 'Unable to create sale with ' + ((currentSideCurrency() == 'usd')? 'PayPal' : 'Moolah')
+                    }
+                });
+            }else{
+                window.location.href = data.url;
+            }
+        })
+        .fail(function(jqXHR){
+            checkoutError(jqXHR.responseJSON);
+        });
+    });
+}
+
 function randRange(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -591,14 +596,48 @@ function checkoutMessageRotate(){
 }
 
 function checkoutError(errData){
-    console.log(errData);
-
     var context = {
         'error': true,
         'error_json': JSON.stringify(errData),
-        'error_message': errData.error.message
+        'error_message': errData.error.message,
+        'back_button': false,
+        'retry_button': false
     };
+
+    if(errData.error.code == 'generic_error'){
+        context.error_message = '';
+        context.retry_button = true;
+    }
+
+    if(errData.error.code == 'invalid_redirect'){
+        context.error_message = 'We had a problem communicating with ' + ((currentSideCurrency() == 'usd')? 'PayPal.' : 'Moolah.');
+        context.retry_button = true;
+    }
+
+    if(errData.error.code == 'ticket_quantity_mismatch'){
+        context.error_message = 'There were more tickets added to your order than items.';
+        context.back_button = true;
+    }
+
+    if(errData.error.code == 'invalid_product'){
+        context.error_message = 'The product you selected is no longer available.';
+        context.back_button = true;
+    }
+
+    if(errData.error.code == 'invalid_payment_method'){
+        context.error_message = 'We only accept payments in USD via PayPal and Dogecoin via Moolah.';
+        context.back_button = true;
+    }
+
     $('.checkout-status').html(checkout_template(context));
+
+    $('.btn-checkout-back').click(function(){
+        checkoutSlide(2);
+    });
+
+    $('.btn-checkout-retry').click(function(){
+        performCheckout();
+    });
 }
 
 function jetGuyHover(){

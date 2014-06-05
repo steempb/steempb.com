@@ -483,6 +483,15 @@ div#header-home img#sublogo{
     margin-left: 10px;
 }
 
+.checkout-status .span4{
+    width: 800px;
+    text-align: center;
+}
+
+.checkout-status .span4.checkout-activity{
+    margin-top: -50px;
+}
+
 .steembtn{
    color: #333 !important;
    background-image: linear-gradient(to bottom, #f89406, #F47600);

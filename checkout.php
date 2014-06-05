@@ -84,18 +84,22 @@
             case 'Unsupported Payment method.':
                 header('HTTP/1.1 400 Bad Request');
                 $resultData['error'] = array('code' => 'invalid_payment_method', 'message' => 'Unrecognized payment method.');
+                break;
 
             case 'Product not found':
                 header('HTTP/1.1 400 Bad Request');
                 $resultData['error'] = array('code' => 'invalid_product', 'message' => 'Unrecognized product.');
+                break;
 
             case 'Too many Tickets to redeem with this quantity.':
                 header('HTTP/1.1 400 Bad Request');
                 $resultData['error'] = array('code' => 'ticket_quantity_mismatch', 'message' => 'More tickets added than products.');
+                break;
 
             default:
                 header('HTTP/1.1 500 Internal Server Error');
                 $resultData['error'] = array('code' => 'generic_error', 'message' => $e->getMessage());
+                break;
         }
     }
 

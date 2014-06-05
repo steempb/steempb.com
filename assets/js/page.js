@@ -396,7 +396,7 @@ function wizardTransition(targetNum){
             }, 100);
         }, 100);
     }else{
-        console.log('wat');
+        //nothin
     }
 }
 

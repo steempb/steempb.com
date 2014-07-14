@@ -3,7 +3,7 @@
         <div class="span5">
              <div class="row bs-wizard" style="border-bottom:0;">
                 
-                <div class="span3 bs-wizard-step active" data-bs-wizard-step="1">
+                <div class="span3 bs-wizard-step active first-step" data-bs-wizard-step="1">
                     <div class="text-center bs-wizard-stepnum">Shop</div>
                     <div class="progress"><div class="bar"></div></div>
                     <a class="bs-wizard-dot"></a>
@@ -15,14 +15,14 @@
                     <a class="bs-wizard-dot"></a>
                 </div>
                 
-                <div class="span3 bs-wizard-step disabled" data-bs-wizard-step="3">
+                <div class="span3 bs-wizard-step disabled last-step" data-bs-wizard-step="3">
                     <div class="text-center bs-wizard-stepnum">Checkout</div>
                     <div class="progress"><div class="bar"></div></div>
                     <a class="bs-wizard-dot"></a>
                 </div>
             </div>
         </div>
-        <div class="span3">
+        <div class="span3 toggler">
             <button class="btn btn-large dogetoggle">
                 {{#if usd}}
                     <img src="{{retina '/assets/img/template/checkout_doge_button.png'}}" width="146" height="50" />

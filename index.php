@@ -26,6 +26,7 @@
         <!-- I'm way too lazy to fix nth child on my own -->
         <!--[if lt IE 9]>
             <script src="/assets/js/IE9.js"></script>
+            <link href="/assets/css/hnnnngh.css" rel="stylesheet">
         <![endif]-->
 
         <!-- Fav and touch icons -->

@@ -1,0 +1,57 @@
+/*!
+ * STEEM PB v1.0 IE8 patch sheet
+ *
+ * Copyright 2014 steempb.com
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * blue: #231255
+ * orange: #F47600
+ * beige: #FADEB4
+ * not-quite-white: #EEE
+ *
+ */
+
+.front {
+    background-color: rgb(238, 238, 238);
+}
+
+.store-side .span4{
+    margin-left: 25px;
+    float: left;
+}
+
+.store-side .store-heading .span3.toggler{
+    margin-top: -15px;
+    float: left;
+}
+
+.bs-wizard{
+    width: 600px;
+    margin: 0px;
+    float: left;
+}
+
+.bs-wizard > .bs-wizard-step{
+    margin: 0 -1px 0 0; 
+    padding: 0; 
+    position: relative; 
+    float: left;
+}
+
+.bs-wizard > .bs-wizard-step.first-step  > .progress{
+    left: 50%; width: 50%;
+}
+
+.bs-wizard > .bs-wizard-step.last-step  > .progress{
+    width: 50%;
+}
+
+
+.bs-wizard > .bs-wizard-step.first-step.active > .progress > .bar{
+    width:0%;
+}
+
+.bs-wizard > .bs-wizard-step.last-step.active > .progress > .bar{
+    width: 100%;
+}

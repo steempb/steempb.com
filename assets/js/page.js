@@ -176,7 +176,7 @@ $(document).ready(function(){
                 $('#cta-main').append( store_template(context) );
 
                 $(".dogetoggle").click(function(){
-                    $("#cta-main-container").toggleClass('flip');
+                    flipPayment();
                 });
 
                 $('.international-shipping-info').attr('data-content', '<p style="font-size:12px; color:#333;">Our apologies, but we\'re not yet able to ship STEEM Peanut Butter outside of the United States, but we\'re working on it. If you reside in a country outside of the US and you participated in our Peanut Beta, please email us at: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a></p>');
@@ -348,6 +348,16 @@ function stringifyDiscounts(){
     }
 
     return result.replace(/,+$/, "");
+}
+
+function flipPayment(){
+    $("#cta-main-container").toggleClass('flip');
+
+    // IE just doesn't understand me and my needs
+    if(!$('html').hasClass('csstransforms3d')){
+        $('.' + oppositeSide()).fadeOut();
+        $('.' + currentSide()).fadeIn();
+    }
 }
 
 function checkoutSlide(slide){

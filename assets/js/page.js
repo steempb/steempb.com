@@ -64,12 +64,6 @@ var checkout_lol_messages = [
 
 ];
 
-// get the current value of Doge from Moolah
-var dogeValue = false;
-$.get('https://moolah.io/api/rates?f=USD&t=DOGE&a=1', function(data){
-    dogeValue = parseInt(data.replace(/,/g, ''));
-})
-
 // get our templates
 var store_template;
 $.get("/assets/templates/store_front_page.handlebars", function(raw) {
@@ -212,7 +206,7 @@ $(document).ready(function(){
                         var quantity = parseInt($(this).val());
                                
                         var labels = {
-                            doge: 'Ð' + ((6.75 + (4.99 * quantity)) * dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
+                            doge: 'Ð' + ((6.75 + (4.99 * quantity)) / dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
                             usd: '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>'
                         }                       
 
@@ -791,7 +785,7 @@ Handlebars.registerHelper('retina', function( src ) {
 Handlebars.registerHelper('formatPrice', function( value ) {
     return (this.usd)
         ? '$' + parseFloat(value).toFixed(2)
-        : 'Ð' + (parseFloat(value) * dogeValue).toFixed(2);
+        : 'Ð' + (parseFloat(value) / dogeValue).toFixed(2);
   
 });
 
@@ -810,7 +804,7 @@ Handlebars.registerHelper('formatDiscounts', function( discounts ) {
         output += '<dd class="discount">- ';
         output += (this.usd)
             ? '$' + parseFloat(value).toFixed(2)
-            : 'Ð' + (parseFloat(value) * dogeValue).toFixed(2);
+            : 'Ð' + (parseFloat(value) / dogeValue).toFixed(2);
         output += '</dd>';
     }
     return new Handlebars.SafeString(output);

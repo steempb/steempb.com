@@ -29,6 +29,20 @@
             <link href="/assets/css/hnnnngh.css" rel="stylesheet">
         <![endif]-->
 
+        <script type="text/javascript">
+            // get the current price of DOGE
+            var dogeValue = <?php 
+                $curl = curl_init();
+                curl_setopt_array($curl, array(
+                    CURLOPT_RETURNTRANSFER => 1,
+                    CURLOPT_URL => 'http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=182'
+                ));
+                $result = json_decode(curl_exec($curl), TRUE);
+                echo $result['return']['markets']['DOGE']['lasttradeprice'];
+                curl_close($curl);
+            ?>;
+        </script>
+
         <!-- Fav and touch icons -->
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
@@ -73,6 +87,7 @@
                         <li><a href="#faq-border">FAQ</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li class="social"><a href="http://twitter.com/steempb" target="_blank"><img src="/assets/img/template/twitter.png" /></a></li>
+                        <li class="social"><a href="http://instagram.com/steempb" target="_blank"><img src="/assets/img/template/instagram.png" /></a></li>
                         <li class="social"><a href="http://facebook.com/steempb" target="_blank"><img src="/assets/img/template/facebook.png" /></a></li>
                         <li class="social"><a href="https://plus.google.com/106045698028303100415" target="_blank"><img src="/assets/img/template/gplus.png" /></a></li>
                         <li><a href="#letsgo-wrap" class="btn btn-small btn-warning steembtn steembtn-small">Get it now <i class="icon-play"></i></a></li>

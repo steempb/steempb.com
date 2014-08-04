@@ -552,23 +552,31 @@ function performCheckout(){
         return false;
     }
 
+    var checkoutPostData = {
+        'product': cart_context.item_id,
+        'quantity': cart_context.item_quantity,
+        'payment': (currentSideCurrency() == 'usd')? 'PAYPAL' : 'DOGE', 
+        'tickets': stringifyDiscounts(),
+        'email': shipping.email,
+        'recipient_name': shipping.recipient_name,
+        'line1': shipping.line1,
+        'line2': shipping.line2,
+        'city': shipping.city,
+        'state': shipping.state,
+        'postal_code': shipping.postal_code
+    }
+
+    if(cart_context.item_id == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
+        //value meal has dimensions
+        checkoutPostData['size'] = $('.' + currentSide() + ' form.checkout-special select[name=inputSize]').val();
+        checkoutPostData['color'] = $('.' + currentSide() + ' form.checkout-special select[name=inputColor]').val();
+    }
+
     $('.checkout-status').html(checkout_template( {} ));
     checkoutMessageRotate();
     checkoutSlide(3);
     jetFleetFlyAway(function(){
-        $.post('/checkout.php', {
-            'product': cart_context.item_id,
-            'quantity': cart_context.item_quantity,
-            'payment': (currentSideCurrency() == 'usd')? 'PAYPAL' : 'DOGE', 
-            'tickets': stringifyDiscounts(),
-            'email': shipping.email,
-            'recipient_name': shipping.recipient_name,
-            'line1': shipping.line1,
-            'line2': shipping.line2,
-            'city': shipping.city,
-            'state': shipping.state,
-            'postal_code': shipping.postal_code
-        }, function(data){
+        $.post('/checkout.php', checkoutPostData, function(data){
             if(typeof data.url === "undefined"){
                 checkoutError({
                     'error': {

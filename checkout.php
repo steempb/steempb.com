@@ -16,8 +16,13 @@
 
         if($product == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
             $shipping = 0;
+            $dimensions = array(
+                'Size' => $_POST['size'],
+                'Color' => $_POST['color']
+            );
         }else{
             $shipping = 6.75;
+            $dimensions = NULL;
         }
 
         if($tickets){
@@ -70,7 +75,7 @@
             throw new Exception('Product not found');
         }
 
-        $result = $JACKED->Purveyor->createSale($user->guid, $product, $quantity, $method, $JACKED->config->base_url . 'tomhanks.php', $shippingAddr, $shipping, 'STEEM Caffeinated Peanut Butter', $tickets);
+        $result = $JACKED->Purveyor->createSale($user->guid, $product, $quantity, $method, $JACKED->config->base_url . 'tomhanks.php', $dimensions, $shippingAddr, $shipping, 'STEEM Caffeinated Peanut Butter', $tickets);
 
         if(!filter_var($result['url'], FILTER_VALIDATE_URL)){
             throw new Exception('Unable to create sale with ' . ($method == 'DOGE')? 'Moolah' : 'PayPal');

@@ -52,25 +52,6 @@
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        
-        <div id="promoCodesModal" class="modal hide fade">
-            <div class="modal-header">
-                <h3>Add Promo Code</h3>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal">
-                    <div class="control-group">
-                        <div class="controls">
-                            <textarea name="codes" rows="4"></textarea>
-                        </div>
-                    </div>
-                    <button id="addCodes" class="btn steembtn steembtn-large steembtn-fixed"><strong>Add</strong></button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-cancel">Cancel</a>
-            </div>
-        </div>
 
         <div id="header-home">
             <div class="container">
@@ -90,7 +71,7 @@
                         <li class="social"><a href="http://instagram.com/steempb" target="_blank"><img src="/assets/img/template/instagram.png" /></a></li>
                         <li class="social"><a href="http://facebook.com/steempb" target="_blank"><img src="/assets/img/template/facebook.png" /></a></li>
                         <li class="social"><a href="https://plus.google.com/106045698028303100415" target="_blank"><img src="/assets/img/template/gplus.png" /></a></li>
-                        <li><a href="#letsgo-wrap" class="btn btn-small btn-warning steembtn steembtn-small">Get it now <i class="icon-play"></i></a></li>
+                        <li><a data-checkout-stage="begin" href="#cta-main" class="btn btn-small btn-warning steembtn steembtn-small">Get it now <i class="icon-play"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -106,7 +87,7 @@
                     <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
                     <p class="lead">
                     <!--     <a href="#faq-border">Find out more</a> -->
-                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" id="cta-get-it-now">Get it now <i class="icon-play"></i></a>
+                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" data-checkout-stage="begin" id="cta-get-it-now">Get it now <i class="icon-play"></i></a>
                     </p>
                 </div>
             </div>
@@ -147,7 +128,7 @@
                         <h1>One last thing…</h1>
                         <p><strong>DO NOT GIVE TO ANIMALS. EVER.</strong> Fun fact: a lot of domestic animals, like dogs and cats and birds, cannot digest caffeine properly and it can lead to SERIOUS health issues. We know that your dog loves peanut butter and we know you think it'd be hilarious to get him all jacked up and crazy, BUT DON'T. SERIOUSLY. IT WOULD NOT BE HILARIOUS. <br /><em>STEEM = PEOPLE FOOD</em>.</p>
                         <h1>Okay, Where can I get it?</h1>
-                        <p>STEEM is available at any of the fine locations shown below, or available to <a href="#letsgo-wrap">purchase online now</a>. Be sure to check back soon for more locations, more are added all the time!</p>
+                        <p>STEEM is available at any of the fine locations shown below, or available to <a data-checkout-stage="begin" href="#cta-main">purchase online now</a>. Be sure to check back soon for more locations, more are added all the time!</p>
                     </div>
                 </div>
             </div>        
@@ -158,7 +139,7 @@
         <div class="faq-wrap">
             <div class="faq-section">
                 <div class="row" id="faq-cta-row">
-                        <h1>It's time to get going!</h1><a class="btn btn-large btn-warning steembtn steembtn-large" href="#letsgo-wrap">Get it now <i class="icon-play"></i></a>
+                        <h1>It's time to get going!</h1><a class="btn btn-large btn-warning steembtn steembtn-large" data-checkout-stage="begin" href="#cta-main">Get it now <i class="icon-play"></i></a>
                 </div>
             </div>
         </div>

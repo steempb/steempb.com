@@ -124,7 +124,7 @@ $(document).ready(function(){
         }
     });
 
-    $('#cta-get-it-now').click(function(eo){
+    $('[data-checkout-stage="begin"]').click(function(eo){
         jetGuyFlyAway();
         $("#cta-main").children().each(function(){
             $(this).fadeOut('fast', function(){

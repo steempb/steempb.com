@@ -187,13 +187,14 @@ div#header-home img#sublogo{
 #cta-main-container.flip .flipper {
     -moz-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
+    -ms-transform: rotateY(0deg);
 }
 
 #cta-main-container.flip .back {
     -ms-transform: rotateY(0deg);
 }
+
 #cta-main-container.flip .front {
     -ms-transform: rotateY(180deg);
 }
@@ -240,8 +241,8 @@ div#header-home img#sublogo{
 
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
@@ -253,8 +254,8 @@ div#header-home img#sublogo{
 
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
+    -ms-transform: rotateY(180deg);
 }
 
 .dogetoggle{

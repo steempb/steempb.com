@@ -131,19 +131,110 @@
                         <p>STEEM is available at any of the fine locations shown below, or available to <a data-checkout-stage="begin" href="#cta-main">purchase online now</a>. Be sure to check back soon for more locations, more are added all the time!</p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="span4">
+                        <h3>Massachusetts</h3>
+                        <p>
+                            <address>
+                                <strong>Barstow's Longview Farm</strong> <br />
+                                172 Hockanum Rd <br />
+                                Hadley, MA 01035 <br />
+                                (413) 586-2142 <br />
+                                <a href="http://www.barstowslongviewfarm.com" target="_blank">www.barstowslongviewfarm.com</a>
+                            </address>
+                        </p>
+                        <p>
+                            <address>
+                                <strong>All Things Local Cooperative Market</strong> <br />
+                                104 N Pleasant St <br />
+                                Amherst, MA 01002 <br />
+                                (413) 253-2667 <br />
+                                <a href="http://allthingslocal.coop" target="_blank">allthingslocal.coop</a>
+                            </address>
+                        </p>
+                        <p>
+                            <address>
+                                <strong>Serio's Market</strong> <br />
+                                65 State St <br />
+                                Northampton, MA 01060 <br />
+                                (413) 584-2633 <br />
+                                <a href="http://seriosmarket.com" target="_blank">seriosmarket.com</a>
+                            </address>
+                        </p>
+                        
+                        <h3>Connecticut</h3>
+                        <p>
+                            <address>
+                                <strong>CrossFit NorConn</strong> <br />
+                                226 Main St <br />
+                                East Windsor, CT 06088 <br />
+                                (860) 758-7770 <br />
+                                <a href="http://crossfitnorconn.com" target="_blank">crossfitnorconn.com</a>
+                            </address>
+                        </p>
+                        <p>
+                            <address>
+                                <strong>The Coffee Trade</strong> <br />
+                                21 W Main St <br />
+                                Avon, CT 06001 <br />
+                                (860) 676-2661 
+                            </address>
+                        </p>
+                    </div>
+                    <div class="span4">
+                        <h3>&nbsp;</h3><!-- force both sides to line up -->
+                        <p>
+                            <address>
+                                <strong>Fruit Fair</strong> <br />
+                                398 Front St <br />
+                                Chicopee, MA 01013 <br />
+                                (413) 592-1097 <br />
+                                <a href="http://fruitfair.net" target="_blank">fruitfair.net</a>
+                            </address>
+                        </p>
+                        <p>
+                            <address>
+                                <strong>Franklin Community Co-op</strong> <br />
+                                <strong>Green Fields Market</strong> <br />
+                                144 Main St <br />
+                                Greenfield, MA 01301 <br />
+                                (413) 773-9567 <br />
+                                <a href="http://www.greenfieldsmarket.coop" target="_blank">www.greenfieldsmarket.coop</a>
+                            </address>
+                        </p>
+                        <p>
+                            <address>
+                                <strong>CrossFit HammerMill</strong> <br />
+                                10 Peter Street <br />
+                                Webster, MA 01570 <br />
+                                (508) 461-6522 <br />
+                                <a href="http://crossfithammermill.com" target="_blank">crossfithammermill.com</a>
+                            </address>
+                        </p>
+                        
+                        <h3>&nbsp;</h3>
+                        <p>
+                            <address>
+                                <strong>CrossFit Revelation</strong> <br />
+                                7 Moody Rd #1C <br />
+                                Enfield, CT 06082 <br />
+                                (860) 749-0252 <br />
+                                <a href="http://www.crossfitrevelation.com" target="_blank">www.crossfitrevelation.com</a>
+                            </address>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span8">
+                        <div id="faq-cta-row">
+                            <h1>It's time to get going!</h1>
+                            <a class="btn btn-large btn-warning steembtn steembtn-large" data-checkout-stage="begin" href="#cta-main">Get it now <i class="icon-play"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>        
         </div>    
-        
-        <div id="map-canvas"></div>
      
-        <div class="faq-wrap">
-            <div class="faq-section">
-                <div class="row" id="faq-cta-row">
-                        <h1>It's time to get going!</h1><a class="btn btn-large btn-warning steembtn steembtn-large" data-checkout-stage="begin" href="#cta-main">Get it now <i class="icon-play"></i></a>
-                </div>
-            </div>
-        </div>
-
         <!--<div id="faq-border-bottom"></div>-->
         
 

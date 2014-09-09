@@ -87,7 +87,8 @@
                     <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
                     <p class="lead">
                     <!--     <a href="#faq-border">Find out more</a> -->
-                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" data-checkout-stage="begin" id="cta-get-it-now">Get it now <i class="icon-play"></i></a>
+                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" data-checkout-stage="begin" id="cta-get-it-now">Buy Online <i class="icon-play"></i></a>
+                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#store-list-marker" id="">Find a Store <i class="icon-map-marker"></i></a>
                     </p>
                 </div>
             </div>
@@ -107,13 +108,13 @@
         <div class="faq-wrap">
             <div class="faq-section">
                 <div class="row">
-                    <div class="span8">
+                    <div class="span10">
                         <h1>What is STEEM?</h1>
                         <p>STEEM is caffeinated peanut butter. What else do we need to say? STEEM is designed to provide a consistent release of sustained energy and the naturally slow digestion of peanut butter is the key to that. STEEM delivers protein, electrolytes, and caffeine, granting you hours of endurance and focus, and freeing you from distractions like hunger and fatigue.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span4">
+                    <div class="span5">
                         <h1>What's in this stuff?</h1>
                         <p>STEEM is made with natural peanut butter, and no artificial sweeteners. Oh, and as much caffeine as two cups of coffee, so stick with the normal serving suggestions for the best effect. Enjoy it however you would normally enjoy peanut butter: spread it on crackers, toast or fruit; re-acquaint yourself with the simple perfection of the peanut butter and jelly sandwich; or just jam a knife or a spoon or a finger into the jar and eat it like you do when no one's looking. Yes you do. Yes, you <em>do</em>.</p>
                         <h1>Who is STEEM for?</h1>
@@ -124,15 +125,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span8">
+                    <div class="span10">
                         <h1>One last thing…</h1>
                         <p><strong>DO NOT GIVE TO ANIMALS. EVER.</strong> Fun fact: a lot of domestic animals, like dogs and cats and birds, cannot digest caffeine properly and it can lead to SERIOUS health issues. We know that your dog loves peanut butter and we know you think it'd be hilarious to get him all jacked up and crazy, BUT DON'T. SERIOUSLY. IT WOULD NOT BE HILARIOUS. <br /><em>STEEM = PEOPLE FOOD</em>.</p>
-                        <h1>Okay, Where can I get it?</h1>
+                        <h1 id="store-list-marker">Okay, Where can I get it?</h1>
                         <p>STEEM is available at any of the fine locations shown below, or available to <a data-checkout-stage="begin" href="#cta-main">purchase online now</a>. Be sure to check back soon for more locations, more are added all the time!</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span4">
+                    <div class="span5">
                         <h3>Massachusetts</h3>
                         <p>
                             <address>
@@ -181,7 +182,7 @@
                             </address>
                         </p>
                     </div>
-                    <div class="span4">
+                    <div class="span5">
                         <h3>&nbsp;</h3><!-- force both sides to line up -->
                         <p>
                             <address>
@@ -225,7 +226,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span8">
+                    <div class="span10">
                         <div id="faq-cta-row">
                             <h1>It's time to get going!</h1>
                             <a class="btn btn-large btn-warning steembtn steembtn-large" data-checkout-stage="begin" href="#cta-main">Get it now <i class="icon-play"></i></a>

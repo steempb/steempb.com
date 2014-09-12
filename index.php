@@ -130,6 +130,7 @@
                         <p><strong>DO NOT GIVE TO ANIMALS. EVER.</strong> Fun fact: a lot of domestic animals, like dogs and cats and birds, cannot digest caffeine properly and it can lead to SERIOUS health issues. We know that your dog loves peanut butter and we know you think it'd be hilarious to get him all jacked up and crazy, BUT DON'T. SERIOUSLY. IT WOULD NOT BE HILARIOUS. <br /><em>STEEM = PEOPLE FOOD</em>.</p>
                         <h1 id="store-list-marker">Okay, Where can I get it?</h1>
                         <p>STEEM is available at any of the fine locations shown below, or available to <a data-checkout-stage="begin" href="#cta-main">purchase online now</a>. Be sure to check back soon for more locations, more are added all the time!</p>
+                        <p>If you'd like to carry STEEM at your store/gym/batcave email us here: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a>.</p>
                     </div>
                 </div>
                 <div class="row">

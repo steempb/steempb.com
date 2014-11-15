@@ -163,6 +163,15 @@
                                 <a href="http://seriosmarket.com" target="_blank">seriosmarket.com</a>
                             </address>
                         </p>
+                        <p>
+                            <address>
+                                <strong>PowerClean Fitness</strong> <br />
+                                167 Shaker Rd <br />
+                                East Longmeadow, MA 01028 <br />
+                                (413) 526-9800 <br />
+                                <a href="http://powercleanfitness.com/" target="_blank">powercleanfitness.com</a>
+                            </address>
+                        </p>
                         
                         <h3>Connecticut</h3>
                         <p>
@@ -196,12 +205,11 @@
                         </p>
                         <p>
                             <address>
-                                <strong>Franklin Community Co-op</strong> <br />
-                                <strong>Green Fields Market</strong> <br />
-                                144 Main St <br />
-                                Greenfield, MA 01301 <br />
-                                (413) 773-9567 <br />
-                                <a href="http://www.greenfieldsmarket.coop" target="_blank">www.greenfieldsmarket.coop</a>
+                                <strong>Absolute Nutrition Center</strong> <br />
+                                1485 Memorial Dr  <br />
+                                Chicopee, MA 01020 <br />
+                                (413) 535-1111 <br />
+                                <a href="https://www.facebook.com/absolutenutritioncenter" target="_blank">facebook.com/absolutenutritioncenter</a>
                             </address>
                         </p>
                         <p>
@@ -211,6 +219,16 @@
                                 Webster, MA 01570 <br />
                                 (508) 461-6522 <br />
                                 <a href="http://crossfithammermill.com" target="_blank">crossfithammermill.com</a>
+                            </address>
+                        </p>
+                        <p>
+                            <address>
+                                <strong>Franklin Community Co-op</strong> <br />
+                                <strong>Green Fields Market</strong> <br />
+                                144 Main St <br />
+                                Greenfield, MA 01301 <br />
+                                (413) 773-9567 <br />
+                                <a href="http://www.greenfieldsmarket.coop" target="_blank">www.greenfieldsmarket.coop</a>
                             </address>
                         </p>
                         

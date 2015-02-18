@@ -5,13 +5,30 @@
                         $postType = str_replace(' ', '-', strtolower($post->category->name));
                 ?>
                 <div class="row">
-                    <h1><a href="/blog/post/<?php echo $post->guid; ?>"><?php echo $post->title; ?></a></h1>
-                    <p class="byline">
-                        <span class="label <?php echo $postType; ?>"><?php echo $post->category->name; ?></span> <span class="datestamp"><?php echo date("F j, Y", $post->posted); ?></span>
-                    </p>
+                    <?php if($post->thumbnail){ ?>
+
+                    <div class="span3">
+                        <a href="/blog/post/<?php echo $post->guid; ?>"><img src="/assets/img/uploads/<?php echo $post->thumbnail; ?>" /></a>
+                    </div>
+                    <div class="span6">
+
+                    <?php } ?>
+
+                        <h1><a href="/blog/post/<?php echo $post->guid; ?>"><?php echo $post->title; ?></a></h1>
+                        <p class="byline">
+                            <span class="label <?php echo $postType; ?>"><?php echo $post->category->name; ?></span> <span class="datestamp"><?php echo date("F j, Y", $post->posted); ?></span>
+                        </p>
+
+                    <?php if($post->thumbnail){ ?>
+
+                    </div>
+
+                    <?php } ?>
+                    
                     <p class="lead"><?php echo $post->headline; ?></p>
 
                     <a href="/blog/post/<?php echo $post->guid; ?>"><p class="byline">Read more <i class="icon-share-alt"></i></p></a>
+                
                 </div>                    
                 <?php
                     }

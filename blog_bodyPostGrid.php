@@ -10,7 +10,7 @@
                     <div class="span3">
                         <a href="/blog/post/<?php echo $post->guid; ?>"><img src="/assets/img/uploads/<?php echo $post->thumbnail; ?>" /></a>
                     </div>
-                    <div class="span6">
+                    <div class="span7">
 
                     <?php } ?>
 
@@ -24,7 +24,7 @@
                     </div>
 
                     <?php } ?>
-                    
+
                     <p class="lead"><?php echo $post->headline; ?></p>
 
                     <a href="/blog/post/<?php echo $post->guid; ?>"><p class="byline">Read more <i class="icon-share-alt"></i></p></a>

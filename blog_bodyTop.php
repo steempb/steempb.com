@@ -22,7 +22,7 @@
         <meta property="og:description" content="<?php echo $templateVars['postHeadline']; ?>" />
         <meta property="og:updated_time" content="<?php echo $templateVars['postDatetime']; ?>" />
         <?php } ?>
-        <meta property="og:image" content="http://steempb.com/assets/img/facebook_og.png" />
+        <meta property="og:image" content="<?php echo $templateVars['postThumbURL']; ?>" />
 
 
         <!-- Le styles -->

@@ -25,6 +25,7 @@
         $templateVars['pageTitle'] = $post->title;
         $templateVars['contentType'] = str_replace(' ', '-', strtolower($post->category->name));
         $templateVars['postURL'] = $JACKED->config->base_url . 'blog/post/' . $post->guid;
+        $templateVars['postThumbURL'] = ($post->thumbnail)? $JACKED->config->base_url . 'assets/img/uploads/' . $post->thumbnail : $JACKED->config->base_url . 'assets/img/facebook_og.png';
         $templateVars['postHeadline'] = htmlentities($post->headline);
         $templateVars['postDatetime'] = date('c', $post->posted);
 

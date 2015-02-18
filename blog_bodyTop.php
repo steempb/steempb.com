@@ -21,9 +21,13 @@
         <meta property="og:url" content="<?php echo $templateVars['postURL']; ?>" />
         <meta property="og:description" content="<?php echo $templateVars['postHeadline']; ?>" />
         <meta property="og:updated_time" content="<?php echo $templateVars['postDatetime']; ?>" />
-        <?php } ?>
         <meta property="og:image" content="<?php echo $templateVars['postThumbURL']; ?>" />
+        
+        <?php }else{ ?>
 
+        <meta property="og:image" content="<?php echo $JACKED->config->base_url . 'assets/img/facebook_og.png'; ?>" />
+
+        <?php } ?>
 
         <!-- Le styles -->
         <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic|Ubuntu+Condensed' rel='stylesheet' type='text/css'>

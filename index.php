@@ -31,16 +31,7 @@
 
         <script type="text/javascript">
             // get the current price of DOGE
-            var dogeValue = <?php 
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                    CURLOPT_RETURNTRANSFER => 1,
-                    CURLOPT_URL => 'http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=182'
-                ));
-                $result = json_decode(curl_exec($curl), TRUE);
-                echo $result['return']['markets']['DOGE']['lasttradeprice'];
-                curl_close($curl);
-            ?>;
+            var dogeValue = 0;
         </script>
 
         <!-- Fav and touch icons -->

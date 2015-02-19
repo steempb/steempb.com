@@ -31,7 +31,7 @@
 
         <script type="text/javascript">
             // get the current price of DOGE
-            var dogeValue = 0;
+            var dogeValue = 1;
         </script>
 
         <!-- Fav and touch icons -->

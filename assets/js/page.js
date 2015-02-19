@@ -180,10 +180,10 @@ $(document).ready(function(){
                 context.usd = true;
                 $('#cta-main').html( store_template(context) );
 
-                context.flip_side = 'back';
-                context.payment_method = 'doge';
-                context.usd = false;
-                $('#cta-main').append( store_template(context) );
+                // context.flip_side = 'back';
+                // context.payment_method = 'doge';
+                // context.usd = false;
+                // $('#cta-main').append( store_template(context) );
 
                 // $(".dogetoggle").click(function(){
                 //     flipPayment();

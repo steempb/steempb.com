@@ -185,16 +185,16 @@ $(document).ready(function(){
                 context.usd = false;
                 $('#cta-main').append( store_template(context) );
 
-                $(".dogetoggle").click(function(){
-                    flipPayment();
-                });
+                // $(".dogetoggle").click(function(){
+                //     flipPayment();
+                // });
 
                 $('.international-shipping-info').attr('data-content', '<p style="font-size:12px; color:#333;">Our apologies, but we\'re not yet able to ship STEEM Peanut Butter outside of the United States, but we\'re working on it. If you reside in a country outside of the US and you participated in our Peanut Beta, please email us at: <a href="mailto:steempb@steempb.com">steempb@steempb.com</a></p>');
 
                 // sync the shipping form on both sides
-                $('form.shipping input').change(function(eo){
-                    $('.' + oppositeSide() + ' form.shipping input[name=' + $(this).attr('name') + ']').val($(this).val()).keyup();
-                });
+                // $('form.shipping input').change(function(eo){
+                //     $('.' + oppositeSide() + ' form.shipping input[name=' + $(this).attr('name') + ']').val($(this).val()).keyup();
+                // });
 
                 // Checkout stuff
 
@@ -222,7 +222,7 @@ $(document).ready(function(){
                         var quantity = parseInt($(this).val());
                                
                         var labels = {
-                            doge: 'Ð' + ((6.75 + (4.99 * quantity)) / dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
+                            // doge: 'Ð' + ((6.75 + (4.99 * quantity)) / dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
                             usd: '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>'
                         }                       
 
@@ -232,7 +232,7 @@ $(document).ready(function(){
                             $(this).fadeIn();
                             $('select[name=inputQuantity]').tooltip('destroy');
                         });
-                        $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html(labels[oppositeSideCurrency()]).removeClass('noclicky');
+                        // $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html(labels[oppositeSideCurrency()]).removeClass('noclicky');
 
                     }else{
                         $(this).tooltip({
@@ -248,7 +248,7 @@ $(document).ready(function(){
                             $(this).html('Buy Me');
                             $(this).fadeIn();
                         });
-                        $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html('Buy Me').addClass('noclicky');
+                        // $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html('Buy Me').addClass('noclicky');
                         
                     }
                 });
@@ -346,9 +346,10 @@ function checkShirtAvailability(){
 }
 
 function currentSide(){
-    return ($("#cta-main-container").hasClass('flip'))
-        ? 'back'
-        : 'front';
+    return 'front';
+    // return ($("#cta-main-container").hasClass('flip'))
+    //     ? 'back'
+    //     : 'front';
 }
 
 function oppositeSide(){
@@ -358,9 +359,10 @@ function oppositeSide(){
 }
 
 function currentSideCurrency(){
-    return ($("#cta-main-container").hasClass('flip'))
-        ? 'doge'
-        : 'usd';
+    return 'usd';
+    // return ($("#cta-main-container").hasClass('flip'))
+    //     ? 'doge'
+    //     : 'usd';
 }
 
 function oppositeSideCurrency(){

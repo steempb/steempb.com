@@ -15,12 +15,18 @@
         $tickets = $_POST['tickets'];
 
         if($product == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
+            // value meal
             $shipping = 0;
             $dimensions = array(
                 'Size' => $_POST['size'],
                 'Color' => $_POST['color']
             );
+        }else if($product == '1c329b23-4398-4734-b2d7-661fd94874f4'){
+            // case
+            $shipping = 0;
+            $dimensions = NULL;
         }else{
+            // assume jars
             $shipping = 6.75;
             $dimensions = NULL;
         }

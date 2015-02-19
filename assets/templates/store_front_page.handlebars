@@ -28,12 +28,12 @@
             <div class="span4">
                 <div class="storeContainer">
                     <div class="split pull-left">
-                        <img src="{{retina '/assets/img/template/checkout_jars.png'}}" width="207" height="268" />
+                        <img id="jar-img" src="{{retina '/assets/img/template/checkout_jars.png'}}" width="207" height="268" />
                     </div>
-                    <div class="split pull-right">
-                        <p class="description">Delicious peanut butter. Put it in your face and do stuff! It tastes good and I'm writing words.</p>
-                        <p class="lead"><strong>{{formatPrice '4.99'}} </strong> <br /> Per 8oz Jar</p>
-                        <p>+ {{formatPrice '6.75'}} flat-rate Shipping to Contiguous US</p>
+                    <div id="jar-details" class="split pull-right">
+                        <p id="jar-description" class="description">Delicious peanut butter. Put it in your face and do stuff! It tastes good and I'm writing words.</p>
+                        <p id="jar-price" class="lead"><strong>{{formatPrice '4.99'}} </strong> <br /> Per 8oz Jar</p>
+                        <p id="jar-shipping">+ {{formatPrice '6.75'}} flat-rate Shipping to Contiguous US</p>
                     </div>
                 </div>
                 <div class="storeContainer">
@@ -45,10 +45,11 @@
                                     <div class="controls">
                                         <select name="inputQuantity">
                                             <option></option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                            <option value="1">1 Jar</option>
+                                            <option value="2">2 Jars</option>
+                                            <option value="3">3 Jars</option>
+                                            <option value="4">4 Jars</option>
+                                            <option value="12">Case (12 jars)</option>
                                         </select>
                                     </div>
                                 </div>

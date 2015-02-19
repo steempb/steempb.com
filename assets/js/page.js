@@ -40,6 +40,11 @@ var shirtAvailability = {
     }
 };
 
+// these too probably.
+var productIdJar = '6c403910-6ce3-4d72-9509-9ff8302c975c'
+    productIdCase = '1c329b23-4398-4734-b2d7-661fd94874f4'
+    productIdValueMeal = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
+
 var cart_context = {
     'item_name': 'None',
     'item_id': '',
@@ -216,14 +221,21 @@ $(document).ready(function(){
                 });
 
                 $('select[name=inputQuantity]').change(function(){
-                    $('select[name=inputQuantity]').val($(this).val());
+                    // $('select[name=inputQuantity]').val($(this).val());
                     $('select[name=inputQuantity]').tooltip('destroy');
                     if($(this).val()){
                         var quantity = parseInt($(this).val());
-                               
+                        var usdLabel;
+
+                        if(quantity === 12){
+                            usdLabel = '$59.99 <i class="icon-play"></i>';
+                        }else{
+                            usdLabel = '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>';
+                        }
+
                         var labels = {
                             // doge: 'Ð' + ((6.75 + (4.99 * quantity)) / dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
-                            usd: '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>'
+                            usd: usdLabel
                         }                       
 
                         $('.checkoutbtn[data-payment-method="' + currentSideCurrency() + '"]').fadeOut('fast', function(){
@@ -232,6 +244,37 @@ $(document).ready(function(){
                             $(this).fadeIn();
                             $('select[name=inputQuantity]').tooltip('destroy');
                         });
+
+                        if($("#jar-img").hasClass("case-image")){
+                            if(quantity !== 12){
+                                $("#jar-img").fadeOut('fast', function(){
+                                    $(this).attr('src', '/assets/img/template/checkout_jars' + (isRetina? '@2x' : '') + '.png');
+                                    $(this).removeClass('case-image');
+                                    $(this).fadeIn();
+                                });
+                                $("#jar-details").fadeOut('fast', function(){
+                                    $("#jar-price").html('<strong>$4.99 </strong> <br /> Per 8oz Jar');
+                                    $("#jar-shipping").html('+ $6.75 flat-rate Shipping to Contiguous US');
+                                    $("#jar-description").html('Delicious peanut butter. Put it in your face and do stuff! It tastes good and I\'m writing words.');
+                                    $(this).fadeIn(); 
+                                });
+                            }
+                        }else{
+                            if(quantity === 12){
+                                $("#jar-img").fadeOut('fast', function(){
+                                    $(this).attr('src', '/assets/img/template/checkout_case' + (isRetina? '@2x' : '') + '.png');
+                                    $(this).addClass('case-image');
+                                    $(this).fadeIn();
+                                });
+                                $("#jar-details").fadeOut('fast', function(){
+                                    $("#jar-price").html('<strong>$59.99 </strong> <br /> 12 8oz Jars');
+                                    $("#jar-shipping").html('+ Free flat-rate Shipping to Contiguous US');
+                                    $("#jar-description").html('A whole case of delicious peanut butter. Put it in your face and do twelve times as much stuff!');
+                                    $(this).fadeIn(); 
+                                });
+                            }
+                        }
+
                         // $('.checkoutbtn[data-payment-method="' + oppositeSideCurrency() + '"]').html(labels[oppositeSideCurrency()]).removeClass('noclicky');
 
                     }else{
@@ -267,16 +310,28 @@ $(document).ready(function(){
                         select.tooltip('show');
                     }else{
                         if(
-                            (cart_context.item_id != '6c403910-6ce3-4d72-9509-9ff8302c975c') ||
+                            (cart_context.item_id != productIdJar) ||
                             ($(this).find('select[name=inputQuantity]').val() != cart_context.item_quantity)
                         ){
                             resetPromos();
                         }
-                        cart_context.item_id = '6c403910-6ce3-4d72-9509-9ff8302c975c';
-                        cart_context.item_name = 'STEEM Jar';
-                        cart_context.item_quantity = $(this).find('select[name=inputQuantity]').val();
-                        cart_context.item_subtotal = cart_context.item_quantity * 4.99;
-                        cart_context.shipping_total = 6.75;
+
+                        var item_quantity = $(this).find('select[name=inputQuantity]').val();
+                        console.log(item_quantity)
+                        if(item_quantity === '12'){
+                            console.log('wat');
+                            cart_context.item_id = productIdCase;
+                            cart_context.item_name = 'STEEM Case';
+                            cart_context.item_quantity = 1;
+                            cart_context.item_subtotal = 59.99;
+                            cart_context.shipping_total = 0;
+                        }else{
+                            cart_context.item_id = productIdJar;
+                            cart_context.item_name = 'STEEM Jar';
+                            cart_context.item_quantity = item_quantity;
+                            cart_context.item_subtotal = cart_context.item_quantity * 4.99;
+                            cart_context.shipping_total = 6.75;
+                        }
                         checkoutSlide(2);
                     }
                 });
@@ -304,10 +359,10 @@ $(document).ready(function(){
                         return false;
                     }
 
-                    if(cart_context.item_id != 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
+                    if(cart_context.item_id != productIdValueMeal){
                         resetPromos();
                     }
-                    cart_context.item_id = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
+                    cart_context.item_id = productIdValueMeal;
                     cart_context.item_name = '2 Jars + T-Shirt';
                     cart_context.item_quantity = 1;
                     cart_context.item_subtotal = 19.99;
@@ -491,7 +546,7 @@ function collectPromoCode(that){
         btn.ladda('start');
         $("#promo-code-input").attr('disabled', true);
 
-        if(cart_context.item_id == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
+        if(cart_context.item_id === productIdValueMeal || cart_context.item_id === productIdCase){
             cart_context.rejected_discounts = [{
                 'code': '',
                 'reason': 'Promo Codes not accepted on this item.'
@@ -609,7 +664,7 @@ function performCheckout(){
         'postal_code': shipping.postal_code
     }
 
-    if(cart_context.item_id == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
+    if(cart_context.item_id == productIdValueMeal){
         //value meal has dimensions
         checkoutPostData['size'] = $('.' + currentSide() + ' form.checkout-special select[name=inputSize]').val();
         checkoutPostData['color'] = $('.' + currentSide() + ' form.checkout-special select[name=inputColor]').val();

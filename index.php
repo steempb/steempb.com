@@ -182,6 +182,17 @@
                                 (860) 676-2661 
                             </address>
                         </p>
+                        
+                        <h3>New Hampshire</h3>
+                        <p>
+                            <address>
+                                <strong>Instant Ambition</strong> <br />
+                                380 Daniel Webster Hwy #3 <br />
+                                Merrimack, NH 03054 <br />
+                                (603) 714-4816 <br />
+                                <a href="https://www.facebook.com/InstantAmbition" target="_blank">Instant Ambition on Facebook</a>
+                            </address>
+                        </p>
                     </div>
                     <div class="span5">
                         <h3>&nbsp;</h3><!-- force both sides to line up -->

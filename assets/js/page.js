@@ -317,9 +317,7 @@ $(document).ready(function(){
                         }
 
                         var item_quantity = $(this).find('select[name=inputQuantity]').val();
-                        console.log(item_quantity)
                         if(item_quantity === '12'){
-                            console.log('wat');
                             cart_context.item_id = productIdCase;
                             cart_context.item_name = 'STEEM Case';
                             cart_context.item_quantity = 1;

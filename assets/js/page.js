@@ -28,7 +28,7 @@ var jetFleetAnimating = false;
 var shirtAvailability = {
     "aubergine": {
         "Small": false,
-        "Medium": true,
+        "Medium": false,
         "Large": true,
         "X-Large": false
     },

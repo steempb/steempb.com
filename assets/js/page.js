@@ -36,7 +36,7 @@ var shirtAvailability = {
         "Small": true,
         "Medium": false,
         "Large": true,
-        "X-Large": true
+        "X-Large": false
     }
 };
 

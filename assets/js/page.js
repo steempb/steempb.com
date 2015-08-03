@@ -35,7 +35,7 @@ var shirtAvailability = {
     "navy": {
         "Small": true,
         "Medium": false,
-        "Large": true,
+        "Large": false,
         "X-Large": false
     }
 };

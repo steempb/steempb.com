@@ -245,6 +245,8 @@
                         </p>
                         
                         <h3>&nbsp;</h3>
+                        <h3>&nbsp;</h3>
+                        <h3>&nbsp;</h3>
                         <p>
                             <address>
                                 <strong>CrossFit Revelation</strong> <br />

@@ -163,6 +163,16 @@
                                 <a href="http://powercleanfitness.com/" target="_blank">powercleanfitness.com</a>
                             </address>
                         </p>
+                        <p>
+                            <address>
+                                <strong>North Hadley Sugar Shack</strong> <br />
+                                181 River Dr <br />
+                                Hadley, MA 01035 <br />
+                                (413) 585-8820 <br />
+                                <a href="http://www.northhadleysugarshack.com/" target="_blank">www.northhadleysugarshack.com</a>
+                            </address>
+                        </p>
+                        
                         
                         <h3>Connecticut</h3>
                         <p>

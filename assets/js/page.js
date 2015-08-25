@@ -33,7 +33,7 @@ var shirtAvailability = {
         "X-Large": false
     },
     "navy": {
-        "Small": true,
+        "Small": false,
         "Medium": false,
         "Large": false,
         "X-Large": false

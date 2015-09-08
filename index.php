@@ -1,3 +1,10 @@
+<?php
+
+    require('JACKED/jacked_conf.php');
+    $JACKED = new JACKED('DatasBeard');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
@@ -287,6 +294,19 @@
         <script type="text/javascript" src="/assets/js/ladda.min.js"></script>
         <script type="text/javascript" src="/assets/js/ladda.jquery.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
+        <script type="text/javascript">
+
+            <?php
+                $shirts = array();
+                $rows = $JACKED->DatasBeard->getRows('c5514c42-c65f-445a-b9ca-6a089772e672');
+                foreach($rows as $row){
+                    $shirts[$row['Color']][$row['Size']] = $row['Available'];
+                }
+
+                echo 'var shirtAvailability = ' . json_encode($shirts);
+            ?>
+
+        </script>
         <script type="text/javascript" src="/assets/js/page.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -556,8 +556,11 @@ div#header-home img#sublogo{
 #map{
     width: 800px;
     height: 600px;
-    text-align: center;
     margin-left: 20px;
+}
+
+#mapList .loading{
+    text-align: center;
 }
 
 #letsgo-wrap{
@@ -742,6 +745,10 @@ div#footer-home a{
 
 .noclicky{
     cursor: not-allowed;
+}
+
+.clicky{
+    cursor: pointer;
 }
 
 .btn.ladda-button[disabled]{

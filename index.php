@@ -139,6 +139,9 @@
                     </div>
 
                 </div>
+                <div class="row" id="mapList">
+
+                </div>
                 <div class="row">
                     <div class="span10">
                         <div id="faq-cta-row">

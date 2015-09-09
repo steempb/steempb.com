@@ -971,7 +971,7 @@ function displayMapList(){
             var stateListEl = $('<div class="span5"><h3>' + val.displayName + '</h3></div>');
             $.each(val.locations, function(idx, val){
                 locationData = locations[val];
-                locationEl = $('<p class="clicky" data-location-id="' + val + '"><strong>' + locationData.data.name + '</strong><br />' + locationData.data.city + '</p>').click(function(){
+                locationEl = $('<p class="clicky" data-location-id="' + val + '"><a href="#map"><strong>' + locationData.data.name + '</strong><br />' + locationData.data.city + '</a></p>').click(function(){
                     if(openInfoWindow){
                         openInfoWindow.close();
                         openInfoWindow = null;

@@ -903,7 +903,7 @@ function initMap() {
 
     var promises = [];
     $.each(retailAddresses, function(idx, val){
-        $.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyB31Sx4oLAKIMoJUOsGt6eUWuH4iBF_7XA&address=' + val['searchAddress'])
+        $.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCEdqPZpkyouFdLL4Fq5sp_hmB7MzSurvs&address=' + val['searchAddress'])
             .done(function(data){
                 var contentString = '<div id="content">'+
                   '<div id="siteNotice">'+

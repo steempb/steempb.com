@@ -181,16 +181,27 @@
                 echo 'var shirtAvailability = ' . json_encode($shirts) . ';';
             ?>
 
+            var retailAddresses = [
             <?php
                 // addresses from datasbeard
-                echo 'var retailAddresses = [';
                 $addressRows = $JACKED->DatasBeard->getRows('0871d7c3-f9aa-408f-b80b-65b5a4834dde');
                 foreach($addressRows as $row){
                     $row['searchAddress'] = $row['address'] . ', ' . $row['city'] . ', ' . $row['state'] . ', ' . $row['zip code'];
                     echo json_encode($row) . ',';
                 }
-                echo '];';
             ?>
+            ];
+
+            var checkout_lol_messages = [
+            <?php
+                // checkout loading messages from datasbeard
+
+                $lolRows = $JACKED->DatasBeard->getRows('1202cb40-4b1b-42c9-9180-e6df6adeed2a');
+                foreach($lolRows as $row){
+                    echo '"' . $row['message'] . '...",';
+                }
+            ?>
+            ];
 
         </script>
         <script type="text/javascript" src="/assets/js/page.js"></script>

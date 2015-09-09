@@ -40,35 +40,6 @@ var cart_context = {
     'rejected_discounts': []
 };
 
-var checkout_lol_messages = [
-    'reticulating splines...',
-    'grinding peanuts...',
-    'buttering peanuts...',
-    'initializing caffeine generators...',
-    'fighting off elephants...',
-    'doing, like, a bunch of stuff...',
-    'refueling jetpacks...',
-    'reversing the polarity...',
-    'crossing the streams...',
-    'gathering PB&J supplies...', 
-    'mining pbcoins...',
-    'targeting electrolyte cannon...',
-    'building deliciousness matrix...',
-    'buffering protein streams...',
-    'peanut beta butter bartering...',
-    'programming robotic jars...',
-    'getting going...',
-    'tweeting pictures of lunch...',
-    'getting the spoon ready...',
-    'changing your life...',
-    'developing next-gen Q-Nuts...',
-    'initializing nut smasher...<br />...actually, keep that one off.',
-    'opening DO_NOT_OPEN.exe...',
-    'engaging dance protocols...',
-    'priming regret servos...',
-
-];
-
 // get our templates
 var store_template;
 $.get("/assets/templates/store_front_page.handlebars", function(raw) {
@@ -932,7 +903,7 @@ function initMap() {
 
     var promises = [];
     $.each(retailAddresses, function(idx, val){
-        $.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCEdqPZpkyouFdLL4Fq5sp_hmB7MzSurvs&address=' + val['searchAddress'])
+        $.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyB31Sx4oLAKIMoJUOsGt6eUWuH4iBF_7XA&address=' + val['searchAddress'])
             .done(function(data){
                 var contentString = '<div id="content">'+
                   '<div id="siteNotice">'+

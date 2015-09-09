@@ -553,6 +553,12 @@ div#header-home img#sublogo{
     margin: 0 auto;
 }
 
+#map{
+    width: 800px;
+    height: 600px;
+    text-align: center;
+}
+
 #letsgo-wrap{
     height: 700px;
     width: 100%;

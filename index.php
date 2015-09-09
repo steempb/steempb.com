@@ -132,138 +132,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span5">
-                        <h3>Massachusetts</h3>
-                        <p>
-                            <address>
-                                <strong>Barstow's Longview Farm</strong> <br />
-                                172 Hockanum Rd <br />
-                                Hadley, MA 01035 <br />
-                                (413) 586-2142 <br />
-                                <a href="http://www.barstowslongviewfarm.com" target="_blank">www.barstowslongviewfarm.com</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>All Things Local Cooperative Market</strong> <br />
-                                104 N Pleasant St <br />
-                                Amherst, MA 01002 <br />
-                                (413) 253-2667 <br />
-                                <a href="http://allthingslocal.coop" target="_blank">allthingslocal.coop</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>Serio's Market</strong> <br />
-                                65 State St <br />
-                                Northampton, MA 01060 <br />
-                                (413) 584-2633 <br />
-                                <a href="http://seriosmarket.com" target="_blank">seriosmarket.com</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>PowerClean Fitness</strong> <br />
-                                167 Shaker Rd <br />
-                                East Longmeadow, MA 01028 <br />
-                                (413) 526-9800 <br />
-                                <a href="http://powercleanfitness.com/" target="_blank">powercleanfitness.com</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>North Hadley Sugar Shack</strong> <br />
-                                181 River Dr <br />
-                                Hadley, MA 01035 <br />
-                                (413) 585-8820 <br />
-                                <a href="http://www.northhadleysugarshack.com/" target="_blank">www.northhadleysugarshack.com</a>
-                            </address>
-                        </p>
-                        
-                        
-                        <h3>Connecticut</h3>
-                        <p>
-                            <address>
-                                <strong>CrossFit NorConn</strong> <br />
-                                226 Main St <br />
-                                East Windsor, CT 06088 <br />
-                                (860) 758-7770 <br />
-                                <a href="http://crossfitnorconn.com" target="_blank">crossfitnorconn.com</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>The Coffee Trade</strong> <br />
-                                21 W Main St <br />
-                                Avon, CT 06001 <br />
-                                (860) 676-2661 
-                            </address>
-                        </p>
-                        
-                        <h3>New Hampshire</h3>
-                        <p>
-                            <address>
-                                <strong>Instant Ambition</strong> <br />
-                                380 Daniel Webster Hwy #3 <br />
-                                Merrimack, NH 03054 <br />
-                                (603) 714-4816 <br />
-                                <a href="https://www.facebook.com/InstantAmbition" target="_blank">facebook.com/InstantAmbition</a>
-                            </address>
-                        </p>
+
+                    <div id="map">
+                        <div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>
+                        <p>Loading locations...</p>
                     </div>
-                    <div class="span5">
-                        <h3>&nbsp;</h3><!-- force both sides to line up -->
-                        <p>
-                            <address>
-                                <strong>Fruit Fair</strong> <br />
-                                398 Front St <br />
-                                Chicopee, MA 01013 <br />
-                                (413) 592-1097 <br />
-                                <a href="http://fruitfair.net" target="_blank">fruitfair.net</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>Absolute Nutrition Center</strong> <br />
-                                1485 Memorial Dr  <br />
-                                Chicopee, MA 01020 <br />
-                                (413) 535-1111 <br />
-                                <a href="https://www.facebook.com/absolutenutritioncenter" target="_blank">facebook.com/absolutenutritioncenter</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>CrossFit HammerMill</strong> <br />
-                                10 Peter Street <br />
-                                Webster, MA 01570 <br />
-                                (508) 461-6522 <br />
-                                <a href="http://crossfithammermill.com" target="_blank">crossfithammermill.com</a>
-                            </address>
-                        </p>
-                        <p>
-                            <address>
-                                <strong>Franklin Community Co-op</strong> <br />
-                                <strong>Green Fields Market</strong> <br />
-                                144 Main St <br />
-                                Greenfield, MA 01301 <br />
-                                (413) 773-9567 <br />
-                                <a href="http://www.greenfieldsmarket.coop" target="_blank">www.greenfieldsmarket.coop</a>
-                            </address>
-                        </p>
-                        
-                        <h3>&nbsp;</h3>
-                        <h3>&nbsp;</h3>
-                        <h3>&nbsp;</h3>
-                        <p>
-                            <address>
-                                <strong>CrossFit Revelation</strong> <br />
-                                7 Moody Rd #1C <br />
-                                Enfield, CT 06082 <br />
-                                (860) 749-0252 <br />
-                                <a href="http://www.crossfitrevelation.com" target="_blank">www.crossfitrevelation.com</a>
-                            </address>
-                        </p>
-                    </div>
+
                 </div>
                 <div class="row">
                     <div class="span10">
@@ -293,17 +167,29 @@
         <script type="text/javascript" src="/assets/js/spin.min.js"></script>
         <script type="text/javascript" src="/assets/js/ladda.min.js"></script>
         <script type="text/javascript" src="/assets/js/ladda.jquery.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
         <script type="text/javascript">
 
+            // data from DatasBeard
             <?php
+                // shirts from datasbeard
                 $shirts = array();
                 $rows = $JACKED->DatasBeard->getRows('c5514c42-c65f-445a-b9ca-6a089772e672');
                 foreach($rows as $row){
                     $shirts[$row['Color']][$row['Size']] = $row['Available'];
                 }
+                echo 'var shirtAvailability = ' . json_encode($shirts) . ';';
+            ?>
 
-                echo 'var shirtAvailability = ' . json_encode($shirts);
+            <?php
+                // addresses from datasbeard
+                echo 'var retailAddresses = [';
+                $addressRows = $JACKED->DatasBeard->getRows('0871d7c3-f9aa-408f-b80b-65b5a4834dde');
+                foreach($addressRows as $row){
+                    $row['searchAddress'] = $row['address'] . ', ' . $row['city'] . ', ' . $row['state'] . ', ' . $row['zip code'];
+                    echo json_encode($row) . ',';
+                }
+                echo '];';
             ?>
 
         </script>

@@ -914,3 +914,50 @@ Handlebars.registerHelper('bigSpinner', function() {
 
     return new Handlebars.SafeString(result);
 });
+
+function initMap() {
+
+    $("#map").html(($('html').hasClass('csstransforms3d'))
+        ? '<div class="spinner"></div>'
+        : '<div class="gifspinner"><img src="/assets/img/template/spinner.gif" /></div>')
+    .append('<p>Loading locations...</p>');
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: {
+            lat: 42.7673195,
+            lng: -71.81229139999999
+        }
+    });
+
+    var promises = [];
+    $.each(retailAddresses, function(idx, val){
+        $.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCEdqPZpkyouFdLL4Fq5sp_hmB7MzSurvs&address=' + val['searchAddress'])
+            .done(function(data){
+                var contentString = '<div id="content">'+
+                  '<div id="siteNotice">'+
+                  '</div>'+
+                  '<h3 id="firstHeading" class="firstHeading">' + val['name'] + '</h3>'+
+                  '<div id="bodyContent">'+
+                  '<p><address>'+
+                  val['address'] + '<br />'+
+                  val['city'] + ', ' + val['state'] + ' ' + val['zip code'] + '<br />'+
+                  '</address></p>'+
+                  (val['phone number']? '<p><a href="tel:' + val['phone number'].replace(/["'()\- ]/g,"") + '">' + val['phone number'] + '</a></p>' : '')+
+                  (val['website']? '<p><a href="http://' + val['website'] + '" target="_blank">' + val['website'] + '</a></p>' : '')+
+                  '</div>'+
+                  '</div>';
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                var marker = new google.maps.Marker({
+                    position: data.results[0].geometry.location,
+                    map: map,
+                    title: val['name']
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+            });
+    });
+}

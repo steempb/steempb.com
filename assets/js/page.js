@@ -975,15 +975,7 @@ function displayMapList(){
             var stateListEl = $('<div class="span5"><h3>' + val.displayName + '</h3></div>');
             $.each(val.locations, function(idx, val){
                 locationData = locations[val];
-                locationEl = $('<p><a href="#map" class="mapLink" data-location-id="' + val + '"><strong>' + locationData.data.name + '</strong><br />' + locationData.data.city + '</a></p>').click(function(){
-                    if(openInfoWindow){
-                        openInfoWindow.close();
-                        openInfoWindow = null;
-                    }
-                    details = locations[$(this).data('location-id')];
-                    details.infoWindow.open(map, details.marker);
-                    openInfoWindow = details.infoWindow;
-                });
+                locationEl = $('<p><a href="#map" class="mapLink" data-location-id="' + val + '"><strong>' + locationData.data.name + '</strong><br />' + locationData.data.city + '</a></p>');
                 stateListEl.append(locationEl);
             });
             stateLists.push(stateListEl);
@@ -991,5 +983,15 @@ function displayMapList(){
     });
 
     $('#mapList').html(stateLists);
+    
+    $('a.mapLink').click(function(){
+        if(openInfoWindow){
+            openInfoWindow.close();
+            openInfoWindow = null;
+        }
+        details = locations[$(this).data('location-id')];
+        details.infoWindow.open(map, details.marker);
+        openInfoWindow = details.infoWindow;
+    });
     enableSmoothScrollAnchors('#mapList .mapLink');
 };

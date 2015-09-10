@@ -71,6 +71,7 @@ $.get("/assets/templates/checkout_complete.handlebars", function(raw) {
 
 
 $(document).ready(function(){
+    enableSmoothScrollAnchors();
     jetGuyFlyIn();
     // Konami loader
     var eggloader = new Konami(function(){
@@ -812,8 +813,11 @@ function suchDogeWow(){
     }
 }
 
-$(function() {
-    $('a[href*=#]:not([href=#])').click(function() {
+function enableSmoothScrollAnchors(elements){
+    if(typeof elements === 'undefined'){
+        elements = 'a[href*=#]:not([href=#])';
+    }
+    $(elements).click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -827,7 +831,7 @@ $(function() {
             }
         }
     });
-});
+}
 
 
 // load one of our Handlebars templates
@@ -971,7 +975,7 @@ function displayMapList(){
             var stateListEl = $('<div class="span5"><h3>' + val.displayName + '</h3></div>');
             $.each(val.locations, function(idx, val){
                 locationData = locations[val];
-                locationEl = $('<p class="clicky" data-location-id="' + val + '"><a href="#map"><strong>' + locationData.data.name + '</strong><br />' + locationData.data.city + '</a></p>').click(function(){
+                locationEl = $('<p><a href="#map" class="mapLink" data-location-id="' + val + '"><strong>' + locationData.data.name + '</strong><br />' + locationData.data.city + '</a></p>').click(function(){
                     if(openInfoWindow){
                         openInfoWindow.close();
                         openInfoWindow = null;
@@ -987,4 +991,5 @@ function displayMapList(){
     });
 
     $('#mapList').html(stateLists);
+    enableSmoothScrollAnchors('#mapList .mapLink');
 };

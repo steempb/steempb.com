@@ -922,51 +922,66 @@ function initMap() {
 
     $.each(retailAddresses, function(idx, val){
         locations[val['uuid']] = {'data': val};
-        promises.push($.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuCF3E0r4UZd9aO9eDjJCxtaryNlktL7M&address=' + val['searchAddress'])
-            .done(function(data){
-                if(data.status && data.status === 'OK'){
-                    var contentString = '<div id="content">'+
-                      '<div id="siteNotice">'+
-                      '</div>'+
-                      '<h3 id="firstHeading" class="firstHeading">' + val['name'] + '</h3>'+
-                      '<div id="bodyContent">'+
-                      '<p><address>'+
-                      val['address'] + '<br />'+
-                      val['city'] + ', ' + val['state'] + ' ' + val['zip code'] + '<br />'+
-                      '</address></p>'+
-                      (val['phone number']? '<p><a href="tel:' + val['phone number'].replace(/["'()\- ]/g,"") + '">' + val['phone number'] + '</a></p>' : '')+
-                      (val['website']? '<p><a href="http://' + val['website'] + '" target="_blank">' + val['website'] + '</a></p>' : '')+
-                      '</div>'+
-                      '</div>';
-                    var infowindow = new google.maps.InfoWindow({
-                        content: contentString
-                    });
-                    locations[val['uuid']]['infoWindow'] = infowindow;
 
-                    var marker = new google.maps.Marker({
-                        position: data.results[0].geometry.location,
-                        map: map,
-                        title: val['name']
-                    });
-                    locations[val['uuid']]['marker'] = marker;
-                    marker.addListener('click', function() {
-                        if(openInfoWindow){
-                            openInfoWindow.close();
-                            openInfoWindow = null;
-                        }
-                        infowindow.open(map, marker);
-                        openInfoWindow = infowindow;
-                    });
-
-                    statesMap[val['state'].toUpperCase()]['locations'].push(val['uuid']);
-                }else{
-                    console.warn('unable to geolocate location with uuid ' + val['uuid']);
-                }
-        }));
+        if(val['latlng']){
+            var latlng = JSON.parse(val['latlng']);
+            generateLocationObject(map, val, {lat: latlng[0], lng: latlng[1]});
+        }else{
+            promises.push($.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuCF3E0r4UZd9aO9eDjJCxtaryNlktL7M&address=' + val['searchAddress'])
+                .done(function(data){
+                    if(data.status && data.status === 'OK'){
+                        generateLocationObject(map, val, data.results[0].geometry.location);
+                    }else{
+                        console.warn('unable to geolocate location with uuid ' + val['uuid'] + ': [' + data.status + '] ' + data.error_message);
+                        // TODO: Show it on the list without a map marker somehow
+                    }
+            }));
+        }
     });
 
-    $.when.apply($, promises).then(displayMapList);
+    if(promises.length > 0){
+        $.when.apply($, promises).then(displayMapList);
+    }else{
+        displayMapList();
+    }
 };
+
+function generateLocationObject(map, retailAddress, latlng){
+    var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3 id="firstHeading" class="firstHeading">' + retailAddress['name'] + '</h3>'+
+      '<div id="bodyContent">'+
+      '<p><address>'+
+      retailAddress['address'] + '<br />'+
+      retailAddress['city'] + ', ' + retailAddress['state'] + ' ' + retailAddress['zip code'] + '<br />'+
+      '</address></p>'+
+      (retailAddress['phone number']? '<p><a href="tel:' + retailAddress['phone number'].replace(/["'()\- ]/g,"") + '">' + retailAddress['phone number'] + '</a></p>' : '')+
+      (retailAddress['website']? '<p><a href="http://' + retailAddress['website'] + '" target="_blank">' + retailAddress['website'] + '</a></p>' : '')+
+      '</div>'+
+      '</div>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    locations[retailAddress['uuid']]['infoWindow'] = infowindow;
+
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title: retailAddress['name']
+    });
+    locations[retailAddress['uuid']]['marker'] = marker;
+    marker.addListener('click', function() {
+        if(openInfoWindow){
+            openInfoWindow.close();
+            openInfoWindow = null;
+        }
+        infowindow.open(map, marker);
+        openInfoWindow = infowindow;
+    });
+
+    statesMap[retailAddress['state'].toUpperCase()]['locations'].push(retailAddress['uuid']);
+}
 
 function displayMapList(){
     var stateLists = [];

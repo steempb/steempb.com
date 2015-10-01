@@ -352,7 +352,7 @@ function checkShirtAvailability(){
     var selectedSize = $('select[name=inputSize]').val();
     var selectedColor = $('select[name=inputColor]').val();
 
-    if(!shirtAvailability[selectedColor][selectedSize]){
+    if(!shirtAvailability[selectedColor] || !shirtAvailability[selectedColor][selectedSize]){
         $('form.checkout-special').find('.steembtn').addClass('noclicky');
         $('select[name=inputSize]').tooltip({
             'animation': true,

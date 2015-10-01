@@ -322,6 +322,7 @@ $(document).ready(function(){
 
                 $('form.checkout-special').submit(function(eo){
                     eo.preventDefault();
+                    checkShirtAvailability();
                     if($(this).find('.steembtn').hasClass('noclicky')){
                         return false;
                     }

@@ -557,7 +557,17 @@ function collectShipping(){
     var data = {};
     $('.' + currentSide() + ' form.shipping input,select').each(function(){
         var field = $(this).attr('data-field-name');
-        if(field != 'line2'){
+        if(field === 'line2'){
+            // dont validate line2
+            valid = valid && true;
+            data[field] = $.trim($(this).val());
+        }else if(field === 'type'){
+            // get only the checked radio value, dont validate
+            valid = valid && true;
+            if($(this).prop('checked')){
+                data[field] = $(this).val();
+            }
+        }else{
             var value = $.trim($(this).val());
             if(!value || value === ''){
                 $(this).focus();
@@ -580,7 +590,7 @@ function collectShipping(){
 
                 valid = false;
                 return false;
-            }else if(field == 'state' && (value.toLowerCase() == 'ak' || value.toLowerCase() == 'hi')){
+            }else if(field === 'state' && (value.toLowerCase() === 'ak' || value.toLowerCase() === 'hi')){
                 $(this).focus();
 
                 $(this).tooltip({
@@ -605,10 +615,6 @@ function collectShipping(){
                 valid = valid && true;
                 data[field] = value;
             }
-        }else{
-            // dont validate line2
-            valid = valid && true;
-            data[field] = value;
         }
     });
 
@@ -632,6 +638,7 @@ function performCheckout(){
         'tickets': stringifyDiscounts(),
         'email': shipping.email,
         'recipient_name': shipping.recipient_name,
+        'type': shipping.type,
         'line1': shipping.line1,
         'line2': shipping.line2,
         'city': shipping.city,

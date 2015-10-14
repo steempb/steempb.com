@@ -335,7 +335,8 @@ div#header-home img#sublogo{
     font-weight: normal;
     font-size: 12px;
     cursor: pointer;
-    margin-left: 75px;
+    margin-right: 35px;
+    float: right;
 }
 
 .store-side .shipping-time-message{

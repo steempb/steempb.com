@@ -53,6 +53,7 @@
         }
 
         $recipient_name = $_POST['recipient_name'];
+        $type = $_POST['type'];
         $line1 = $_POST['line1'];
         $line2 = isset($_POST['line2'])? $_POST['line2'] : '';
         $city = $_POST['city'];
@@ -64,6 +65,7 @@
 
         $newAddr->User = $user->guid;
         $newAddr->recipient_name = $recipient_name;
+        $newAddr->type = $type;
         $newAddr->line1 = $line1;
         $newAddr->line2 = $line2;
         $newAddr->city = $city;

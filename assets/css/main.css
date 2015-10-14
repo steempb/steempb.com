@@ -427,6 +427,10 @@ div#header-home img#sublogo{
     margin-left: 0px;
 }
 
+.store-side form.shipping select[name=inputState]{
+    width: 90px;
+}
+
 .store-side form.checkout{
     padding-top: 10px;
 }

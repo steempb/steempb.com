@@ -340,6 +340,9 @@ $(document).ready(function(){
 
                 // step 2 
 
+                $('select[name=inputState]').change(function(){
+                    $(this).find("option:selected").text($(this).val());
+                });
                 $('.confirm-checkout-btn').click(function(eo){
                     performCheckout();
                 });
@@ -552,11 +555,11 @@ function resetPromos(){
 function collectShipping(){
     var valid = true;
     var data = {};
-    $('.' + currentSide() + ' form.shipping input').each(function(){
+    $('.' + currentSide() + ' form.shipping input,select').each(function(){
         var field = $(this).attr('data-field-name');
         if(field != 'line2'){
             var value = $.trim($(this).val());
-            if(value == ''){
+            if(!value || value === ''){
                 $(this).focus();
 
                 $(this).tooltip({

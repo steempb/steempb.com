@@ -605,6 +605,10 @@ function collectShipping(){
                 valid = valid && true;
                 data[field] = value;
             }
+        }else{
+            // dont validate line2
+            valid = valid && true;
+            data[field] = value;
         }
     });
 

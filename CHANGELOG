@@ -1,10 +1,11 @@
 ==========
 10/15/2015 
 ==========
-steempb.com 2.1-70163d0:
+steempb.com 2.1-33ac160:
     - changed flat rate shipping cost to $7.50
     - changed per jar cost to $5.99
     - updated CTA jar image with new pricing and new label photo
+    - updated shipping time info text to 3 - 4 weeks on storefront and post-checkout pages
 
 JACKED 3.5-c2892b:
     admin 1.0:

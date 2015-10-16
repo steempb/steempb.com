@@ -19,7 +19,7 @@
 
                 $header = 'Thanks for your order!';
                 $image = '/assets/img/template/jars.png';
-                $message = 'Your order has been verified and you will receive an email receipt shortly. Due to a high volume of orders, your order will ship within 2 or 3 weeks. Or less, if we can swing it.';
+                $message = 'Your order has been verified and you will receive an email receipt shortly. Due to a high volume of orders, your order will ship within 3 or 4 weeks. Or less, if we can swing it.';
             }catch(Exception $e){
                 $header = 'We had a problem confirming your order';
                 $image = False;

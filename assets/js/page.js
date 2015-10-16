@@ -42,6 +42,9 @@ var productIdJar = '6c403910-6ce3-4d72-9509-9ff8302c975c'
     productIdCase = '1c329b23-4398-4734-b2d7-661fd94874f4'
     productIdValueMeal = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
 
+var flat_rate_shipping_cost = 7.5
+    per_jar_cost = 5.99;
+
 var cart_context = {
     'item_name': 'None',
     'item_id': '',
@@ -199,11 +202,11 @@ $(document).ready(function(){
                         if(quantity === 12){
                             usdLabel = '$59.99 <i class="icon-play"></i>';
                         }else{
-                            usdLabel = '$' + (6.75 + (4.99 * quantity)).toFixed(2) + ' <i class="icon-play"></i>';
+                            usdLabel = '$' + (flat_rate_shipping_cost + (per_jar_cost * quantity)).toFixed(2) + ' <i class="icon-play"></i>';
                         }
 
                         var labels = {
-                            // doge: 'Ð' + ((6.75 + (4.99 * quantity)) / dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
+                            // doge: 'Ð' + ((flat_rate_shipping_cost + (per_jar_cost * quantity)) / dogeValue).toFixed(2) + ' <i class="icon-play"></i>',
                             usd: usdLabel
                         }                       
 
@@ -222,8 +225,8 @@ $(document).ready(function(){
                                     $(this).fadeIn();
                                 });
                                 $("#jar-details").fadeOut('fast', function(){
-                                    $("#jar-price").html('<strong>$4.99 </strong> <br /> Per 8oz Jar');
-                                    $("#jar-shipping").html('+ $6.75 flat-rate Shipping to Contiguous US');
+                                    $("#jar-price").html('<strong>$5.99 </strong> <br /> Per 8oz Jar');
+                                    $("#jar-shipping").html('+ $flat_rate_shipping_cost flat-rate Shipping to Contiguous US');
                                     $("#jar-description").html('Delicious peanut butter. Put it in your face and do stuff! It tastes good and I\'m writing words.');
                                     $(this).fadeIn(); 
                                 });
@@ -296,8 +299,8 @@ $(document).ready(function(){
                             cart_context.item_id = productIdJar;
                             cart_context.item_name = 'STEEM Jar';
                             cart_context.item_quantity = item_quantity;
-                            cart_context.item_subtotal = cart_context.item_quantity * 4.99;
-                            cart_context.shipping_total = 6.75;
+                            cart_context.item_subtotal = cart_context.item_quantity * per_jar_cost;
+                            cart_context.shipping_total = flat_rate_shipping_cost;
                         }
                         checkoutSlide(2);
                     }

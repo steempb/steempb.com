@@ -1,6 +1,18 @@
 ==========
 10/15/2015 
 ==========
+steempb.com 2.1-d921016:
+    - update case pricing
+
+JACKED 3.5-66a1783:
+    Syrup 1.0:
+        module:
+            - fixed #42 - remove unnecessary parentheses around relational joins that broke some queries or even hung up mysqld 
+
+
+==========
+10/15/2015 
+==========
 steempb.com 2.1-33ac160:
     - changed flat rate shipping cost to $7.50
     - changed per jar cost to $5.99

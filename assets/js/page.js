@@ -43,7 +43,8 @@ var productIdJar = '6c403910-6ce3-4d72-9509-9ff8302c975c'
     productIdValueMeal = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
 
 var flat_rate_shipping_cost = 7.5
-    per_jar_cost = 5.99;
+    per_jar_cost = 5.99
+    case_cost = 69.99;
 
 var cart_context = {
     'item_name': 'None',
@@ -200,7 +201,7 @@ $(document).ready(function(){
                         var usdLabel;
 
                         if(quantity === 12){
-                            usdLabel = '$59.99 <i class="icon-play"></i>';
+                            usdLabel = '$' + case_cost + '<i class="icon-play"></i>';
                         }else{
                             usdLabel = '$' + (flat_rate_shipping_cost + (per_jar_cost * quantity)).toFixed(2) + ' <i class="icon-play"></i>';
                         }
@@ -293,7 +294,7 @@ $(document).ready(function(){
                             cart_context.item_id = productIdCase;
                             cart_context.item_name = 'STEEM Case';
                             cart_context.item_quantity = 1;
-                            cart_context.item_subtotal = 59.99;
+                            cart_context.item_subtotal = case_cost;
                             cart_context.shipping_total = 0;
                         }else{
                             cart_context.item_id = productIdJar;

@@ -240,7 +240,7 @@ $(document).ready(function(){
                                     $(this).fadeIn();
                                 });
                                 $("#jar-details").fadeOut('fast', function(){
-                                    $("#jar-price").html('<strong>$59.99 </strong> <br /> 12 8oz Jars');
+                                    $("#jar-price").html('<strong>$69.99 </strong> <br /> 12 8oz Jars');
                                     $("#jar-shipping").html('+ Free flat-rate Shipping to Contiguous US');
                                     $("#jar-description").html('A whole case of delicious peanut butter. Put it in your face and do twelve times as much stuff!');
                                     $(this).fadeIn(); 

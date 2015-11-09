@@ -148,7 +148,7 @@
                                         Nutrition:
                                     </td>
                                     <td>
-                                        <a href="">Click here to view</a>
+                                        <a href="/assets/img/nutrition.png">Click here to view</a>
                                     </td>
                                 </tr>
                                 <tr>

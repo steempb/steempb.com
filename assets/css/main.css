@@ -564,6 +564,28 @@ div#header-home img#sublogo{
     margin: 0 auto;
 }
 
+.faq-section .split{
+    margin-bottom: 20px;
+}
+
+.faq-section .split .text-segment{
+    margin-top: 20px;
+}
+
+.faq-section .split .table-segment{
+    margin-top: 30px;
+}
+
+.faq-section table{
+    border: 1px #F47600 solid;
+}
+
+.faq-section table th{
+    text-align: center;
+    color: #F47600;
+    text-transform: uppercase;
+}
+
 #map{
     width: 800px;
     height: 600px;

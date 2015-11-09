@@ -111,15 +111,65 @@
                         <p>STEEM is caffeinated peanut butter. What else do we need to say? STEEM is designed to provide a consistent release of sustained energy and the naturally slow digestion of peanut butter is the key to that. STEEM delivers protein, electrolytes, and caffeine, granting you hours of endurance and focus, and freeing you from distractions like hunger and fatigue.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="span5">
+                <div class="row split">
+                    <div class="span5 text-segment">
                         <h1>What's in this stuff?</h1>
                         <p>STEEM is made with natural peanut butter, and no artificial sweeteners. Oh, and as much caffeine as two cups of coffee, so stick with the normal serving suggestions for the best effect. Enjoy it however you would normally enjoy peanut butter: spread it on crackers, toast or fruit; re-acquaint yourself with the simple perfection of the peanut butter and jelly sandwich; or just jam a knife or a spoon or a finger into the jar and eat it like you do when no one's looking. Yes you do. Yes, you <em>do</em>.</p>
+                    </div>
+                    <div class="span5 table-segment">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        Know Your Peanut Butter
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Ingredients:
+                                    </td>
+                                    <td>
+                                        Natural Peanut Butter (Peanuts, Salt), Organic Agave Nectar, Peanut Oil, Natural Caffeine (Green Coffee Extract)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Caffeine:
+                                    </td>
+                                    <td>
+                                        150mg Per Serving<br />
+                                        1200mg Per Jar
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Nutrition:
+                                    </td>
+                                    <td>
+                                        <a href="">Click here to view</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Effects:
+                                    </td>
+                                    <td>
+                                        +2 STR +3 END +2 INT +6 LCK
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row split">
+                    <div class="span5 image-segment">
+                        <img src="/assets/img/template/two_jars.png" />
+                    </div>
+                    <div class="span5 text-segment">
                         <h1>Who is STEEM for?</h1>
                         <p>STEEM's steady release of energy (without the jittery feeling) makes it perfect not only for athletes and active people, but also for normal life. How about never having to choose awful breakroom coffee because you don't want to spend more on caffeine than you spend on your lunch? How about having enough energy to finish that backyard project in one day instead of putting it off for another weekend? How about when an all-night study session has suddenly become the morning of the test? How about never having to bring that damn percolator on camping trips just so you can avoid that crippling noontime caffeine headache? How about not worrying about nodding off in meetings, or in class, or at the wheel? How about just having the energy to get going when you need it?</p>
-                    </div>
-                    <div style="width:400px;" class="span5">
-                        <img style="margin-top:60px;" src="/assets/img/template/two_jars.png" />
                     </div>
                 </div>
                 <div class="row">

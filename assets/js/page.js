@@ -227,7 +227,7 @@ $(document).ready(function(){
                                 });
                                 $("#jar-details").fadeOut('fast', function(){
                                     $("#jar-price").html('<strong>$5.99 </strong> <br /> Per 8oz Jar');
-                                    $("#jar-shipping").html('+ $flat_rate_shipping_cost flat-rate Shipping to Contiguous US');
+                                    $("#jar-shipping").html('+ $' + flat_rate_shipping_cost.toFixed(2) + ' flat-rate Shipping to Contiguous US');
                                     $("#jar-description").html('Delicious peanut butter. Put it in your face and do stuff! It tastes good and I\'m writing words.');
                                     $(this).fadeIn(); 
                                 });

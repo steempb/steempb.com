@@ -524,6 +524,11 @@ div#header-home img#sublogo{
    padding: 5px !important;
 }
 
+#amazon-button{
+    margin: 10px;
+    width: 63px;
+}
+
 #upper-wrap{
     height: 900px;
     width: 100%;

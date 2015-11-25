@@ -156,6 +156,7 @@ $(document).ready(function(){
                 context.flip_side = 'front';
                 context.payment_method = 'usd';
                 context.usd = true;
+                context.shirtsUnavailable = shirtsUnavailable;
                 $('#cta-main').html( store_template(context) );
 
                 // context.flip_side = 'back';

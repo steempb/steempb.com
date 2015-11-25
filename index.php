@@ -228,10 +228,14 @@
                 // shirts from datasbeard
                 $shirts = array();
                 $rows = $JACKED->DatasBeard->getRows('c5514c42-c65f-445a-b9ca-6a089772e672');
+                $shirtsAvailable = false;
                 foreach($rows as $row){
-                    $shirts[$row['Color']][$row['Size']] = $row['Available'];
+                    $availability = ((bool) $row['Available'] > 0);
+                    $shirts[$row['Color']][$row['Size']] = $availability;
+                    $shirtsAvailable = $shirtsAvailable || $availability;
                 }
                 echo 'var shirtAvailability = ' . json_encode($shirts) . ';';
+                echo 'var shirtsUnavailable = ' . ($shirtsAvailable? 'false' : 'true') . ';';
             ?>
 
             var retailAddresses = [

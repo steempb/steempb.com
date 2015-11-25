@@ -1,7 +1,7 @@
 <?php
 
     require('JACKED/jacked_conf.php');
-    $JACKED = new JACKED('Purveyor', 'Syrup', 'DatasBeard');
+    $JACKED = new JACKED(array('Purveyor', 'Syrup', 'DatasBeard'));
 
     $sale = $JACKED->Syrup->Sale->findOne(array('guid' => $_GET['guid']));
     if(!$sale){

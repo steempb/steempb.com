@@ -560,7 +560,7 @@ function resetPromos(){
 function collectShipping(){
     var valid = true;
     var data = {};
-    $('.' + currentSide() + ' form.shipping input,select').each(function(){
+    $('.' + currentSide() + ' form.shipping input,form.shipping select').each(function(){
         var field = $(this).attr('data-field-name');
         if(field === 'line2'){
             // dont validate line2

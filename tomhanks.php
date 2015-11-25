@@ -32,7 +32,7 @@
                     $JACKED->DatasBeard->setRow($rowMatch, array(
                         'Color' => $dimensions['Color'],
                         'Size' => $dimensions['Size'],
-                        'Available' => $newCount;
+                        'Available' => $newCount
                     ));
                 }
 

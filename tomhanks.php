@@ -1,7 +1,7 @@
 <?php
 
     require('JACKED/jacked_conf.php');
-    $JACKED = new JACKED('Purveyor', 'Syrup');
+    $JACKED = new JACKED('Purveyor', 'Syrup', 'DatasBeard');
 
     $sale = $JACKED->Syrup->Sale->findOne(array('guid' => $_GET['guid']));
     if(!$sale){
@@ -16,6 +16,25 @@
 
             try{
                 $JACKED->Purveyor->executePayPalPayment($tid, $_GET['PayerID']);
+
+                if($sale->Product->guid == 'a4c1b91a-1a6d-422b-848e-ad662370fa36'){
+                    $dimensions = json_decode($sale->dimensions, true);
+                    $rows = $JACKED->DatasBeard->getRows('c5514c42-c65f-445a-b9ca-6a089772e672');
+                    $rowMatch = false;
+                    foreach($rows as $row){
+                        if($row['Color'] == $dimensions['Color'] && $row['Size'] == $dimensions['Size']){
+                            $rowMatch = $row['uuid'];
+                            $rowCount = $row['Available']? $row['Available'] : 0;
+                            break;
+                        }
+                    }
+                    $newCount = $rowCount--;
+                    $JACKED->DatasBeard->setRow($rowMatch, array(
+                        'Color' => $dimensions['Color'],
+                        'Size' => $dimensions['Size'],
+                        'Available' => $newCount;
+                    ));
+                }
 
                 $header = 'Thanks for your order!';
                 $image = '/assets/img/template/jars.png';

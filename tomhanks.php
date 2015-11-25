@@ -28,7 +28,7 @@
                             break;
                         }
                     }
-                    $newCount = $rowCount--;
+                    $newCount = $rowCount - 1;
                     $JACKED->DatasBeard->setRow($rowMatch, array(
                         'Color' => $dimensions['Color'],
                         'Size' => $dimensions['Size'],

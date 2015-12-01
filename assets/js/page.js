@@ -338,7 +338,7 @@ $(document).ready(function(){
                     cart_context.item_id = productIdValueMeal;
                     cart_context.item_name = '2 Jars + T-Shirt';
                     cart_context.item_quantity = 1;
-                    cart_context.item_subtotal = 19.99;
+                    cart_context.item_subtotal = 24.99;
                     cart_context.shipping_total = 0;
                     checkoutSlide(2);
                 });

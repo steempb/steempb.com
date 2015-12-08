@@ -220,7 +220,6 @@
         <script type="text/javascript" src="/assets/js/spin.min.js"></script>
         <script type="text/javascript" src="/assets/js/ladda.min.js"></script>
         <script type="text/javascript" src="/assets/js/ladda.jquery.min.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
         <script type="text/javascript">
 
             // data from DatasBeard
@@ -262,6 +261,7 @@
 
         </script>
         <script type="text/javascript" src="/assets/js/page.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

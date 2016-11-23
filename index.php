@@ -227,7 +227,16 @@
             <?php
                 $products = $JACKED->Syrup->Product->find();
                 foreach($products as $product){
-                    echo 'purveyorProducts.push(' . json_encode($product) . ');';
+                    if($product->active){
+                        $productArr = array(
+                            'guid' => $product->guid,
+                            'name' => $product->name,
+                            'description' => $product->description,
+                            'cost' => $product->cost,
+                            'tangible' => $product->tangible
+                        );
+                        echo 'purveyorProducts.push(' . json_encode($productArr) . ');';
+                    }
                 }
             ?>
 

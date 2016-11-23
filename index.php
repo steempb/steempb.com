@@ -1,7 +1,7 @@
 <?php
 
     require('JACKED/jacked_conf.php');
-    $JACKED = new JACKED('DatasBeard');
+    $JACKED = new JACKED(array('DatasBeard', 'Syrup'));
 
 ?>
 
@@ -221,6 +221,15 @@
         <script type="text/javascript" src="/assets/js/ladda.min.js"></script>
         <script type="text/javascript" src="/assets/js/ladda.jquery.min.js"></script>
         <script type="text/javascript">
+
+            // products data from Purveyor
+            var purveyorProducts = [];
+            <?php
+                $products = $JACKED->Syrup->Product->find();
+                foreach($products as $product){
+                    echo 'purveyorProducts.push(' . json_encode($product) . ');';
+                }
+            ?>
 
             // data from DatasBeard
             <?php

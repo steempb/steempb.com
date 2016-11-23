@@ -86,9 +86,14 @@ var productIdJar = '6c403910-6ce3-4d72-9509-9ff8302c975c'
     productIdCase = '1c329b23-4398-4734-b2d7-661fd94874f4'
     productIdValueMeal = 'a4c1b91a-1a6d-422b-848e-ad662370fa36';
 
+var productJar = purveyorProducts[productIdJar]
+    productCase = purveyorProducts[productIdCase]
+    productValueMeal = purveyorProducts[productIdValueMeal];
+
 var flat_rate_shipping_cost = 7.5
-    per_jar_cost = 5.99
-    case_cost = 69.99;
+    per_jar_cost = productJar['cost'] / 100.0
+    case_cost = productCase['cost'] / 100.0;
+    meal_cost = productValueMeal['cost'] / 100.0;
 
 var cart_context = {
     'item_name': 'None',
@@ -201,6 +206,8 @@ $(document).ready(function(){
                 context.payment_method = 'usd';
                 context.usd = true;
                 context.shirtsUnavailable = shirtsUnavailable;
+                context.product_jar_cost = per_jar_cost;
+                context.product_meal_cost = meal_cost;
                 $('#cta-main').html( store_template(context) );
 
                 // context.flip_side = 'back';
@@ -271,7 +278,7 @@ $(document).ready(function(){
                                     $(this).fadeIn();
                                 });
                                 $("#jar-details").fadeOut('fast', function(){
-                                    $("#jar-price").html('<strong>$5.99 </strong> <br /> Per 8oz Jar');
+                                    $("#jar-price").html('<strong>$' + per_jar_cost + ' </strong> <br /> Per 8oz Jar');
                                     $("#jar-shipping").html('+ $' + flat_rate_shipping_cost.toFixed(2) + ' flat-rate Shipping to Contiguous US');
                                     $("#jar-description").html('Delicious peanut butter. Put it in your face and do stuff! It tastes good and I\'m writing words.');
                                     $(this).fadeIn(); 
@@ -285,7 +292,7 @@ $(document).ready(function(){
                                     $(this).fadeIn();
                                 });
                                 $("#jar-details").fadeOut('fast', function(){
-                                    $("#jar-price").html('<strong>$69.99 </strong> <br /> 12 8oz Jars');
+                                    $("#jar-price").html('<strong>$' + case_cost + ' </strong> <br /> 12 8oz Jars');
                                     $("#jar-shipping").html('+ Free flat-rate Shipping to Contiguous US');
                                     $("#jar-description").html('A whole case of delicious peanut butter. Put it in your face and do twelve times as much stuff!');
                                     $(this).fadeIn(); 

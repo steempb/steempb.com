@@ -223,7 +223,7 @@
         <script type="text/javascript">
 
             // products data from Purveyor
-            var purveyorProducts = [];
+            var purveyorProducts = {};
             <?php
                 $products = $JACKED->Syrup->Product->find();
                 foreach($products as $product){
@@ -235,7 +235,7 @@
                             'cost' => $product->cost,
                             'tangible' => $product->tangible
                         );
-                        echo 'purveyorProducts.push(' . json_encode($productArr) . ');';
+                        echo 'purveyorProducts["' . $product->guid . '"] = ' . json_encode($productArr) . ';';
                     }
                 }
             ?>

@@ -982,7 +982,7 @@ function initMap() {
     .append('<p class="loading">Loading locations...</p>');
 
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 5,
+        zoom: 4,
         center: {
             lat: 40.587358,
             lng: -95.896495

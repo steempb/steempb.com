@@ -982,10 +982,10 @@ function initMap() {
     .append('<p class="loading">Loading locations...</p>');
 
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 3,
         center: {
-            lat: 42.7673195,
-            lng: -71.81229139999999
+            lat: 41.850033,
+            lng: -87.6500523
         }
     });
 

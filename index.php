@@ -77,7 +77,7 @@
 
         <div class="sunburst"></div>
         <div id="upper-wrap">
-            <div id="jetguy-main"><img src="/assets/img/template/jetguy_full.png" /></div>
+            <div id="jetguy-main"><img src="/assets/img/template/jetguy_full_santa.png" /></div>
 
             <div id="cta-main-container">
                 <div id="cta-main" class="flipper">
@@ -94,9 +94,9 @@
             <div id="jet-fleet">
                 <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
                 <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
-                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full.png" /></div>
+                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full_santa.png" /></div>
                 <div class="jetguy jetguy-small"><img src="/assets/img/template/jetguy_small.png" /></div>
-                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full.png" /></div>
+                <div class="jetguy jetguy-full"><img src="/assets/img/template/jetguy_full_santa.png" /></div>
                 <div class="jetguy jetguy-small"><img src="/assets/img/template/jetguy_small.png" /></div>
                 <div class="jetguy jetguy-medium"><img src="/assets/img/template/jetguy_medium.png" /></div>
             </div>

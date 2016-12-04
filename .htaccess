@@ -32,3 +32,5 @@ RewriteRule ^blog/search/?$ search.php [NC,QSA]
 
 RewriteRule ^blog/([0-9-]+)/?$ blog.php?page=$1 [NC,QSA]
 RewriteRule ^blog/?$ blog.php [NC,QSA]
+
+RewriteRule ^store/?$ store.php [NC,QSA]

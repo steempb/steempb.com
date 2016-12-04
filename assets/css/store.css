@@ -1,0 +1,107 @@
+/*!
+ * STEEM store patch v1.0
+ *
+ * blue: #231255
+ * orange: #F47600
+ * beige: #FADEB4
+ * not-quite-white: #EEE
+ *
+ */
+
+.store #jetguy-main{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -70px;
+    z-index: 2;
+    height: 324px;
+    width: 428px;
+}
+
+#store-logo-main{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -300px;
+    z-index: 2;
+    width: 230px;
+    height: 120px;
+    padding: 30px;
+    text-align: center;
+    background: #231255;
+    background: rgba(23, 12, 55, 0.9);
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.7); 
+}
+
+.store .sunburst{
+    position: relative;
+    height: 400px;
+    background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
+    background-size: cover;
+    z-index: 1;
+}
+
+#store-border{
+    position: relative;
+    margin-top: -40px;
+    z-index: 3;
+    background: url(/assets/img/template/cloud_top.png) repeat-x;
+    height: 40px;
+}
+
+#store-border-bottom{
+    position: relative;
+    left: 0px;
+    top: -701px;
+    z-index: 5;
+    background: url(/assets/img/template/cloud_bottom.png) repeat-x;
+    height: 40px;
+}
+
+#store-wrap{
+    position: relative;
+    min-height: 400px;
+    padding: 50px;
+    padding-bottom: 25px;
+    background: #eee;
+    z-index: 3;
+}
+
+#store-section{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.store-entry{
+    padding: 20px 0px;
+    width:;
+    margin-left:;
+}
+
+.store-entry .span3{
+    
+}
+
+.store-entry .span7{
+    
+}
+
+.store-entry.stripe-1{
+    background-color: #231255;
+}
+
+.store-entry.stripe-1 p{
+    color: #fff;
+}
+
+.store-entry.stripe-2{
+    background-color: #F47600;
+}
+
+.store-entry.stripe-2 h1{
+    color: #231255;
+}
+
+.store-entry.stripe-3{
+    background-color: #FADEB4;
+}

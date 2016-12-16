@@ -137,7 +137,7 @@ div#header-home img#sublogo{
     left: 50%;
     margin-left: 70px;
     width: 230px;
-    height: 445px;
+    height: 550px;
     padding: 0px;
     overflow: visible !important;
 }
@@ -872,3 +872,41 @@ div#footer-home a{
 .bs-wizard > .bs-wizard-step:last-child  > .progress {width: 50%;}
 .bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{ pointer-events: none; }
 /*END Form Wizard*/
+
+#christmas-cta{
+    margin-left: -30px;
+    width: 240px;
+    height: 80px;
+}
+
+#christmas-cta > .span2{
+    margin-left: -10px;
+}
+
+#christmas-cta > .span1{
+    margin-top: 5px;
+}
+
+#christmas-cta p{
+    font-size: 20px;
+}
+
+#christmas{
+    margin-top: 20px;
+    margin-left: -30px;
+    width: 240px;
+    height: 80px;
+}
+
+#christmas > .span2{
+    margin-left: -10px;
+}
+
+#christmas > .span1{
+    margin-top: 5px;
+}
+
+#christmas p{
+    color: #961c00;
+    font-size: 20px;
+}

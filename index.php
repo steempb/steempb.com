@@ -84,20 +84,6 @@
                     <img id="beta-title" src="/assets/img/template/available_now_flat.png" />
                     <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
                     <p class="lead">
-
-                        <div class="span3">
-                            <div class="row" id="christmas-cta">
-                                <div class="span1">
-                                    <img src="/assets/img/christmas_icon.png" alt="Christmas Tree Icon" />
-                                </div>
-                                <div class="span2">
-                                    <p>
-                                        <strong>Last day for orders to arrive by Christmas!</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
                     <!--     <a href="#faq-border">Find out more</a> -->
                         <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" data-checkout-stage="begin" id="cta-get-it-now">Buy Online <i class="icon-play"></i></a>
                         <a class="btn btn-large btn-warning steembtn steembtn-large" href="#store-list-marker" id="">Find a Store <i class="icon-map-marker"></i></a>

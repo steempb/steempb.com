@@ -90,7 +90,7 @@ var productJar = purveyorProducts[productIdJar]
     productCase = purveyorProducts[productIdCase]
     productValueMeal = purveyorProducts[productIdValueMeal];
 
-var flat_rate_shipping_cost = 7.5
+var flat_rate_shipping_cost = 0
     per_jar_cost = productJar['cost'] / 100.0
     case_cost = productCase['cost'] / 100.0;
     meal_cost = productValueMeal['cost'] / 100.0;
@@ -293,7 +293,7 @@ $(document).ready(function(){
                                 });
                                 $("#jar-details").fadeOut('fast', function(){
                                     $("#jar-price").html('<strong>$' + case_cost + ' </strong> <br /> 12 8oz Jars');
-                                    $("#jar-shipping").html('+ Free flat-rate Shipping to Contiguous US');
+                                    $("#jar-shipping").html('+ <strong>FREE</strong> Shipping to Contiguous US');
                                     $("#jar-description").html('A whole case of delicious peanut butter. Put it in your face and do twelve times as much stuff!');
                                     $(this).fadeIn(); 
                                 });

@@ -27,7 +27,7 @@
             $dimensions = NULL;
         }else{
             // assume jars
-            $shipping = 0;
+            $shipping = 7.5;
             $dimensions = NULL;
         }
 

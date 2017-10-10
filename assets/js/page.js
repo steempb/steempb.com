@@ -168,6 +168,20 @@ $(document).ready(function(){
     });
 
     $('[data-checkout-stage="begin"]').click(function(eo){
+        eo.stopPropagation();
+
+        if($(this).hasClass('disabled')){
+            //show a message to temporarily disable the Buy Online CTA button
+            $(this).tooltip({
+                'animation': true,
+                'placement': 'top',
+                'trigger': 'manual',
+                'title': 'Sorry, we\'re temporarily out of stock. \n\n Don\'t worry, we should have more available by the end of the month!'
+            });
+            $(this).tooltip('show');
+            return false;
+        }
+
         jetGuyFlyAway();
         $("#cta-main").children().each(function(){
             $(this).fadeOut('fast', function(){

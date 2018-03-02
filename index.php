@@ -85,7 +85,7 @@
                     <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
                     <p class="lead">
                     <!--     <a href="#faq-border">Find out more</a> -->
-                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" data-checkout-stage="begin" id="cta-get-it-now">Buy Online <i class="icon-play"></i></a>
+                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" disabled data-checkout-stage="begin" id="cta-get-it-now">Buy Online <i class="icon-play"></i></a>
                         <a class="btn btn-large btn-warning steembtn steembtn-large" href="#store-list-marker" id="">Find a Store <i class="icon-map-marker"></i></a>
                     </p>
                 </div>

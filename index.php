@@ -69,7 +69,7 @@
                         <li class="social"><a href="http://instagram.com/steempb" target="_blank"><img src="/assets/img/template/instagram.png" /></a></li>
                         <li class="social"><a href="http://facebook.com/steempb" target="_blank"><img src="/assets/img/template/facebook.png" /></a></li>
                         <li class="social"><a href="https://plus.google.com/106045698028303100415" target="_blank"><img src="/assets/img/template/gplus.png" /></a></li>
-                        <li><a data-checkout-stage="begin" href="#cta-main" class="btn btn-small btn-warning steembtn steembtn-small">Get it now <i class="icon-play"></i></a></li>
+                        <li><a data-checkout-stage="begin" href="#cta-main" class="btn btn-small btn-warning steembtn steembtn-small disabled">Get it now <i class="icon-play"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                     <img id="cta-jar" src="/assets/img/template/cta-jar.png" />
                     <p class="lead">
                     <!--     <a href="#faq-border">Find out more</a> -->
-                        <a class="btn btn-large btn-warning steembtn steembtn-large" href="#cta-main" disabled data-checkout-stage="begin" id="cta-get-it-now">Buy Online <i class="icon-play"></i></a>
+                        <a class="btn btn-large btn-warning steembtn steembtn-large disabled" href="#cta-main" data-checkout-stage="begin" id="cta-get-it-now">Buy Online <i class="icon-play"></i></a>
                         <a class="btn btn-large btn-warning steembtn steembtn-large" href="#store-list-marker" id="">Find a Store <i class="icon-map-marker"></i></a>
                     </p>
                 </div>

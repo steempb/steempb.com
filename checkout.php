@@ -8,6 +8,9 @@
     $resultData = array();
 
     try{
+        // forcibly disallow any new orders temporarily
+        throw new Exception('offline');
+        
         $product = $_POST['product'];
         $quantity = $_POST['quantity'];
         $method = $_POST['payment'];
@@ -107,6 +110,11 @@
             case 'Too many Tickets to redeem with this quantity.':
                 header('HTTP/1.1 400 Bad Request');
                 $resultData['error'] = array('code' => 'ticket_quantity_mismatch', 'message' => 'More tickets added than products.');
+                break;
+                
+            case 'offline':
+                header('HTTP/1.1 403 Forbidden');
+                $resultData['error'] = array('code' => 'store_offline', 'message' => 'Store is currently closed. Please check back again later.');
                 break;
 
             default:

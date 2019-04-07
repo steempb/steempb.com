@@ -1,0 +1,211 @@
+/*!
+ * STEEM PB v1.0
+ *
+ * Copyright 2014 steempb.com
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built half-drunk and mostly insane by @pettazz.
+ *
+ * blue: #231255
+ * orange: #F47600
+ * beige: #FADEB4
+ * not-quite-white: #EEE
+ *
+ */
+html, body{
+    height: 100%;
+}
+body{
+    color: #000;
+    background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+h1{
+    text-transform: uppercase;
+    font-family: 'Ubuntu Condensed', 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    color: #F47600;
+}
+
+h3{
+    text-transform: uppercase;
+    font-family: 'Ubuntu Condensed', 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    color: #F47600;
+}
+
+div#header-home{
+    position: relative;
+    z-index: 100;
+    height: 205px;
+    margin-bottom: 205px;
+    overflow: hidden;
+}
+
+div#header-home .container{
+    width: 102%;
+    height: 160px;
+    padding: 20px 0px;
+    margin-left: -1%;
+    background-color: #231255;
+    box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.7);
+}
+
+div#header-home img{
+    display: block;
+    margin: 0px auto;
+}
+
+div#header-home img#sublogo{
+    margin-top: 5px;
+}
+
+#jetguy-main{
+    position: relative;
+    float: left;
+    margin-top: 100px;
+    left: 50%;
+    margin-left: -526px;
+    z-index: 10;
+    height: 694px;
+    width: 526px;
+    visibility: hidden;
+}
+
+#cta-main-container{
+    position: relative;
+    float: left;
+    margin-top: 100px;
+    left: 50%;
+    margin-left: 50px;
+    width: 230px;
+    height: 450px;
+    padding: 0px;
+    overflow: visible !important;
+}
+
+#cta-main{
+    color: #eee;
+    position: relative;
+    top: 50px;
+    left: 0px;
+    margin: 0px;
+    height: 80%;
+    width: 100%;
+    z-index: 6;
+    padding: 30px;
+    padding-top: 60px;
+    text-align: center;
+    background: #231255;
+    background: rgba(23, 12, 55, 0.9);
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.8); 
+    font-size: 20px;
+}
+
+
+#upper-wrap{
+    height: 900px;
+    width: 100%;
+    position: relative;
+    margin-top: -250px;
+    z-index: 3;
+    overflow: hidden;
+    float:  none;
+    clear: both;
+}
+
+#jet-fleet .jetguy{
+    visibility: hidden;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    z-index: 2;
+}
+
+/* medium */
+#jet-fleet .jetguy:nth-child(1){ 
+    top: 372px;
+    margin-left: -750px;
+}
+
+/* medium */
+#jet-fleet .jetguy:nth-child(2){ 
+    top: 600px;
+    margin-left: -702px;
+}
+
+/* full */
+#jet-fleet .jetguy:nth-child(3){ 
+    top: 250px;
+    margin-left: -433px;
+    z-index: 2;
+}
+
+/* small */
+#jet-fleet .jetguy:nth-child(4){ 
+    top: 690px;
+    margin-left: -150px;
+}
+
+/* full */
+#jet-fleet .jetguy:nth-child(5){ 
+    top: 400px;
+    margin-left: -60px;
+}
+
+/* small */
+#jet-fleet .jetguy:nth-child(6){ 
+    top: 950px;
+    margin-left: 200px;
+}
+
+/* medium */
+#jet-fleet .jetguy:nth-child(7){ 
+    top: 550px;
+    margin-left: 370px;
+}
+
+.jetguy-small{
+    width: 225px; 
+    height: 297px;
+}
+
+.jetguy-medium{
+    width: 324px; 
+    height: 428px;
+}
+
+.jetguy-full{
+    width: 526px; 
+    height: 694px;
+}
+
+div#footer-home{
+    padding: 10px;
+    background-color: #231255;
+    text-align: center;
+    color: #EEE;
+}
+
+div#footer-home a{
+    color: #FADEB4;
+}
+
+.centered{
+    text-align: center;
+}
+
+.noclicky{
+    cursor: not-allowed;
+}
+
+.clicky{
+    cursor: pointer;
+}
+
+/* less wide window */
+@media (max-width: 1280px) {
+    .navbar-fixed-top {
+        position: fixed;
+    }
+}

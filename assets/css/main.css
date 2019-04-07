@@ -18,7 +18,7 @@ html, body{
 }
 body{
     color: #000;
-    background: url(/assets/img/template/sunburst.png) no-repeat center center fixed; 
+    background: url(../img/template/sunburst.png) no-repeat center center fixed; 
     background-size: cover;
 }
 
